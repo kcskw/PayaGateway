@@ -38,7 +38,7 @@ Follow the steps below to download and verify the PCD 2.0 installation tool:
 
         <div align="center">
 
-        ![Downloads Menu](./Images/Downloads_Menu.jpg)
+        ![Downloads Menu](./Images/Downloads_Menu.JPG)
 
         </div>
 
@@ -50,7 +50,7 @@ Follow the steps below to download and verify the PCD 2.0 installation tool:
 
       <div align="center">
 
-      ![PCD Installer Properties Window](./Images/SED_Installer_Properties_Window.png)
+      ![PCD Installer Properties Window](./Images/SED_Installer_Properties_Window.JPG)
 
       </div>
 
@@ -60,7 +60,7 @@ Follow the steps below to download and verify the PCD 2.0 installation tool:
 
         <div align="center">
 
-        ![Digital Signature Details](./Images/DigitalSignatureDetails.jpg)
+        ![Digital Signature Details](./Images/DigitalSignatureDetails.JPG)
 
         </div>
 
@@ -75,7 +75,7 @@ Follow the steps below to install PCD 2.0 on your local machine:
 
     <div align="center">
 
-    ![PCD Setup](./Images/SED_TOC.jpg)
+    ![PCD Setup](./Images/SED_TOC.JPG)
 
     </div>
 
@@ -85,7 +85,7 @@ Follow the steps below to install PCD 2.0 on your local machine:
 
     <div align="center">
 
-    ![PCD Setup](./Images/SED_Installer_Progress.jpg)
+    ![PCD Setup](./Images/SED_Installer_Progress.JPG)
 
     </div>
 
@@ -93,7 +93,7 @@ Follow the steps below to install PCD 2.0 on your local machine:
 
     <div align="center">
 
-    ![PCD Setup](./Images/SED_Installer_Complete.jpg)
+    ![PCD Setup](./Images/SED_Installer_Complete.JPG)
 
     </div>
 
@@ -118,7 +118,7 @@ Follow the steps below to download and install the PCD 2.0 Silent Installation:
     1. Select **Paya Connect Desktop v2.x** from the **Downloads** menu at the top of the page, as shown below:
         <div align="center">
 
-        ![Downloads Menu](./Images/Downloads_Menu.jpg)
+        ![Downloads Menu](./Images/Downloads_Menu.JPG)
 
         </div>
 
@@ -126,7 +126,7 @@ Follow the steps below to download and install the PCD 2.0 Silent Installation:
 
         <div align="center">
 
-        ![Download Silent](./Images/Download_Silent.jpg)
+        ![Download Silent](./Images/Download_Silent.JPG)
 
         </div>
 1. Run the file when it has finished downloading. The file installs the latest version of PCD 2.0 without displaying any user interface. No additional user actions are required during the installation.
@@ -135,7 +135,7 @@ When the installation is completed, a **Paya Connect Desktop** shortcut will be 
 
   <div align="center">
 
-  ![Silent Install Shortcut](./Images/Silent_Shortcut.jpg)
+  ![Silent Install Shortcut](./Images/Silent_Shortcut.JPG)
   _Note: The image above is from Windows 7.
   The menu may look different on your system._
   </div>
@@ -155,7 +155,7 @@ The PCD Distributer application is installed in one of the following locations d
 The following user interface displays when you execute the Application Distributer program without any command line arguments:
   <div align="center">
 
-  ![Silent Install UI](./Images/Silent_UI.jpg)
+  ![Silent Install UI](./Images/Silent_UI.JPG)
 
   </div>
 
@@ -169,7 +169,7 @@ The PCD Distributer application supports the following command line arguments:
 
   <div align="center">
 
-  ![Silent Install Event Viewer](./Images/Silent_Event_Viewer.jpg)
+  ![Silent Install Event Viewer](./Images/Silent_Event_Viewer.JPG)
 
   </div>
 
@@ -179,7 +179,7 @@ Follow the steps below to update PCD 2.0 immediately following installation or a
 
     <div align="center">
 
-    ![PCD Setup](./Images/SED_Update_Available.jpg)
+    ![PCD Setup](./Images/SED_Update_Available.JPG)
 
     </div>
 
@@ -187,7 +187,7 @@ Follow the steps below to update PCD 2.0 immediately following installation or a
 
     <div align="center">
 
-    ![PCD Setup](./Images/SED_Update_Progress.jpg)
+    ![PCD Setup](./Images/SED_Update_Progress.JPG)
 
     </div>
 
@@ -198,7 +198,7 @@ Once PCD is successfully running and ready for use, the PCD taskbar icon will ch
 
 <div align="center">
 
-![PCD Tray Icon](./Images/SED_Tray_Icon.jpg)
+![PCD Tray Icon](./Images/SED_Tray_Icon.JPG)
 
 </div>
 
@@ -207,7 +207,7 @@ Once startup is complete, access the PCD 2.0 menu by right-clicking on the taskb
 
 <div align="center">
 
-![PCD Menu](./Images/SED_Menu.jpg)
+![PCD Menu](./Images/SED_Menu.JPG)
 
 </div>
 
@@ -216,7 +216,7 @@ To verify the version of PCD that is currently installed and running, click **Ab
 
 <div align = "center">
 
- ![About PCD](./Images/About_SED.jpg)
+ ![About PCD](./Images/About_SED.JPG)
 
  </div>
 
@@ -225,7 +225,7 @@ As part of the installation process, the setup program installs a shortcut to la
 
 <div align = "center">
 
- ![Start Menu](./Images/Start_Menu.jpg)
+ ![Start Menu](./Images/Start_Menu.JPG)
 
  </div>
 
@@ -330,7 +330,7 @@ Select each program from the list and click **Uninstall** on the following windo
 
 <div align = "center">
 
- ![Uninstall PCD](./Images/Uninstall_SED.jpg)
+ ![Uninstall PCD](./Images/Uninstall_SED.JPG)
 
  </div>
 
@@ -343,7 +343,7 @@ If a new release of PCD is available, the update process will launch. The follow
 
 <div align = "center">
 
- ![Software Update Available](./Images/SED_Update_Available.jpg)
+ ![Software Update Available](./Images/SED_Update_Available.JPG)
 
  </div>
 
@@ -438,7 +438,7 @@ The image below shows how the Card Number field is disabled for entry on the Sal
 
 <div align = "center">
 
- ![Manual Entry Disabled Tag](./Images/ManualEntryDisabled.jpg)
+ ![Manual Entry Disabled Tag](./Images/ManualEntryDisabled.JPG)
 
  </div>
 
@@ -481,7 +481,7 @@ After you install the device drivers, follow the steps below to enable your devi
 1. Right-click the green **SE 2.0** icon in the Microsoft Window system tray and then click **Settings** from the submenu to open the Paya Connect Desktop – Settings window.
 <div align = "center">
 
- ![SED Settings](./Images/SEDSettings.jpg)
+ ![SED Settings](./Images/SEDSettings.JPG)
 
  </div>
 
@@ -490,7 +490,7 @@ After you install the device drivers, follow the steps below to enable your devi
 1. On the right-hand side, click your installed device (or devices) from the list of **Available Devices**. Paya Connect Desktop will restart, and you will be ready to accept payments.
 <div align = "center">
 
- ![EMV Devices](./Images/EMVDevices.jpg)
+ ![EMV Devices](./Images/EMVDevices.JPG)
 
  </div>
 
@@ -508,7 +508,7 @@ Click **Tracing**, and select **View Log** from the menu.
 
   <div align = "center">
 
- ![View Log](./Images/SED_View_Log.jpg)
+ ![View Log](./Images/SED_View_Log.JPG)
 
  </div>
 
