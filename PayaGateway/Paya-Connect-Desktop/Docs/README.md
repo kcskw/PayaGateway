@@ -1,6 +1,6 @@
 <div align="center">
 
-![PCD Logo](/Docs/Images/AA_SED_Logo.png)
+![PCD Logo](./Images/AA_SED_Logo.png)
 
 </div>
 
