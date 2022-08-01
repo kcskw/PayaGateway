@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>pg 1 - PEVD Sample</title>
+</head>
+
+<!--
+
+    DESCRIPTION:
+        This is a sample integration to the Paya Exchange Virtual Desktop (PEVD).
+        The PEVD is a Paya-hosted interface for credit card and ACH payments. By
+        collecting credit card information on our servers, your own site avoids
+        the PCI compliance requirements associated with "touching" credit card
+        data.
+
+    TECHNICAL:
+        .NET version 4.5
+        Razor version 3
+
+    SUPPORT:
+        We've done our best to add comments throughout these files. That said, it is
+        not possible to exhaustively anticipate and address every potential scenario
+        that may arise! Please email sdksupport@sage.com for assistance integrating to
+        the PEVD, or any other questions involving third-party integrations to the
+        Sage Payment Solutions gateway. Any code snippets, logs, responses, etc.
+        that you can provide make troubleshooting much easier, and are appreciated.
+
+    TERMS OF USE:
+        This sample was created for demonstrative purposes only. Please do not provide
+        these files, their content, PEVD documentation, or any other relevant material
+        to any parties not directly involved with your integration.
+
+    ABOUT US:
+        Hi! We are your friendly Integration Consultants at Paya.
+        You can reach us by email at sdksupport@paya.com. Please don't hesitate
+        to contact us.
+
+-->
+
+<body>
+
+    <h3>Billing Information:</h3>
+
+    <!--
+        There's nothing particularly interesting happening here -- just a typical HTML form
+        collecting customer information and passing it on.
+    -->
+
+    <form method="POST" action="request.cshtml">
+        <label>First Name: <input type="text" name="FirstName" value="John"></label><br />
+        <label>Last Name: <input type="text" name="LastName" value="Simpson"></label><br />
+        <label>Company Name: <input type="text" name="CompanyName" value="Test Company"></label><br />
+        <label>Address Line 1: <input type="text" name="AddressLine1" value="123 Main St"></label><br />
+        <label>Address Line 2: <input type="text" name="AddressLine2" value="Suite 444"></label><br />
+        <label>City: <input type="text" name="City" value="Savannah"></label><br />
+        <label>State: <input type="text" name="State" value="GA"></label><br />
+        <label>Zip: <input type="text" name="Zip" value="31405"></label><br />
+        <label>Email: <input type="email" name="Email" value="xyz@example.com"></label><br />
+        <label>Telephone: <input type="tel" name="Telephone" value="555-555-1234"></label><br /><br />
+        <input type="submit" value="Submit" /><br />
+    </form>
+
+</body>
+</html>
