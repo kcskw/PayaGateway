@@ -2,11 +2,11 @@
 ## Testing and Decline Codes
 
 ### Table of Contents
-1. [Bank Card Testing Services]()	
-   - [Purchasing Card Level III Testing Services]()
-   - [Healthcare FSA/HAS Testing Services]()
-2. [Healthcare FSA Testing Service (Partial Approval)]()
-3. [Decline Codes]()
+1. [Bank Card Testing Services](Bank%20Card%20Testing%20Procedures%20and%20Decline%20Codes.md#bank-card-testing-services)	
+   - [Purchasing Card Level III Testing Services](Bank%20Card%20Testing%20Procedures%20and%20Decline%20Codes.md#purchase-card-level-iii-testing-services)
+   - [Healthcare FSA/HAS Testing Services](Bank%20Card%20Testing%20Procedures%20and%20Decline%20Codes.md#healthcare-fsahas-testing-services)
+2. [Healthcare FSA Testing Service (Partial Approval)](Bank%20Card%20Testing%20Procedures%20and%20Decline%20Codes.md#healthcare-fsa-testing-services-partial-approval)
+3. [Decline Codes](Bank%20Card%20Testing%20Procedures%20and%20Decline%20Codes.md#decline-codes)
 
 
 ## Bank Card Testing Services
