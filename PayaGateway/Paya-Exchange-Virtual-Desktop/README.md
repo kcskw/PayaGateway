@@ -5,10 +5,10 @@
 ![Paya_Exchange_Virtual_Desktop](https://user-images.githubusercontent.com/6975101/182176143-eb9c4f97-bbc4-4c36-97ad-19fac890c19a.png)
 
 
-# Paya Exchange Virtual Desktop (PEVD) / formerly called Sage Exchange Virtual Desktop (SEVD)
+# Paya Exchange Virtual Desktop (PEVD)
 
  
-PEVD/SEVD GitHub sample repo and documentation - https://github.com/SagePayments/Sage-Exchange-Virtual-Desktop
+PEVD GitHub sample repo and documentation - https://github.com/SagePayments/Sage-Exchange-Virtual-Desktop
 
 PEVD operates as a redirect. We do not support PEVD within an iframe. You create an XML request a and submit using an html Form POST.
  
