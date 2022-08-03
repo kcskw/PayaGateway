@@ -96,4 +96,3 @@ Hiding or showing fields
 The tags in the <SinglePayment></SinglePayment> section withing the UI code allow you to show or hide fields on the Payment page. For example, you can choose to hide fields such as Reference Number or Shipping in the Totals group box or extra address lines in the Billing Information section by setting the tag values to false. 
 
 
-![UI](https://user-images.githubusercontent.com/6975101/182418409-69064c4a-242d-4c49-81d4-267397c8681e.jpg)
