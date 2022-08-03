@@ -62,21 +62,24 @@ Sage Exchange Virtual Desktop (SEVD) v2.x
   
 Each section of the <UI> code controls the appearance of a specific area on the user interface: 
 
-|          |     |
-|----------|-----|
-| ![UI](https://user-images.githubusercontent.com/6975101/182418595-f6809eee-4903-45d0-93d5-2b68f698a3b8.jpg) | <table><tr><td>The values in the <Display></Display> tags control whether the header area (including the Support link) displays, which payment type selections display, and if the Sage Exchange logo displays.</td> </tr><tr><td>The values in the <Theme></Theme> tags control the text color, background color, group box background color, and divider background color.</td></tr></table> |
-  
-![UI](https://user-images.githubusercontent.com/6975101/182418595-f6809eee-4903-45d0-93d5-2b68f698a3b8.jpg)
-
 The values in the &lt;Display&gt;&lt;/Display&gt; tags control whether the header area (including the Support link) displays, which payment type selections display, and if the Paya Exchange logo displays.
 
-The values in the &lt;Theme&gt;&lt;/Theme&gt; tags control the text color, background color, group box background color, and divider background color.
+The values in the &lt;Theme&gt;&lt;/Theme&gt; tags control the text color, background color, group box background color, and divider background color. 
+    
+<img valign="right" src="https://user-images.githubusercontent.com/6975101/182418595-f6809eee-4903-45d0-93d5-2b68f698a3b8.jpg" /> 
+    
+The values in the &lt;Display&gt;&lt;/Display&gt; tags control whether the header area (including the Support link) displays, which payment type selections display, and if the Paya Exchange logo displays.
+
+The values in the &lt;Theme&gt;&lt;/Theme&gt; tags control the text color, background color, group box background color, and divider background color. 
+
   
 The values in the <Display></Display> tags control whether the header area (including the Support link) displays, which payment type selections display, and if the Sage Exchange logo displays. 
 The values in the <Theme></Theme> tags control the text color, background color, group box background color, and divider background color.  
  
 The elements in the <UI></UI> section are common to all pages of Sage Exchange Virtual Desktop v2.x. You can easily change the appearance of these elements by changing the default tag values in each XML transaction request. For example, you can change the default text color from red to black (hexadecimal format). 
+    
 Changing the display 
+    
 You can customize the general appearance of the Payment page and the Vault page by changing these values in the <Display></Display> section: 
 •	<Header></Header>. Displays (true) or hides (false) the header section, which includes the Sage Payment Solutions logo and the Support hyperlink. 
 •	<SupportLink></SupportLink>. Displays or hides the Support hyperlink in the header section of the page. This element is automatically hidden if the <Header></Header> tag is set to false. 
