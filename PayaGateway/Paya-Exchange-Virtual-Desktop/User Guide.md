@@ -5,7 +5,7 @@
     - [Understanding Paya Exchange Virtual Desktop v2.x](User%20Guide.md#understanding-sage-exchange-virtual-desktop-v2x)
       - [System requirements](User%20Guide.md#system-requirements)
 3. [Understanding the Paya Exchange Virtual Desktop v2.x user interface](User%20Guide.md#understanding-the-paya-exchange-virtual-desktop-v2x-user-interface)
-4. [Customizing Paya Exchange Virtual Desktop v2.x](User%20Guide.md#customizing-sage-exchange-virtual-desktop-v2x)
+4. [Customizing Paya Exchange Virtual Desktop v2.x](User%20Guide.md#customizing-paya-exchange-virtual-desktop-v2x)
     - [Modifying the user interface](User%20Guide.md#modifying-the-user-interface)
       - [Changing the display](User%20Guide.md#changing-the-display)
       - [Changing the theme](User%20Guide.md#changing-the-theme)
@@ -24,7 +24,7 @@ This Guide describes how to customize the Paya Exchange Virtual Desktop user int
 
 *Note: You can download integration documents from the [Paya Payments Developer Portal](https://developer.sagepayments.com/).*
 
-### Understanding Sage Exchange Virtual Desktop v2.x 
+### Understanding Paya Exchange Virtual Desktop v2.x 
 Paya Exchange Virtual Desktop v2.x displays all payment fields on single web page. Data is posted to: https://www.sageexchange.com/sevd/frmpayment.aspx. 
 
 #### System requirements 
