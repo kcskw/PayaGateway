@@ -51,7 +51,7 @@ If the user selects Virtual Check as the payment type, bank information fields d
 *Note: All pages in Paya Exchange Virtual Desktop include the Support link; however, you can hide this page element.*
 
 
-## Customizing Sage Exchange Virtual Desktop v2.x 
+## Customizing Paya Exchange Virtual Desktop v2.x 
 You can customize Paya Exchange Virtual Desktop v2.x for your application by modifying the default colors on the user interface and choosing to hide or show fields. 
 
 ### Modifying the user interface 
