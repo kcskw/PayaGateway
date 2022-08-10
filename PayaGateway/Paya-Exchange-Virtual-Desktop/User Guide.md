@@ -1,15 +1,15 @@
 # Paya Exchange Virtual Desktop (PEVD) User Guide
 
-1. [Overview]()
-    - [Using this guide]()
-    - [Understanding Paya Exchange Virtual Desktop v2.x]()
-      - [System requirements]()
-3. [Understanding the Paya Exchange Virtual Desktop v2.x user interface]()
-4. [Customizing Paya Exchange Virtual Desktop v2.x]()
-    - [Modifying the user interface]()
-      - [Changing the display]()
-      - [Changing the theme]()
-    - [Hiding or showing fields]()
+1. [Overview](User%20Guide.md#overview)
+    - [Using this guide](User%20Guide.md#using-this-guide)
+    - [Understanding Paya Exchange Virtual Desktop v2.x](User%20Guide.md#understanding-sage-exchange-virtual-desktop-v2x)
+      - [System requirements](User%20Guide.md#system-requirements)
+3. [Understanding the Paya Exchange Virtual Desktop v2.x user interface](User%20Guide.md#understanding-the-paya-exchange-virtual-desktop-v2x-user-interface)
+4. [Customizing Paya Exchange Virtual Desktop v2.x](User%20Guide.md#customizing-sage-exchange-virtual-desktop-v2x)
+    - [Modifying the user interface](User%20Guide.md#modifying-the-user-interface)
+      - [Changing the display](User%20Guide.md#changing-the-display)
+      - [Changing the theme](User%20Guide.md#changing-the-theme)
+    - [Hiding or showing fields](User%20Guide.md#hiding-or-showing-fields)
 
 
 ## Overview
@@ -71,23 +71,29 @@ The values in the &lt;Theme&gt;&lt;/Theme&gt; tags control the text color, backg
 
   
  
-The elements in the <UI></UI> section are common to all pages of Sage Exchange Virtual Desktop v2.x. You can easily change the appearance of these elements by changing the default tag values in each XML transaction request. For example, you can change the default text color from red to black (hexadecimal format). 
+The elements in the &lt;UI&gt;&lt;/UI&gt; section are common to all pages of Paya Exchange Virtual Desktop v2.x. You can easily change the appearance of these elements by changing the default tag values in each XML transaction request. For example, you can change the default text color from red to black (hexadecimal format). 
     
 ### Changing the display 
     
-You can customize the general appearance of the Payment page and the Vault page by changing these values in the <Display></Display> section: 
-•	<Header></Header>. Displays (true) or hides (false) the header section, which includes the Sage Payment Solutions logo and the Support hyperlink. 
-•	<SupportLink></SupportLink>. Displays or hides the Support hyperlink in the header section of the page. This element is automatically hidden if the <Header></Header> tag is set to false. 
-•	<CheckPayment></CheckPayment>. Displays (true) or hides (false) the Virtual Check selection in the Payment Type field. By default, this tag is set to false; however, you may want to change it to true if you enabled ACH for your integration. 
-•	<CardPayment></CardPayment>. Displays (true) or hides (false) the Credit Card selection in the Payment Type field. By default, this tag is set to true. 
-Changing the theme 
-The <Theme></Theme> section of the code allows you to modify the text color, as well as the background colors of the main area, Totals group box, and divider on the Payment and Vault pages. You can edit the following values to change the appearance of this group box: 
-•	<MainFontColor></MainFontColor>. The hexadecimal value of this tag defines the color of the page text. 
-•	<MainBackColor></MainBackColor>. The hexadecimal value of this tag defines the background color of the main area on page. 
-Sage Exchange Virtual Desktop (SEVD) v2.x
-•	<HeaderBackColor></HeaderBackColor>. The hexadecimal value of this tag defines the background color of the header section, which displays the Sage Payment Solutions logo and Support link. 
-•	<TotalsBoxBackColor></TotalsBoxBackColor>. The hexadecimal value of this tag defines the background color of the Totals group box, which includes the Reference, Subtotal, Shipping, Tax, and Total fields. 
-Hiding or showing fields 
-The tags in the <SinglePayment></SinglePayment> section withing the UI code allow you to show or hide fields on the Payment page. For example, you can choose to hide fields such as Reference Number or Shipping in the Totals group box or extra address lines in the Billing Information section by setting the tag values to false. 
+You can customize the general appearance of the Payment page and the Vault page by changing these values in the &lt;Display&gt;&lt;/Display&gt; section: 
+-	**&lt;Header&gt;&lt;/Header&gt;**. Displays (true) or hides (false) the header section, which includes the Sage Payment Solutions logo and the Support hyperlink. 
+-	**&lt;SupportLink&gt;&lt;/SupportLink&gt;**. Displays or hides the Support hyperlink in the header section of the page. This element is automatically hidden if the &lt;Header&gt;&lt;/Header&gt; tag is set to false. 
+-	**&lt;CheckPayment&gt;&lt;/CheckPayment&gt;**. Displays (true) or hides (false) the Virtual Check selection in the Payment Type field. By default, this tag is set to false; however, you may want to change it to true if you enabled ACH for your integration. 
+-	**&lt;CardPayment&gt;&lt;/CardPayment&gt;**. Displays (true) or hides (false) the Credit Card selection in the Payment Type field. By default, this tag is set to true. 
+
+### Changing the theme 
+
+The &lt;Theme&gt;&lt;/Theme&gt; section of the code allows you to modify the text color, as well as the background colors of the main area, Totals group box, and divider on the Payment and Vault pages. You can edit the following values to change the appearance of this group box: 
+-	**&lt;MainFontColor&gt;&lt;/MainFontColor&gt;**. The hexadecimal value of this tag defines the color of the page text. 
+-	**&lt;MainBackColor&gt;&lt;/MainBackColor&gt;**. The hexadecimal value of this tag defines the background color of the main area on page. 
+-	**&lt;HeaderBackColor&gt;&lt;/HeaderBackColor&gt;**. The hexadecimal value of this tag defines the background color of the header section, which displays the Sage Payment Solutions logo and Support link. 
+-	**&lt;TotalsBoxBackColor&gt;&lt;/TotalsBoxBackColor&gt;**. The hexadecimal value of this tag defines the background color of the Totals group box, which includes the Reference, Subtotal, Shipping, Tax, and Total fields.
+    
+### Hiding or showing fields 
+    
+The tags in the &lt;SinglePayment&gt;&lt;/SinglePayment&gt; section withing the UI code allow you to show or hide fields on the Payment page. For example, you can choose to hide fields such as Reference Number or Shipping in the Totals group box or extra address lines in the Billing Information section by setting the tag values to false. 
 
 
+![PEVD_HideShow](https://user-images.githubusercontent.com/6975101/183961922-3edb74cb-9a1b-4b33-8c02-65dea0d64590.jpg)
+
+<sub>**Image 2:** This section of code shows the &lt;SinglePayment&gt;&lt;/SinglePayment&gt; section.</sub>
