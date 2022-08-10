@@ -2,7 +2,7 @@
 
 1. [Overview](User%20Guide.md#overview)
     - [Using this guide](User%20Guide.md#using-this-guide)
-    - [Understanding Paya Exchange Virtual Desktop v2.x](User%20Guide.md#understanding-sage-exchange-virtual-desktop-v2x)
+    - [Understanding Paya Exchange Virtual Desktop v2.x](User%20Guide.md#understanding-paya-exchange-virtual-desktop-v2x)
       - [System requirements](User%20Guide.md#system-requirements)
 3. [Understanding the Paya Exchange Virtual Desktop v2.x user interface](User%20Guide.md#understanding-the-paya-exchange-virtual-desktop-v2x-user-interface)
 4. [Customizing Paya Exchange Virtual Desktop v2.x](User%20Guide.md#customizing-paya-exchange-virtual-desktop-v2x)
