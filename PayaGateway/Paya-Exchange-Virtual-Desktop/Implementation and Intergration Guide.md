@@ -1,10 +1,10 @@
 # Paya Exchange Virtural Desktop - Implementation and Integration Guide
 
-1. [Overview]()
-2. [Integration Types]()
-    - [User Interface Integration]()
-      - [URL]()
-      - [Form Fields]()
+1. [Overview](Implementation%20and%20Intergration%20Guide.md#overview)
+2. [Integration Types](Implementation%20and%20Intergration%20Guide.md#integration-types)
+    - [User Interface Integration](Implementation%20and%20Intergration%20Guide.md#user-interface-integration)
+      - [URL](Implementation%20and%20Intergration%20Guide.md#url)
+      - [Form Fields](Implementation%20and%20Intergration%20Guide.md#form-fields)
       - [HTML Sample]()
     - [Non-User Interface Integration]()
       - [URL]()
@@ -43,6 +43,7 @@ https://www.sageexchange.com/VirtualPaymentTerminal/frmPayment.aspx
 |     Redirect_URL             |     No             |     The URL the PEVD redirects to after processing.                                                                                                                                        |
 |     Consumer_Initiated       |     No             |     &lt;TRUE\|FALSE&gt;     Specifies the target audience for the rendering of the payment user interface.  This is used when integrating to a customer facing application.           |
 
+### HTML Sample
 
 ```HTML
 <html> 
