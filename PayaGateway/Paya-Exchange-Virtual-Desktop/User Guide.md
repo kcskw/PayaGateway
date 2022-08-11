@@ -1,4 +1,4 @@
-# Paya Exchange Virtual Desktop (PEVD) User Guide
+# Paya Exchange Virtual Desktop (PEVD) - User Guide
 
 1. [Overview](User%20Guide.md#overview)
     - [Using this guide](User%20Guide.md#using-this-guide)
