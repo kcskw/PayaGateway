@@ -1,3 +1,4 @@
+# Paya Exchange Virtual Desktop (PEVD) - Secure Integration Guide
 1. [Understanding Paya Exchange Virtual Desktop]()
     - [Using Paya Exchange Vitrual Desktop]()
 2. [Implementing Encrypt Message]()
@@ -19,31 +20,31 @@
     - [Field definitions]()
     - [Response message body]()
 
-# Understanding Paya Exchange Virtual Desktop
+## Understanding Paya Exchange Virtual Desktop
 
 Paya Exchange Virtual Desktop (pEVD) is a PA‐DSS (Payment Application – Data Security Standard) certified payment platform that integrates with any type of web‐based application. When a user initiates a credit card transaction, the application makes a seamless call to PEVD, where all aspects of processing the credit card occurs; including the transmission and storage of credit card data for applications that include these capabilities. The integrated application does not store, process, or transmit credit card data; therefore, does not require PA‐DSS certification.
 
-## Using Paya Exchange Virtual Desktop
+### Using Paya Exchange Virtual Desktop
 
 Below is a flowchart of the typical end user interaction and data flow for a payment request processed through a web site using PEVD; however, you can use any type of PEVD XML request (for example, authorization or credit). 
 
 ![PEVD_Flowchart](https://user-images.githubusercontent.com/6975101/184938744-a3c55641-87a5-49d4-81f8-79929887f363.png)
 
 
-# Implementing Encrypt Message
+## Implementing Encrypt Message
 
 Use this method to encrypt your PEVD XML message and to receive a PEVD envelope token. The envelope token is unique to every request processed with PEVD and is used to match the PEVD response received later. We recommend storing the token with your user state information. This allows you to look up the user state information using the PEVD response envelope token when you receive the response from PEVD. If you find a match, you can continue to process the results. To prevent replay issues, update your user state to indicate that the response has been received. 
 
-## URL
+### URL
 
 Use the following link to access Paya Exchange Virtual Desktop: 
 https://www.sageexchange.com/virtualpaymentterminal/frmenvelope.aspx 
 
-## Supported HTTP VERBS
+### Supported HTTP VERBS
 
 POST
 
-## Request message body
+### Request message body
 
 The following is the request message body.
 
@@ -87,14 +88,14 @@ hn.doe%40domain.com%3c%2fEmailAddress%3e%0d%0a%3cTelephone%3e1234567891%3c%2fTel
 cipient%3e%0d%0a%3c%2fPaymentType%3e%0d%0a%3c%2fPayments%3e%0d%0a%3c%2fRequest_v1%3e
 ```
 
-## Field definitions
+### Field definitions
 
 | Field Name         | Definition                                                              |
 |--------------------|-------------------------------------------------------------------------|
 | Status_Code        | A numerical indicator of the event type.  6 = User Canceled 7 = Timeout |
 | Status_Description | A textual description of the event.                                     |
 
-## Response message body
+### Response message body
 
 The following is the response message body.
 
@@ -149,14 +150,14 @@ oJ5VCx+4m02rECCiLHElhOziy/sM1oivM67gCBs1A2dC0WUaBbfmpPJhLPFnSx6tLBxX8mZpJ5AxZPSB
 S3ZMBJS2MLz/dPkamS62HBhuJPiarMAs+OYeCt2tHAsDuU2yFA8av/cFxCbsblXbxje9u3Vw==</Data></Envelope>
 ```
 
-## Field definitions
+### Field definitions
 
 | Field Name         | Definition                                                              |
 |--------------------|-------------------------------------------------------------------------|
 | Status_Code        | A numerical indicator of the event type.  6 = User Canceled 7 = Timeout |
 | Status_Description | A textual description of the event.                                     |
 
-# PEVD Request HTML Form
+## PEVD Request HTML Form
 
 ```
 <html> <head> 
@@ -219,7 +220,7 @@ GTribJ8J45X1PEJp+Po1PmCmUng6Vo9Piao1yFNH2CpH1tGOCUV0lxyP0PS3ZMBJS2MLz/dPkamS62HB
 </html> 
 ```
 
-## Field definitions
+### Field definitions
 
 | Name               | Data Type | Description                                                           |
 |--------------------|-----------|-----------------------------------------------------------------------|
@@ -227,11 +228,11 @@ GTribJ8J45X1PEJp+Po1PmCmUng6Vo9Piao1yFNH2CpH1tGOCUV0lxyP0PS3ZMBJS2MLz/dPkamS62HB
 | Redirect_url       | String    | The URL to which you want to POST the encrypted XML response message. |
 | Consumer_initiated | Boolean   | Indicates the target audience as a customer and not a merchant.       |
 
-# PEVD Response
+## PEVD Response
 
 The data below is POSTed to the redirect URL you provided in the PEVD request HTML form. Look up your user state information using the PEVD response envelope token when you receive the response from PEVD. If you find a match, continue to process the results. To prevent replay issues you should update your user state to indicate the response has been received. 
 
-## Response message body
+### Response message body
 
 The following is the response message body.
 
@@ -271,23 +272,23 @@ sQcf5sIL28uK7us5G%2fSsfB3VfTwvPfsrTknx1yvEsQr7fIjj666WW%2fMD35kjnIRl52zENHUgWExe
 iKIbC%2fUFvCHKJqr4ozAkYIxPOFYw%3d%3d%3c%2fData%3e%3c%2fEnvelope%3e 
 ```
 
-## Field definitions
+### Field definitions
 
 |     Name         |     Data Type     |     Description                                      |
 |------------------|-------------------|------------------------------------------------------|
 |     Response     |     String        |     URL encoded encrypted XML response envelope.     |
 
-# Implementation Decrypt Message
+## Implementation Decrypt Message
 
 Use this method to decrypt the PEVD XML response message.
 
-## URL
+### URL
 https://www.sageexchange.com/virtualpaymentterminal/frmopenenvelope.aspx 
 
-## Supported HTTP VERBS
+### Supported HTTP VERBS
 POST
 
-## Request message body
+### Request message body
 
 The following is the request message body.
 ```
@@ -326,13 +327,13 @@ sQcf5sIL28uK7us5G%2fSsfB3VfTwvPfsrTknx1yvEsQr7fIjj666WW%2fMD35kjnIRl52zENHUgWExe
 iKIbC%2fUFvCHKJqr4ozAkYIxPOFYw%3d%3d%3c%2fData%3e%3c%2fEnvelope%3e 
 ```
 
-## Field definitions
+### Field definitions
 
 |     Name        |     Data Type     |     Description                                               |
 |-----------------|-------------------|---------------------------------------------------------------|
 |     Request     |     String        |     The URL encoded encrypted SEVD XML response   message     |
 
-## Response message body
+### Response message body
 
 The following is the response message body.
 ```XML
