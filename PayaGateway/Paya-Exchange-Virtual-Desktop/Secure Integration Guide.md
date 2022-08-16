@@ -27,6 +27,9 @@ Paya Exchange Virtual Desktop (pEVD) is a PA‐DSS (Payment Application – Data
 
 Below is a flowchart of the typical end user interaction and data flow for a payment request processed through a web site using PEVD; however, you can use any type of PEVD XML request (for example, authorization or credit). 
 
+![PEVD_Flowchart](https://user-images.githubusercontent.com/6975101/184938744-a3c55641-87a5-49d4-81f8-79929887f363.png)
+
+
 # Implementing Encrypt Message
 
 Use this method to encrypt your PEVD XML message and to receive a PEVD envelope token. The envelope token is unique to every request processed with PEVD and is used to match the PEVD response received later. We recommend storing the token with your user state information. This allows you to look up the user state information using the PEVD response envelope token when you receive the response from PEVD. If you find a match, you can continue to process the results. To prevent replay issues, update your user state to indicate that the response has been received. 
