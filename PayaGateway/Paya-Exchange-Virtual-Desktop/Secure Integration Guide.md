@@ -22,7 +22,7 @@
 
 ## Understanding Paya Exchange Virtual Desktop
 
-Paya Exchange Virtual Desktop (pEVD) is a PA‐DSS (Payment Application – Data Security Standard) certified payment platform that integrates with any type of web‐based application. When a user initiates a credit card transaction, the application makes a seamless call to PEVD, where all aspects of processing the credit card occurs; including the transmission and storage of credit card data for applications that include these capabilities. The integrated application does not store, process, or transmit credit card data; therefore, does not require PA‐DSS certification.
+Paya Exchange Virtual Desktop (PEVD) is a PA‐DSS (Payment Application – Data Security Standard) certified payment platform that integrates with any type of web‐based application. When a user initiates a credit card transaction, the application makes a seamless call to PEVD, where all aspects of processing the credit card occurs; including the transmission and storage of credit card data for applications that include these capabilities. The integrated application does not store, process, or transmit credit card data; therefore, does not require PA‐DSS certification.
 
 ### Using Paya Exchange Virtual Desktop
 
