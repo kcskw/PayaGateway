@@ -331,7 +331,7 @@ iKIbC%2fUFvCHKJqr4ozAkYIxPOFYw%3d%3d%3c%2fData%3e%3c%2fEnvelope%3e
 
 |     Name        |     Data Type     |     Description                                               |
 |-----------------|-------------------|---------------------------------------------------------------|
-|     Request     |     String        |     The URL encoded encrypted SEVD XML response   message     |
+|     Request     |     String        |     The URL encoded encrypted PEVD XML response   message     |
 
 ### Response message body
 
