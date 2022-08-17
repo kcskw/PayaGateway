@@ -533,3 +533,223 @@
   </xs:complexType> 
 </xs:schema> 
 ```
+
+### XML Reserved Characters
+
+In XML, some characters are reserved for internal use and you must replace them by entity references when they are used in data submitted to the Paya Exchange. The following table shows the characters that must be replaced by their entity references.  
+
+|     Character     |     Entity   Reference      |
+|-------------------|-----------------------------|
+|     >             |      `&gt;`                   |
+|     <             |      `&lt;`                   |
+|     &             |      `&amp;`                  |
+|     %             |      `&#37;`                  |
+
+## Message Formats
+
+### Introduction
+The following illustrations provide examples of how the request message components are structured. All requests are framed within a Request_v1 root and must include an Application element. Optional XML elements can be omitted from the request message when not used. Some elements are arrays; in cases where more than one element is present in the array processing will occur in FIFO. XML reserved characters must be observed and encoded appropriately. 
+
+### Sale
+
+Sale is a transaction type in which the transaction is authorized and captured in one step. Sale is used only to process purchases of goods or services that do not require physical shipment or "soft" goods that are delivered electronically. 
+
+#### XML Sale Request with User Interface Sample
+
+```XML
+<?xml version="1.0" encoding="utf-16"?> 
+<Request_v1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+  <Application> 
+    <ApplicationID>DEMO</ApplicationID> 
+    <LanguageID>EN</LanguageID> 
+  </Application> 
+  <Payments> 
+    <PaymentType> 
+      <Merchant> 
+        <MerchantID>999999999997</MerchantID> 
+        <MerchantKey>K3QD6YWyhfD</MerchantKey> 
+      </Merchant> 
+      <TransactionBase> 
+        <TransactionID>5ea9747c-12a4-46af-970f-f8a92f6d4f65</TransactionID> 
+        <TransactionType>11</TransactionType> 
+        <Reference1>INV# 886478943</Reference1> 
+        <Amount>1892.59</Amount> 
+      </TransactionBase> 
+      <Customer> 
+        <Name> 
+          <FirstName>Jane</FirstName> 
+          <MI> </MI> 
+          <LastName>Doe</LastName> 
+        </Name> 
+        <Address> 
+          <AddressLine1>67890 Road</AddressLine1> 
+          <AddressLine2></AddressLine2>           
+          <City>South Padre Island</City> 
+          <State>Texas</State> 
+          <ZipCode>78597</ZipCode> 
+          <Country>USA</Country> 
+          <EmailAddress>jane.doe@sagepayments.com</EmailAddress> 
+          <Telephone></Telephone> 
+          <Fax></Fax> 
+        </Address>       
+      </Customer> 
+    </PaymentType> 
+  </Payments>
+  <UI>
+  	<Theme>
+  	  <MainFontColor>black</MainFontColor>  
+  	  <MainBackColor>#95bec9</MainBackColor> 
+  	  <HeaderBackColor>#cbeaf2</HeaderBackColor>
+  	  <TotalsBoxBackColor>#cbeaf2</TotalsBoxBackColor> 
+  	  <DividerBackColor>#336B87</DividerBackColor> 
+  	</Theme>
+  	<SinglePayment>
+  	  <Customer>
+  	   <Name>
+  		<FirstName>
+  		  <Enabled>true</Enabled>
+  		  <Visible>true</Visible>
+  		</FirstName>
+  		<LastName>
+  		  <Enabled>true</Enabled>
+  		  <Visible>true</Visible>
+  		</LastName>
+  	   </Name>
+  	  </Customer>
+  	</SinglePayment>
+     <Display>
+      <Header>true</Header>
+      <VaultLogo>false</VaultLogo>
+      <CardPayment>true</CardPayment>
+      <CheckPayment>true</CheckPayment>
+      <SELogo>true</SELogo>
+     </Display>
+  </UI>
+</Request_v1> 
+```
+
+#### XML Sale Requestion without User Interface Sample
+
+```XML
+<?xml version="1.0" encoding="utf-16"?> 
+<Request_v1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+  <Application> 
+    <ApplicationID>DEMO</ApplicationID> 
+    <LanguageID>EN</LanguageID> 
+  </Application> 
+  <Payments> 
+    <PaymentType> 
+      <Merchant> 
+        <MerchantID>999999999997</MerchantID> 
+        <MerchantKey>K3QD6YWyhfD</MerchantKey> 
+      </Merchant> 
+      <TransactionBase> 
+        <TransactionID>e856a127-8527-431c-807f-6efacd8bdf83</TransactionID> 
+        <TransactionType>01</TransactionType> 
+        <Reference1>INV# 451777674</Reference1> 
+        <Amount>2152.92</Amount> 
+      </TransactionBase> 
+      <Customer> 
+        <Name> 
+          <FirstName>John</FirstName> 
+          <MI> </MI> 
+          <LastName>Doe</LastName> 
+        </Name> 
+        <Address> 
+          <AddressLine1>12345 Street</AddressLine1> 
+          <AddressLine2></AddressLine2>           
+          <City>South Padre Island</City> 
+          <State>Texas</State> 
+          <ZipCode>78597</ZipCode> 
+          <Country>USA</Country> 
+          <EmailAddress>john.doe@sagepayments.com</EmailAddress> 
+          <Telephone></Telephone> 
+          <Fax></Fax> 
+        </Address> 
+      </Customer> 
+      <VaultStorage> 
+        <GUID>dd83d7559a274fb2b66e774a4febced7</GUID> 
+        <Service>RETRIEVE</Service> 
+      </VaultStorage> 
+    </PaymentType> 
+  </Payments> 
+</Request_v1>
+```
+
+#### XML Sale Request and Vault Storage with User Interface Sample
+
+```XML
+<?xml version="1.0" encoding="utf-16"?> 
+<Request_v1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+  <Application> 
+    <ApplicationID>DEMO</ApplicationID> 
+    <LanguageID>EN</LanguageID> 
+  </Application> 
+  <Payments> 
+    <PaymentType> 
+      <Merchant> 
+        <MerchantID>999999999997</MerchantID> 
+        <MerchantKey>K3QD6YWyhfD</MerchantKey> 
+      </Merchant> 
+      <TransactionBase> 
+        <TransactionID>e856a127-8527-431c-807f-6efacd8bdf83</TransactionID> 
+        <TransactionType>11</TransactionType> 
+        <Reference1>INV# 451777674</Reference1> 
+        <Amount>2152.92</Amount> 
+      </TransactionBase> 
+      <Customer> 
+        <Name> 
+          <FirstName>John</FirstName> 
+          <MI> </MI> 
+          <LastName>Doe</LastName> 
+        </Name> 
+        <Address> 
+          <AddressLine1>12345 Street</AddressLine1> 
+          <AddressLine2></AddressLine2>           
+          <City>South Padre Island</City> 
+          <State>Texas</State> 
+          <ZipCode>78597</ZipCode> 
+          <Country>USA</Country> 
+          <EmailAddress>john.doe@sagepayments.com</EmailAddress> 
+          <Telephone></Telephone> 
+          <Fax></Fax> 
+        </Address> 
+      </Customer> 
+      <VaultStorage> 
+        <Service>CREATE</Service> 
+      </VaultStorage> 
+    </PaymentType> 
+  </Payments>
+    <UI>
+  	<Theme>
+  	  <MainFontColor>black</MainFontColor>  
+  	  <MainBackColor>#95bec9</MainBackColor> 
+  	  <HeaderBackColor>#cbeaf2</HeaderBackColor>
+  	  <TotalsBoxBackColor>#cbeaf2</TotalsBoxBackColor> 
+  	  <DividerBackColor>#336B87</DividerBackColor> 
+  	</Theme>
+  	<SinglePayment>
+  	  <Customer>
+  	   <Name>
+  		<FirstName>
+  		  <Enabled>true</Enabled>
+  		  <Visible>true</Visible>
+  		</FirstName>
+  		<LastName>
+  		  <Enabled>true</Enabled>
+  		  <Visible>true</Visible>
+  		</LastName>
+  	   </Name>
+  	  </Customer>
+  	</SinglePayment>
+     <Display>
+      <Header>true</Header>
+      <VaultLogo>false</VaultLogo>
+      <CardPayment>true</CardPayment>
+      <CheckPayment>true</CheckPayment>
+      <SELogo>true</SELogo>
+     </Display>
+  </UI>
+</Request_v1>
+
+```
