@@ -76,7 +76,7 @@ The elements in the &lt;UI&gt;&lt;/UI&gt; section are common to all pages of Pay
 ### Changing the display 
     
 You can customize the general appearance of the Payment page and the Vault page by changing these values in the &lt;Display&gt;&lt;/Display&gt; section: 
--	**&lt;Header&gt;&lt;/Header&gt;**. Displays (true) or hides (false) the header section, which includes the Sage Payment Solutions logo and the Support hyperlink. 
+-	**&lt;Header&gt;&lt;/Header&gt;**. Displays (true) or hides (false) the header section, which includes the Paya Payment Solutions logo and the Support hyperlink. 
 -	**&lt;SupportLink&gt;&lt;/SupportLink&gt;**. Displays or hides the Support hyperlink in the header section of the page. This element is automatically hidden if the &lt;Header&gt;&lt;/Header&gt; tag is set to false. 
 -	**&lt;CheckPayment&gt;&lt;/CheckPayment&gt;**. Displays (true) or hides (false) the Virtual Check selection in the Payment Type field. By default, this tag is set to false; however, you may want to change it to true if you enabled ACH for your integration. 
 -	**&lt;CardPayment&gt;&lt;/CardPayment&gt;**. Displays (true) or hides (false) the Credit Card selection in the Payment Type field. By default, this tag is set to true. 
@@ -86,7 +86,7 @@ You can customize the general appearance of the Payment page and the Vault page 
 The &lt;Theme&gt;&lt;/Theme&gt; section of the code allows you to modify the text color, as well as the background colors of the main area, Totals group box, and divider on the Payment and Vault pages. You can edit the following values to change the appearance of this group box: 
 -	**&lt;MainFontColor&gt;&lt;/MainFontColor&gt;**. The hexadecimal value of this tag defines the color of the page text. 
 -	**&lt;MainBackColor&gt;&lt;/MainBackColor&gt;**. The hexadecimal value of this tag defines the background color of the main area on page. 
--	**&lt;HeaderBackColor&gt;&lt;/HeaderBackColor&gt;**. The hexadecimal value of this tag defines the background color of the header section, which displays the Sage Payment Solutions logo and Support link. 
+-	**&lt;HeaderBackColor&gt;&lt;/HeaderBackColor&gt;**. The hexadecimal value of this tag defines the background color of the header section, which displays the Paya Payment Solutions logo and Support link. 
 -	**&lt;TotalsBoxBackColor&gt;&lt;/TotalsBoxBackColor&gt;**. The hexadecimal value of this tag defines the background color of the Totals group box, which includes the Reference, Subtotal, Shipping, Tax, and Total fields.
     
 ### Hiding or showing fields 
