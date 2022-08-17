@@ -37,7 +37,8 @@ Use this method to encrypt your PEVD XML message and to receive a PEVD envelope 
 
 ### URL
 
-Use the following link to access Paya Exchange Virtual Desktop: 
+Use the following link to access Paya Exchange Virtual Desktop:
+
 https://www.sageexchange.com/virtualpaymentterminal/frmenvelope.aspx 
 
 ### Supported HTTP VERBS
