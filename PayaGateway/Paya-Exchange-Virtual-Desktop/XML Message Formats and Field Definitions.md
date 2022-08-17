@@ -753,3 +753,340 @@ Sale is a transaction type in which the transaction is authorized and captured i
 </Request_v1>
 
 ```
+
+### Authorization
+
+Authorization is a transaction type in which an account is verified to be valid and has not reached its limit. The total amount of the transaction is reserved against the account balance. Authorizations are used if goods are to be physically shipped or in other cases for which the merchant must first verify whether the order can be fulfilled. An approved Authorization is followed by a Capture, which prepares it for settlement.
+
+#### XML Authorization Request with User Interface Sample
+
+```XML
+<?xml version="1.0" encoding="utf-16"?> 
+<Request_v1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+  <Application> 
+    <ApplicationID>DEMO</ApplicationID> 
+    <LanguageID>EN</LanguageID> 
+  </Application> 
+  <Payments> 
+    <PaymentType> 
+      <Merchant> 
+        <MerchantID>999999999997</MerchantID> 
+        <MerchantKey>K3QD6YWyhfD</MerchantKey> 
+      </Merchant> 
+      <TransactionBase> 
+        <TransactionID>5ea9747c-12a4-46af-970f-f8a92f6d4f65</TransactionID> 
+        <TransactionType>12</TransactionType> 
+        <Reference1>INV# 886478943</Reference1> 
+        <Amount>1892.59</Amount> 
+      </TransactionBase> 
+      <Customer> 
+        <Name> 
+          <FirstName>Jane</FirstName> 
+          <MI> </MI> 
+          <LastName>Doe</LastName> 
+        </Name> 
+        <Address> 
+          <AddressLine1>67890 Road</AddressLine1> 
+          <AddressLine2></AddressLine2>           
+          <City>South Padre Island</City> 
+          <State>Texas</State> 
+          <ZipCode>78597</ZipCode> 
+          <Country>USA</Country> 
+          <EmailAddress>jane.doe@sagepayments.com</EmailAddress> 
+          <Telephone></Telephone> 
+          <Fax></Fax> 
+        </Address>       </Customer> 
+    </PaymentType> 
+  </Payments>
+  <UI>
+  	<Theme>
+  	  <MainFontColor>black</MainFontColor>  
+  	  <MainBackColor>#95bec9</MainBackColor> 
+  	  <HeaderBackColor>#cbeaf2</HeaderBackColor>
+  	  <TotalsBoxBackColor>#cbeaf2</TotalsBoxBackColor> 
+  	  <DividerBackColor>#336B87</DividerBackColor> 
+  	</Theme>
+  	<SinglePayment>
+  	  <Customer>
+  	   <Name>
+  		<FirstName>
+  		  <Enabled>true</Enabled>
+  		  <Visible>true</Visible>
+  		</FirstName>
+  		<LastName>
+  		  <Enabled>true</Enabled>
+  		  <Visible>true</Visible>
+  		</LastName>
+  	   </Name>
+  	  </Customer>
+  	</SinglePayment>
+     <Display>
+      <Header>true</Header>
+      <VaultLogo>false</VaultLogo>
+      <CardPayment>true</CardPayment>
+      <CheckPayment>true</CheckPayment>
+      <SELogo>true</SELogo>
+     </Display>
+  </UI>
+</Request_v1> 
+```
+
+#### XML Authorization Request without User Interface Sample
+
+```XML
+<?xml version="1.0" encoding="utf-16"?> 
+<Request_v1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+  <Application> 
+    <ApplicationID>DEMO</ApplicationID> 
+    <LanguageID>EN</LanguageID> 
+  </Application> 
+  <Payments> 
+    <PaymentType> 
+      <Merchant> 
+        <MerchantID>999999999997</MerchantID> 
+        <MerchantKey>K3QD6YWyhfD</MerchantKey> 
+      </Merchant> 
+      <TransactionBase> 
+        <TransactionID>e856a127-8527-431c-807f-6efacd8bdf83</TransactionID> 
+        <TransactionType>02</TransactionType> 
+        <Reference1>INV# 451777674</Reference1> 
+        <Amount>2152.92</Amount> 
+      </TransactionBase> 
+      <Customer> 
+        <Name> 
+          <FirstName>John</FirstName> 
+          <MI> </MI> 
+          <LastName>Doe</LastName> 
+        </Name> 
+        <Address> 
+          <AddressLine1>12345 Street</AddressLine1> 
+          <AddressLine2></AddressLine2>           
+          <City>South Padre Island</City> 
+          <State>Texas</State> 
+          <ZipCode>78597</ZipCode> 
+          <Country>USA</Country> 
+          <EmailAddress>john.doe@sagepayments.com</EmailAddress> 
+          <Telephone></Telephone> 
+          <Fax></Fax> 
+        </Address> 
+      </Customer> 
+      <VaultStorage> 
+        <GUID>dd83d7559a274fb2b66e774a4febced7</GUID> 
+        <Service>RETRIEVE</Service> 
+      </VaultStorage> 
+    </PaymentType> 
+  </Payments> 
+</Request_v1> 
+```
+
+### Capture
+
+Capture is a transaction type that puts an Authorization transaction into a Captured state for settlement. In the case of partial shipments, the Capture amount may be less than the Authorization amount. Captures can be initiated only after the purchased goods have been shipped. 
+
+#### XML Capture Request with User Interface
+
+```XML
+<?xml version="1.0" encoding="utf-16"?> 
+<Request_v1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+  <Application> 
+    <ApplicationID>DEMO</ApplicationID> 
+    <LanguageID>EN</LanguageID> 
+  </Application> 
+  <Payments> 
+    <PaymentType> 
+      <Merchant> 
+        <MerchantID>999999999997</MerchantID> 
+        <MerchantKey>K3QD6YWyhfD</MerchantKey> 
+      </Merchant> 
+      <TransactionBase> 
+        <TransactionID>0405aa29-9be2-4c46-b8b0-b103e25a39b6</TransactionID> 
+        <TransactionType>13</TransactionType> 
+        <Amount>4577.52</Amount> 
+        <VANReference>CBK9A0j650</VANReference> 
+      </TransactionBase> 
+    </PaymentType> 
+  </Payments>
+  <UI>
+  	<Theme>
+  	  <MainFontColor>black</MainFontColor>  
+  	  <MainBackColor>#95bec9</MainBackColor> 
+  	  <HeaderBackColor>#cbeaf2</HeaderBackColor>
+  	  <TotalsBoxBackColor>#cbeaf2</TotalsBoxBackColor> 
+  	  <DividerBackColor>#336B87</DividerBackColor> 
+  	</Theme>
+  	<SinglePayment>
+  	  <Customer>
+  	   <Name>
+  		<FirstName>
+  		  <Enabled>true</Enabled>
+  		  <Visible>true</Visible>
+  		</FirstName>
+  		<LastName>
+  		  <Enabled>true</Enabled>
+  		  <Visible>true</Visible>
+  		</LastName>
+  	   </Name>
+  	  </Customer>
+  	</SinglePayment>
+     <Display>
+      <Header>true</Header>
+      <VaultLogo>false</VaultLogo>
+      <CardPayment>true</CardPayment>
+      <CheckPayment>true</CheckPayment>
+      <SELogo>true</SELogo>
+     </Display>
+  </UI>
+</Request_v1> 
+```
+
+#### XML Capture Request without User Interface
+
+```XML
+<?xml version="1.0" encoding="utf-16"?> 
+<Request_v1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+  <Application> 
+    <ApplicationID>DEMO</ApplicationID> 
+    <LanguageID>EN</LanguageID> 
+  </Application> 
+  <Payments> 
+    <PaymentType> 
+      <Merchant> 
+        <MerchantID>999999999997</MerchantID> 
+        <MerchantKey>K3QD6YWyhfD</MerchantKey> 
+      </Merchant> 
+      <TransactionBase> 
+        <TransactionID>0405aa29-9be2-4c46-b8b0-b103e25a39b6</TransactionID> 
+        <TransactionType>03</TransactionType> 
+        <Amount>4577.52</Amount> 
+        <VANReference>CBK9A0j650</VANReference> 
+      </TransactionBase> 
+    </PaymentType> 
+  </Payments> 
+</Request_v1> 
+```
+
+### Force
+
+Force is a transaction type used to force a transaction into settlement in cases where a Sale or Authorization transaction cannot be processed and the Authorization Code is obtained from an outside source. 
+
+#### XML Force Request with User Interface Sample
+
+```XML
+<?xml version="1.0" encoding="utf-16"?> 
+<Request_v1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+  <Application> 
+    <ApplicationID>DEMO</ApplicationID> 
+    <LanguageID>EN</LanguageID> 
+  </Application> 
+  <Payments> 
+    <PaymentType> 
+      <Merchant> 
+        <MerchantID>999999999997</MerchantID> 
+        <MerchantKey>K3QD6YWyhfD</MerchantKey> 
+      </Merchant> 
+      <TransactionBase> 
+        <TransactionID>5ea9747c-12a4-46af-970f-f8a92f6d4f65</TransactionID> 
+        <TransactionType>15</TransactionType> 
+        <Reference1>INV# 886478943</Reference1> 
+        <Amount>1892.59</Amount> 
+        <AuthCode>123456</AuthCode> 
+      </TransactionBase> 
+      <Customer> 
+        <Name> 
+          <FirstName>Jane</FirstName> 
+          <MI> </MI> 
+          <LastName>Doe</LastName> 
+        </Name> 
+        <Address> 
+          <AddressLine1>67890 Road</AddressLine1> 
+          <AddressLine2></AddressLine2>           <City>South Padre Island</City> 
+          <State>Texas</State> 
+          <ZipCode>78597</ZipCode> 
+          <Country>USA</Country> 
+          <EmailAddress>jane.doe@sagepayments.com</EmailAddress> 
+          <Telephone></Telephone> 
+          <Fax></Fax> 
+        </Address>       </Customer> 
+    </PaymentType> 
+  </Payments>
+  <UI>
+  	<Theme>
+  	  <MainFontColor>black</MainFontColor>  
+  	  <MainBackColor>#95bec9</MainBackColor> 
+  	  <HeaderBackColor>#cbeaf2</HeaderBackColor>
+  	  <TotalsBoxBackColor>#cbeaf2</TotalsBoxBackColor> 
+  	  <DividerBackColor>#336B87</DividerBackColor> 
+  	</Theme>
+  	<SinglePayment>
+  	  <Customer>
+  	   <Name>
+  		<FirstName>
+  		  <Enabled>true</Enabled>
+  		  <Visible>true</Visible>
+  		</FirstName>
+  		<LastName>
+  		  <Enabled>true</Enabled>
+  		  <Visible>true</Visible>
+  		</LastName>
+  	   </Name>
+  	  </Customer>
+  	</SinglePayment>
+     <Display>
+      <Header>true</Header>
+      <VaultLogo>false</VaultLogo>
+      <CardPayment>true</CardPayment>
+      <CheckPayment>true</CheckPayment>
+      <SELogo>true</SELogo>
+     </Display>
+  </UI>
+</Request_v1> 
+```
+
+#### XML Force Request without User Interface Sample
+
+```XML
+<?xml version="1.0" encoding="utf-16"?> 
+<Request_v1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+  <Application> 
+    <ApplicationID>DEMO</ApplicationID> 
+    <LanguageID>EN</LanguageID> 
+  </Application> 
+  <Payments> 
+    <PaymentType> 
+      <Merchant> 
+        <MerchantID>999999999997</MerchantID> 
+        <MerchantKey>K3QD6YWyhfD</MerchantKey> 
+      </Merchant> 
+      <TransactionBase> 
+        <TransactionID>e856a127-8527-431c-807f-6efacd8bdf83</TransactionID> 
+        <TransactionType>05</TransactionType> 
+        <Reference1>INV# 451777674</Reference1> 
+        <Amount>2152.92</Amount> 
+        <AuthCode>123456</AuthCode> 
+      </TransactionBase> 
+      <Customer> 
+        <Name> 
+          <FirstName>John</FirstName> 
+          <MI> </MI> 
+          <LastName>Doe</LastName> 
+        </Name> 
+        <Address> 
+          <AddressLine1>12345 Street</AddressLine1> 
+          <AddressLine2></AddressLine2>           <City>South Padre Island</City> 
+          <State>Texas</State> 
+          <ZipCode>78597</ZipCode> 
+          <Country>USA</Country> 
+          <EmailAddress>john.doe@sagepayments.com</EmailAddress> 
+          <Telephone></Telephone> 
+          <Fax></Fax> 
+        </Address> 
+      </Customer> 
+      <VaultStorage> 
+        <GUID>dd83d7559a274fb2b66e774a4febced7</GUID> 
+        <Service>RETRIEVE</Service> 
+      </VaultStorage> 
+    </PaymentType> 
+  </Payments> 
+</Request_v1> 
+```
+
