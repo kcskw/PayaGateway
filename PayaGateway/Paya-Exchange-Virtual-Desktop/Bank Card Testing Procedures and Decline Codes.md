@@ -67,7 +67,7 @@ For developers who want to generate specific response codes, AVS responses, and 
 
 | Code   | Error                   | Description                                                                                                                                                                                       |
 |--------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 000000 | INTERNAL SERVER   ERROR | Server   Error, Please contact Sage for assistance or more      information                                                                                                                       |
+| 000000 | INTERNAL SERVER   ERROR | Server   Error, Please contact Paya for assistance or more      information                                                                                                                       |
 | 711711 | ERROR REVIEW REPORTING  | Please log into the Virtual Terminal to review your transaction history to determine the status of this transaction.  If you need assistance, please contact Technical Support at 877-470-4001 |
 | 900000 | INVALID   T_ORDERNUM    | Order   number value is in an invalid format                                                                                                                                                      |
 | 900001 | INVALID C_NAME          | Name value is in an invalid format or   was left blank                                                                                                                                            |
