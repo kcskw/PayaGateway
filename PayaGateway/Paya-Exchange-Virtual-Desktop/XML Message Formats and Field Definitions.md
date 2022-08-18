@@ -1090,3 +1090,89 @@ Force is a transaction type used to force a transaction into settlement in cases
 </Request_v1> 
 ```
 
+### Level 2
+
+Level2 data is additional transaction data required for Level II commercial card qualification for credit card transactions.  
+
+#### XML Level 2 Sale Request with User Interface Sample
+```XML
+<?xml version="1.0" encoding="utf-16"?> 
+<Request_v1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+  <Application> 
+    <ApplicationID>DEMO</ApplicationID> 
+    <LanguageID>EN</LanguageID> 
+  </Application> 
+  <Payments> 
+    <PaymentType> 
+      <Merchant> 
+        <MerchantID>999999999997</MerchantID> 
+        <MerchantKey>K3QD6YWyhfD</MerchantKey> 
+      </Merchant> 
+      <TransactionBase> 
+        <TransactionID>5ea9747c-12a4-46af-970f-f8a92f6d4f65</TransactionID> 
+        <TransactionType>11</TransactionType> 
+        <Reference1>INV# 886478943</Reference1> 
+        <Amount>1892.59</Amount> 
+      </TransactionBase> 
+      <Customer> 
+        <Name> 
+          <FirstName>Jane</FirstName> 
+          <MI> </MI> 
+          <LastName>Doe</LastName> 
+        </Name> 
+        <Address> 
+          <AddressLine1>67890 Road</AddressLine1> 
+          <AddressLine2></AddressLine2>           <City>South Padre Island</City> 
+          <State>Texas</State> 
+          <ZipCode>78597</ZipCode> 
+          <Country>USA</Country> 
+          <EmailAddress>jane.doe@sagepayments.com</EmailAddress> 
+          <Telephone></Telephone> 
+          <Fax></Fax> 
+        </Address> 
+      </Customer> 
+      <Level2>         <CustomerNumber>123456789012</CustomerNumber> 
+        <TaxAmount>92.59</TaxAmount> 
+      </Level2> 
+    </PaymentType> 
+  </Payments> 
+</Request_v1> 
+```
+
+### Level3Type Element
+
+*Optional*
+ 
+ ```XML
+<Level3>  
+    <Level2></Level2>  
+    <ShippingAmount></ShippingAmount>  
+    <DestinationZipCode></DestinationZipCode>  
+    <DestinationCountryCode></DestinationCountryCode>  
+    <VATNumber></VATNumber>  
+    <DiscountAmount></DiscountAmount>  
+    <DutyAmount></DutyAmount>  
+    <NationalTaxAmount></NationalTaxAmount>  
+    <VATInvoiceNumber></VATInvoiceNumber>  
+    <VATTaxAmount></VATTaxAmount>  
+    <VATTaxRate></VATTaxRate>  
+    <LineItems></LineItems>  
+</Level3>  
+```
+The Level3 element contains the optional CustomerNumber, TaxAmount, DestinationZipCode, NationalTax, VATNumber, DiscountAmount, DutyAmount, VATInvoiceNumber, VATTaxAmount, VATTaxRate, DestinationCountryCode, and LineItems elements used to qualify a Purchase Card payment for Level III. 
+
+|      Element Name                 |     Data Type                |     Length     |     Required     |     Comments                                                               |
+|-----------------------------------|------------------------------|----------------|------------------|----------------------------------------------------------------------------|
+|     Level2                        |     Level2Type               |                |     Yes          |     Contains the Level2 elements CustomerNumber   and TaxAmount     |
+|     ShippingAmount                |     decimal                  |     9          |     Yes          |     Shipping   amount charged to the transaction                           |
+|     DestinationZipCode            |     string                   |     9          |     Yes          |     Postal   zip code where the goods/services are shipped                 |
+|     VATNumber                     |     string                   |     13         |     Yes          |     Customer’s   Value Added Tax Number                                    |
+|     DiscountAmount                |     decimal                  |     9          |     Yes          |     Discount   amount applied to the transaction                           |
+|     DutyAmount                    |     decimal                  |     9          |     Yes          |     Duty   amount                                                          |
+|     VATInvoiceNumber              |     string                   |     15         |     Yes          |     Value   Added Tax invoice number                                       |
+|     VATTaxAmount                  |     decimal                  |     9          |     Yes          |     Value   Added Tax amount                                               |
+|     VATTaxRate                    |     decimal                  |     9          |     Yes          |     Value   Added Tax rate                                                 |
+|     DestinationCountryCode        |     integer                  |     3          |     Yes          |     ISO   Country Code where the goods/services are shipped                |
+|     LineItems                     |     Level3LineItemType       |                |     No           |     Contains   zero or more      Level3LineItemType   elements             |
+|     NationalTaxAmount             |     string                   |     9          |     Yes          |     National   Tax amount applied to the transaction                       |
+
