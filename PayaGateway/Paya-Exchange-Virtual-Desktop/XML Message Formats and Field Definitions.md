@@ -1176,3 +1176,84 @@ The Level3 element contains the optional CustomerNumber, TaxAmount, DestinationZ
 |     LineItems                     |     Level3LineItemType       |                |     No           |     Contains   zero or more      Level3LineItemType   elements             |
 |     NationalTaxAmount             |     string                   |     9          |     Yes          |     National   Tax amount applied to the transaction                       |
 
+### LineItems Element
+*Optional*
+
+```XML
+<LineItems>  
+    <Level3LineItemType></Level3LineItemType>  
+</LineItems> 
+```
+The LineItems element can contain zero or more Level3LineItemType elements. When more than one Level III line item is required to be processed by the calling application multiple Level3LineItemType elements are used.
+
+### Level3LineItemType Element
+*Optional*
+
+```XML
+<Level3LineItemType>  
+    <CommodityCode></CommodityCode>  
+    <Description></Description>  
+    <ProductCode></ProductCode>  
+    <Quantity></Quantity>  
+    <UnitOfMeasure></UnitOfMeasure>  
+    <UnitCost></UnitCost>  
+    <TaxAmount></TaxAmount>  
+    <TaxRate></TaxRate>  
+    <DiscountAmount></DiscountAmount>  
+    <AlternateTaxIdentifier></AlternateTaxIdentifier>  
+    <TaxTypeApplied></TaxTypeApplied>  
+    <DiscountIndicator></DiscountIndicator>  
+    <NetGrossIndicator></NetGrossIndicator>  
+    <ExtendedItemAmount></ExtendedItemAmount>  
+    <DebitCreditIndicator></DebitCreditIndicator>  
+</Level3LineItemType>  
+```
+
+The Level3LineItemType element contains the CommodityCode, Description, ProductCode, Quantity, UnitOfMeasure, UnitCost, TaxAmount, TaxRate, DiscountAmount, AlternateTaxIndentifier, TaxTypeApplied, DiscountIndicator, NetGrossIndicator, ExtendedItemAmount, DebitCreditIndicator, and TotalAmount elements.
+
+|     Element Name               |     Data Type     |     Length     |     Required     |     Comments                                                                                                               |
+|--------------------------------|-------------------|----------------|------------------|----------------------------------------------------------------------------------------------------------------------------|
+|     CommodityCode              |     string        |     12         |     Yes          |     Commodity   code that applies to the item                                                                              |
+|     Description                |     string        |     35         |     Yes          |     A   brief description of the item                                                                                      |
+|     ProductCode                |     string        |     12         |     Yes          |     Product   code that applies to the item                                                                                |
+|     Quantity                   |     integer       |     12         |     Yes          |     Quantity   of item(s) purchased                                                                                        |
+|     UnitOfMeasure              |     string        |     12         |     Yes          |     Units of measure of the item(s) purchased                                                                              |
+|     UnitCost                   |     decimal       |     9          |     Yes          |     Cost   of the item purchased                                                                                           |
+|     TaxAmount                  |     decimal       |     9          |     Yes          |     The   tax amount for the item                                                                                          |
+|     TaxRate                    |     decimal       |     5          |     Yes          |     The   tax rate for the item                                                                                            |
+|     DiscountAmount             |     decimal       |     9          |     Yes          |     Discount   amount applied to item                                                                                      |
+|     AlternateTaxIdentifier     |                   |     15         |     Yes          |                                                                                                                            |
+|     TaxTypeApplied             |                   |     4          |     Yes          |                                                                                                                            |
+|     DiscountIndicator          |     string        |     1          |     Yes          |                                                                                                                            |
+|     NetGrossIndicator          |     string        |     1          |     Yes          |                                                                                                                            |
+|     ExtendedItemAmount         |     decimal       |     9          |     Yes          |     The total amount of the individual item. = (ItemCost X Quantity) – (DiscountAmount x Quantity)     |
+|     DebitCreditIndicator       |     string        |     1          |     Yes          |                                                                                                                            |
+
+
+### Void
+Void is a transaction type that cancels a transaction that has not yet been settled.
+
+#### XML Void Request without User Interface
+
+```XML
+<?xml version="1.0" encoding="utf-16"?> 
+<Request_v1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+  <Application> 
+    <ApplicationID>DEMO</ApplicationID> 
+    <LanguageID>EN</LanguageID> 
+  </Application> 
+  <Payments> 
+    <PaymentType> 
+      <Merchant> 
+        <MerchantID>999999999997</MerchantID> 
+        <MerchantKey>K3QD6YWyhfD</MerchantKey> 
+      </Merchant> 
+      <TransactionBase> 
+        <TransactionID>782ad8d0-0dd2-4763-8d64-cc9fddfad441</TransactionID> 
+        <TransactionType>04</TransactionType> 
+        <VANReference>ABL9LKQaI0</VANReference> 
+      </TransactionBase> 
+    </PaymentType> 
+  </Payments> 
+</Request_v1> 
+```
