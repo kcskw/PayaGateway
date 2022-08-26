@@ -1452,20 +1452,20 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <?xml version="1.0" encoding="utf-16"?> 
 <Request_v1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
 <Application> 
-<ApplicationID>DEMO</ApplicationID> 
-<LanguageID>EN</LanguageID> 
+    <ApplicationID>DEMO</ApplicationID> 
+    <LanguageID>EN</LanguageID> 
 </Application> 
 <VaultOperation> 
-<Merchant> 
-<MerchantID>999999999997</MerchantID> 
-<MerchantKey>K3QD6YWyhfD</MerchantKey> 
-</Merchant> 
-<VaultStorage> 
-<Service>RETRIEVE</Service> 
-<GUID>sfdas-ee3u38d-dagdi3-efad83</GUID> 
-</VaultStorage> 
-<VaultID>2341234-12431243-2341235</VaultID> 
-</VaultOperation> 
+    <Merchant> 
+        <MerchantID>999999999997</MerchantID> 
+        <MerchantKey>K3QD6YWyhfD</MerchantKey> 
+    </Merchant> 
+    <VaultStorage> 
+        <Service>RETRIEVE</Service> 
+        <GUID>sfdas-ee3u38d-dagdi3-efad83</GUID> 
+    </VaultStorage> 
+    <VaultID>2341234-12431243-2341235</VaultID> 
+    </VaultOperation> 
 </Request_v1> 
 ``` 
  	 
@@ -1474,27 +1474,27 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <?xml version="1.0" encoding="utf-16"?> 
 <Request_v1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
 <Application> 
-<ApplicationID>DEMO</ApplicationID> 
-<LanguageID>EN</LanguageID> 
+    <ApplicationID>DEMO</ApplicationID> 
+    <LanguageID>EN</LanguageID> 
 </Application> 
 <VaultOperation> 
-<Merchant> 
-<MerchantID>999999999997</MerchantID> 
-<MerchantKey>K3QD6YWyhfD</MerchantKey> 
-</Merchant> 
-<VaultStorage> 
-<Service>UPDATE</Service> 
-<GUID>sfdas-ee3u38d-dagdi3-efad83</GUID> 
-</VaultStorage> 
-<VaultID>2341234-12431243-2341235</VaultID> </VaultOperation> 
-
-<UI> 
-<VaultOperation> 
-<AccountNumber> 
-<Enabled>true</Enabled> 
-<Visible>false</Visible> 
-</AccountNumber> 
+    <Merchant> 
+        <MerchantID>999999999997</MerchantID> 
+        <MerchantKey>K3QD6YWyhfD</MerchantKey> 
+    </Merchant> 
+    <VaultStorage> 
+        <Service>UPDATE</Service> 
+        <GUID>sfdas-ee3u38d-dagdi3-efad83</GUID> 
+    </VaultStorage> 
+    <VaultID>2341234-12431243-2341235</VaultID>
 </VaultOperation> 
+<UI> 
+    <VaultOperation> 
+        <AccountNumber> 
+            <Enabled>true</Enabled> 
+            <Visible>false</Visible> 
+        </AccountNumber> 
+    </VaultOperation> 
 </UI> 
 </Request_v1> 
 ``` 
@@ -1504,28 +1504,28 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <?xml version="1.0" encoding="utf-16"?> 
 <Request_v1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
 <Application> 
-<ApplicationID>DEMO</ApplicationID> 
-<LanguageID>EN</LanguageID> 
+    <ApplicationID>DEMO</ApplicationID> 
+    <LanguageID>EN</LanguageID> 
 </Application> 
 <VaultOperation> 
-<Merchant> 
-<MerchantID>999999999997</MerchantID> 
-<MerchantKey>K3QD6YWyhfD</MerchantKey> 
-</Merchant> 
-<VaultStorage> 
-<Service>UPDATE</Service> 
-<GUID>sfdas-ee3u38d-dagdi3-efad83</GUID> 
-</VaultStorage> 
-<VaultID>2341234-12431243-2341235</VaultID> 
+    <Merchant> 
+        <MerchantID>999999999997</MerchantID> 
+        <MerchantKey>K3QD6YWyhfD</MerchantKey> 
+    </Merchant> 
+    <VaultStorage> 
+        <Service>UPDATE</Service> 
+        <GUID>sfdas-ee3u38d-dagdi3-efad83</GUID> 
+    </VaultStorage> 
+    <VaultID>2341234-12431243-2341235</VaultID> 
 </VaultOperation> 
-<UI> 
-<VaultOperation> 
-<AccountNumber> 
-<Enabled>false</Enabled> 
-<Visible>true</Visible> 
-</AccountNumber> 
-</VaultOperation> 
-</UI> 
+    <UI> 
+        <VaultOperation> 
+            <AccountNumber> 
+                <Enabled>false</Enabled> 
+                <Visible>true</Visible> 
+            </AccountNumber> 
+        </VaultOperation> 
+    </UI> 
 </Request_v1> 
 ``` 
  	 
@@ -2139,153 +2139,138 @@ The Level2 element contains the CustomerNumber and TaxAmount elements used to qu
  
 The Level3 element contains the optional CustomerNumber, TaxAmount, DestinationZipCode, NationalTax, VATNumber, DiscountAmount, DutyAmount, VATInvoiceNumber, VATTaxAmount, VATTaxRate, DestinationCountryCode, and LineItems elements used to qualify a Purchase Card payment for Level III.  If both Level3 and Level2 elements are present Level3 will supersede Level2. 
  
-Element Name 	Data Type 	Length 	Required 	Comments 
-Level2 	Level2Type 	 	Yes 	Contains the Level2 elements 
-CustomerNumber and TaxAmount 
-ShippingAmount 	decimal 	9 	Yes 	Shipping amount charged to the transaction 
-DestinationZipCode 	string 	9 	Yes 	Postal zip code where the goods/services are shipped 
-VATNumber 	string 	13 	Yes 	Customer’s Value Added Tax Number 
-DiscountAmount 	decimal 	9 	Yes 	Discount amount applied to the transaction 
-DutyAmount 	decimal 	9 	Yes 	Duty amount 
-VATInvoiceNumber 	string 	15 	Yes 	Value Added Tax invoice number 
-VATTaxAmount 	decimal 	9 	Yes 	Value Added Tax amount 
-VATTaxRate 	decimal 	9 	Yes 	Value Added Tax rate 
-DestinationCountryCode 	integer 	3 	Yes 	ISO Country Code where the goods/services are shipped 
-Element Name 	Data Type 	Length 	Required 	Comments 
-LineItems 	Level3LineItemT	 	No 	Contains zero or more 
-NationalTaxAmount 	yDecipe mal 	9 	Yes 	evNaetiol3Lnianle Tax aItemTmyopeun elet ampplieentds  to the 
-transaction 
+|     Element Name                         |  Data Type             |     Length     |     Required     |     Comments                                                  |
+|------------------------------------------|------------------------|----------------|------------------|---------------------------------------------------------------|
+|     Level2                               |     Level2Type         |                |     Yes          |     Contains the Level2 elements CustomerNumber and TaxAmount |
+|     ShippingAmount                       |     decimal            |     9          |     Yes          |     Shipping amount charged to the transaction                |
+|     DestinationZipCode                   |     string             |     9          |     Yes          |     Postal zip code where the goods/services are shipped      |
+|     VATNumber                            |     string             |     13         |     Yes          |     Customer’s Value Added Tax Number                         |
+|     DiscountAmount                       |     decimal            |     9          |     Yes          |     Discount amount applied to the transaction                |
+|     DutyAmount                           |     decimal            |     9          |     Yes          |     Duty amount                                               |
+|     VATInvoiceNumber                     |     string             |     15         |     Yes          |     Value Added Tax invoice number                            |
+|     VATTaxAmount                         |     decimal            |     9          |     Yes          |     Value Added Tax amount                                    |
+|     VATTaxRate                           |     decimal            |     9          |     Yes          |     Value Added Tax rate                                      |
+|     DestinationCountryCode               |     integer            |     3          |     Yes          |     ISO Country Code where the goods/services are shipped     |
+|     LineItems                            |     Level3LineItemType |                |     No           |     Contains zero or more Level3LineItemType elements         |
+|     NationalTaxAmount                    |     decimal            |     9          |     Yes          |     National Tax amount applied to the transaction            |
  
-LineItems Element 
-Optional 
- 
+### LineItems Element 
+*Optional*
+
+```XML
 <LineItems> 
-< Level3LineItemType></ Level3LineItemType> 
+    <Level3LineItemType></Level3LineItemType>
 </LineItems> 
+```
  
 The LineItems element can contain zero or more Level3LineItemType elements. When more than one Level III line item is required to be processed by the calling application multiple Level3LineItemType elements are used. 
-Level3LineItemType Element 
-Optional 
- 
+
+### Level3LineItemType Element 
+*Optional*
+
+```XML
 <Level3LineItemType> 
-<CommodityCode></CommodityCode> 
-<Description></Description> 
-<ProductCode></ProductCode> 
-<Quantity></Quantity> 
-<UnitOfMeasure></UnitOfMeasure> 
-<UnitCost></UnitCost> 
-<TaxAmount></TaxAmount> 
-<TaxRate></TaxRate> 
-<DiscountAmount></DiscountAmount> 
-<AlternateTaxIdentifier></AlternateTaxIdentifier> 
-<TaxTypeApplied></TaxTypeApplied> 
-<DiscountIndicator></DiscountIndicator> 
-<NetGrossIndicator></NetGrossIndicator> 
-<ExtendedItemAmount></ExtendedItemAmount> 
-<DebitCreditIndicator></DebitCreditIndicator> 
-</Level3LineItemType> 
+    <CommodityCode></CommodityCode> 
+    <Description></Description> 
+    <ProductCode></ProductCode> 
+    <Quantity></Quantity> 
+    <UnitOfMeasure></UnitOfMeasure> 
+    <UnitCost></UnitCost> 
+    <TaxAmount></TaxAmount> 
+    <TaxRate></TaxRate> 
+    <DiscountAmount></DiscountAmount> 
+    <AlternateTaxIdentifier></AlternateTaxIdentifier> 
+    <TaxTypeApplied></TaxTypeApplied> 
+    <DiscountIndicator></DiscountIndicator> 
+    <NetGrossIndicator></NetGrossIndicator> 
+    <ExtendedItemAmount></ExtendedItemAmount> 
+    +<DebitCreditIndicator></DebitCreditIndicator> 
+</Level3LineItemType>
+```
  
-The Level3LineItemType element contains the CommodityCode, Description, ProductCode, Quantity, 
-UnitOfMeasure, UnitCost, TaxAmount, TaxRate, DiscountAmount, AlternateTaxIndentifier, TaxTypeApplied, DiscountIndicator, NetGrossIndicator, ExtendedItemAmount, DebitCreditIndicator, and TotalAmount elements. 
+The Level3LineItemType element contains the CommodityCode, Description, ProductCode, Quantity, UnitOfMeasure, UnitCost, TaxAmount, TaxRate, DiscountAmount, AlternateTaxIndentifier, TaxTypeApplied, DiscountIndicator, NetGrossIndicator, ExtendedItemAmount, DebitCreditIndicator, and TotalAmount elements. 
  
-Element Name 	Data Type 	Length 	Required 	Comments 
-CommodityCode 	string 	12 	Yes 	Commodity code that applies to the item 
-Description 	string 	35 	Yes 	A breif description of the item 
-ProductCode 	string 	12 	Yes 	Product code that applies to the item 
-Quantity 	integer 	12 	Yes 	Quantity of item(s) purchased 
-UnitOfMeasure 	string 	12 	Yes 	Units of measure of the item(s) purchased 
-UnitCost 	decimal 	9 	Yes 	Cost of the item purchased 
-TaxAmount 	decimal 	9 	Yes 	The tax amount for the item 
-TaxRate 	decimal 	5 	Yes 	The tax rate for the item 
-DiscountAmount 	decimal 	9 	Yes 	Discount amount applied to item 
-Element Name 	Data Type 	Length 	Required 	Comments 
-AlternateTaxIdentifier 	 	15 	Yes 	 
-TaxTypeApplied 	 	4 	Yes 	 
-DiscountIndicator 	string 	1 	Yes 	 
-NetGrossIndicator 	string 	1 	Yes 	 
-ExtendedItemAmount 	decimal 	9 	Yes 	The total amount of the individual item. 
-= ( ItemCost X Quantity ) – ( 
-DiscountAmount x Quantity 
-DebitCreditIndicator 	string 	1 	Yes 	) 
-VaultStorageType Element 
-Optional 
- 
+|     Element Name               |     Data Type     |     Length     |     Required     |     Comments                                                                                    |
+|--------------------------------|-------------------|----------------|------------------|-------------------------------------------------------------------------------------------------|
+|     CommodityCode              |     string        |     12         |     Yes          |     Commodity code that applies to the item                                                     |
+|     Description                |     string        |     35         |     Yes          |     A breif description of the item                                                             |
+|     ProductCode                |     string        |     12         |     Yes          |     Product code that applies to the item                                                       |
+|     Quantity                   |     integer       |     12         |     Yes          |     Quantity of item(s) purchased                                                               |
+|     UnitOfMeasure              |     string        |     12         |     Yes          |     Units of measure of the item(s) purchased                                                   |
+|     UnitCost                   |     decimal       |     9          |     Yes          |     Cost of the item purchased                                                                  |
+|     TaxAmount                  |     decimal       |     9          |     Yes          |     The tax amount for the item                                                                 |
+|     TaxRate                    |     decimal       |     5          |     Yes          |     The tax rate for the item                                                                   |
+|     DiscountAmount             |     decimal       |     9          |     Yes          |     Discount amount applied to item                                                             |
+|     AlternateTaxIdentifier     |                   |     15         |     Yes          |                                                                                                 |
+|     TaxTypeApplied             |                   |     4          |     Yes          |                                                                                                 |
+|     DiscountIndicator          |     string        |     1          |     Yes          |                                                                                                 |
+|     NetGrossIndicator          |     string        |     1          |     Yes          |                                                                                                 |
+|     ExtendedItemAmount         |     decimal       |     9          |     Yes          |  The total amount of the individual item. = (ItemCost X Quantity) – (DiscountAmount x Quantity) |
+|     DebitCreditIndicator       |     string        |     1          |     Yes          |                                                                                                 |
+
+### VaultStorageType Element 
+*Optional*
+
+```XML
 <VaultStorage> 
-<Service></Service> 
-<GUID></GUID> 
+    <Service></Service> 
+    <GUID></GUID> 
 </VaultStorage> 
- 
+```
+
 The Vault element contains the Service, and GUID elements. 
+ |     Element Name     |     Data Type            |  Length    |     Required     |     Comments                                                                                                                                                                                                                               |
+|----------------------|--------------------------|------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     Service          |     VaultServiceType     |            |     Yes          | Used to indicate the Vault operation. <br>     <br>RETRIEVE = Pull data from Vault for processing  <br>    <br>UPDATE = Update data in Vault with new data captured  <br>     <br>CREATE = Insert data in the Vault with data captured     |
+|     GUID             |     string               |     36     |     NO           | The the Vault GUID referencing a previous payment captured in the Vault. Payment information will not need to be captured and instead it is retrieved from the Vault.                                                                      |
+
+### RecurringType Element 
+ *Optional*
  
-Element Name 	Data Type 	Length 	Required 	Comments 
-Service 	VaultServiceTy pe 	 	Yes 	Used to indicate the Vault operation. 
- 
-RETRIEVE = Pull data from Vault for processing 
- 
-UPDATE = Update data in Vault with new data captured 
- 
-CREATE = Insert data in the Vault with data captured 
-GUID 	string 	36 	NO 	The the Vault GUID referencing a previous payment 
-captured in the Vault.  Payment infromation will not need to be captured and instead it is retieved from the Vault. 
-RecurringType Element 
-Optional 
- 
+ ```XML
 <Recurring> 
-<Schedule></Schedule> 
-<Interval></Interval> 
-<DayOfMonth></DayOfMonth> 
-<StartDate></StartDate> 
-<Amount></Amount> 
-<TimesToProcess></TimesToProcess> 
-<NonBusinessDay></NonBusinessDay> 
-</Recurring> 
- 
+    <Schedule></Schedule> 
+    <Interval></Interval> 
+    <DayOfMonth></DayOfMonth> 
+    <StartDate></StartDate> 
+    <Amount></Amount> 
+    <TimesToProcess></TimesToProcess> 
+    <NonBusinessDay></NonBusinessDay> 
+</Recurring>
+```
+
 The Recurring element contains the ScheduleType, ScheduleInterval, DayOfMonth, StartDate, Amount, TimesToProcess, and NonBusinessDay elements. 
  
-Element Name 	Data Type 	Length 	Required 	Comments 
-Schedule 	ScheduleType 	 	Yes 	The schedule type for the recurring transaction 
- 
-DAILY = Schedule will be based on day 
- 
-MONTHLY = Schedule will be based on month 
-Interval 	integer 	6 	No 	The interval between processing, 
-Example: Every Other Month 
- 
-Schedule = 
-MONTHLY 
-Interval = 2 
-DayOfMonth 	integer 	2 	No 	The day of the month to process the payment on when schedule is based monthly 
-StartDate 	string 	10 	No 	Format MM/DD/YYYY 
-Amount 	decimal 	9 	No 	The amount to charge, if different than the payment amount 
-TimesToProcess 	integer 	6 	No 	The number of payments to process -1 = Indefinite 
-NonBusinessDay 	NonBusinessDayType 	1 	No 	How to handle processing when the date is a 
-non business day 
- 
-THATDAY = Transaction is processed that day 
- 
-BEFORE = Trnasaction is 
-proccessed the day before 
- 
-AFTER = Transaction is processed on the next business day 
-BatchType Element 
-Optional 
- 
+|     Element Name       | Data Type                    | Length     | Required    | Comments                                                                                                                                                                                                                                        |
+|------------------------|------------------------------|------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     Schedule           |     ScheduleType             |            |     Yes     | The schedule type for the recurring transaction  <br> <br>DAILY = Schedule will be based on day  <br> <br>MONTHLY = Schedule will be based on month                                                                                             |
+|     Interval           |     integer                  |     6      |     No      | The interval between processing,  <br>Example: Every Other Month  <br> <br>Schedule = MONTHLY    <br> <br>Interval = 2                                                                                                                          |
+|     DayOfMonth         |     integer                  |     2      |     No      | The day of the month to process the payment on when schedule is based monthly                                                                                                                                                                   |
+|     StartDate          |     string                   |     10     |     No      | Format MM/DD/YYYY                                                                                                                                                                                                                               |
+|     Amount             |     decimal                  |     9      |     No      | The amount to charge, if different than the payment amount                                                                                                                                                                                      |
+|     TimesToProcess     |     integer                  |     6      |     No      | The number of payments to process -1 = Indefinite                                                                                                                                                                                               |
+|     NonBusinessDay     |     NonBusinessDayType       |     1      |     No      | How to handle processing when the date is a non-business day <br> <br>THATDAY = Transaction is processed that day  <br> <br>BEFORE = Transaction is processed the day before <br> <br>AFTER = Transaction is processed on the next business day |
+
+### BatchType Element 
+*Optional*
+
+```XML
 <BatchType> 
-<Merchant></Merchant> 
-<Net></Net> 
-<Count></Count> 
-<BatchPayment></BatchPayment> 
+    <Merchant></Merchant> 
+    <Net></Net> 
+    <Count></Count> 
+    <BatchPayment></BatchPayment> 
 </BatchType> 
+```
  
 The BatchType element refers to a single payment and must contain a Merchant and BatchPayment element and may contain the optional Net and Count elements. 
  
-Element Name 	Data Type 	Length 	Required 	Comments 
-Merchant 	MerchantType 	 	Yes 	Contains the elements related to the merchant account batch. 
-Net 	decimal 	 	No 	The transaction total net amount of the batch being settled 
-Count 	integer 	 	No 	The transaction count of the batch being settled 
-BatchPayment 	BatchPaymentT ype 	 	Yes 	The payment type of batch being settled. CREDITCARD = Standard 
-Credit Card transactions 
-PURCHASECARD = Level III qualified transactions 
+|     Element Name     |     Data Type            |  Length  |     Required     |     Comments                                                                                                                                                  |
+|----------------------|--------------------------|----------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     Merchant         |     MerchantType         |          |     Yes          | Contains the elements related to the merchant account batch.                                                                                                  |
+|     Net              |     decimal              |          |     No           | The transaction total net amount of the batch being settled                                                                                                   |
+|     Count            |     integer              |          |     No           | The transaction count of the batch being settled                                                                                                              |
+|     BatchPayment     |     BatchPaymentType     |          |     Yes          | The payment type of batch being settled.   <br>CREDITCARD = Standard  <br> <br>Credit Card transactions  <br>PURCHASECARD = Level III qualified transactions  |
  
  
 PostbackType Element 
