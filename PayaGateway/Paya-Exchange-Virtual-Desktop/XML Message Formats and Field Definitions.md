@@ -2665,7 +2665,7 @@ The RecurringStatusQueryResponseType element contains the response elements rela
 | VaultAccount | VaultAccountType          |        | Yes      | Contains the account elements provided in the Request                  |
 | Merchant     | TransactionSettlementType | Array  | Yes      | Contains the newly created MerchantID and MerchantKey elements         |
  
-### AccountQeuryResponseType Element 
+### AccountQueryResponseType Element 
 ```XML
 <AccountQueryResponseType> 
     <Response></Response> 
@@ -2677,97 +2677,85 @@ The RecurringStatusQueryResponseType element contains the response elements rela
 
 The AccountQueryResponseType element contains the response elements related to a merchant account status and service list inquiry. 
  
-Element Name 	Data Type 	Length Required Comments 
-Response 	ResponseType 	 	Yes 	Contains the response elements related to the account inquiry request 
-Merchant 	MerchantType 	 	Yes 	Contains the account elements provided in the request 
-Services 	string 	Array 	Yes 	Contains the an array of service descriptions available to a merchant account. 
- 
-VAULT = “Vault storage service” 
-CREDITCARD = “Credit Card payment service” 
-Active 	boolean 	 	Yes 	The status of the merchant account 
-Field Validation 
+| Element Name | Data Type    | Length   | Required | Comments                                                                                                                                                                    |
+|--------------|--------------|----------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Response     | ResponseType |          | Yes      | Contains the response elements related to the account inquiry request                                                                                                       |
+| Merchant     | MerchantType |          | Yes      | Contains the account elements provided in the request                                                                                                                       |
+| Services     | string       | Array    | Yes      | Contains the an array of service descriptions available to a merchant account.  <br>    <br>VAULT = “Vault storage service”  <br>CREDITCARD = “Credit Card payment service” |
+| Active       | boolean      |          | Yes      | The status of the merchant account                                                                                                                                          |
+
+## Field Validation 
 XML reserved characters must be observed and encoded appropriately. 
  
-Alpha Numeric Fields* 
+### Alpha Numeric Fields* 
 The following is a list of accepted characters for Alpha Numeric fields: 
  
-White Space a-z 
+White Space 
+a-z 
 A-Z 
- 
 0-9 
- 
 -.,#&()/!'éèêëòóôõöàáâãäåìíîïùúûüýÿ 
  
- 
- 
-Numeric Fields* 
+
+### Numeric Fields* 
 The following is a list of accepted characters for Numeric fields: 
  
 0-9 
- 
 ,.- 
- 
- 
- 
  
 *The use of two or more dashes -- back to back is not permitted in any of the fields. 
  
  
-Gateway Error Codes 
+### Gateway Error Codes 
  
- 
-Code 	Message 	Description 
-000000 	INTERNAL SERVER ERROR 	Server Error 
-900000 	INVALID T_ORDERNUM 	Order number value is in an invalid format 
-900001 	INVALID C_NAME 	Name value is in an invalid format or was left blank 
-900002 	INVALID C_ADDRESS 	Address value is in an invalid format or was left blank 
-900003 	INVALID C_CITY 	City value is in an invalid format or was left blank 
-900004 	INVALID C_STATE 	State value is in an invalid format or was left blank 
-900005 	INVALID C_ZIP 	Zip code value is in an invalid format or was left blank 
-900006 	INVALID C_COUNTRY 	Country value is in an invalid format or was left blank 
-900007 	INVALID C_TELEPHONE 	Telephone value is in an invalid format or was left blank 
-900008 	INVALID C_FAX 	Fax value is in an invalid format or was left blank 
-900009 	INVALID C_EMAIL 	Email value is in an invalid format or was left blank 
-900010 	INVALID C_SHIP_NAME 	Shipping address name value is in an invalid format 
-900011 	INVALID_C_SHIP_ADDRESS 	Shipping Address value is in an invalid format 
-900012 	INVALID_C_SHIP_CITY 	Shipping city value is in an invalid format 
-900013 	INVALID_C_SHIP_STATE 	Shipping state value is in an invalid format 
-900014 	INVALID_C_SHIP_ZIP 	Shipping zip code value is in an invalid format 
-900015 	INVALID_C_SHIP_COUNTRY 	Shipping country value is in an invalid format 
-900016 	INVALID_C_CARDNUMBER 	Credit card number value is in an invalid format 
-900017 	INVALID_C_EXP 	Expiration date value is in an invalid format 
-900018 	INVALID_C_CVV 	CVV (card verification value) value is in an invalid format or was left blank (if set to required) 
-900019 	INVALID_T_AMT 	Grand Total must equal > $0.00. Please check subtotal, shipping and tax values. 
-900020 	INVALID_T_CODE 	Transaction Code value is in an invalid format or was left blank 
-900021 	INVALID_T_AUTH 	Authorization code is in an invalid format or was left blank (required for Force transactions) 
-900022 	INVALID_T_REFERENCE 	Reference value is in an invalid format or was left blank (Required for Force or Void by Reference) 
-900023 	INVALID_T_TRACKDATA 	Track Data value is in an invalid format or was left blank (required for debit and retail transactions) 
-900024 	INVALID_T_TRACKING_NUMBE
-R 	Tracking number value is in an invalid format 
-900025 	INVALID_T_CUSTOMER_NUMB
-ER 	Customer number value is in an invalid format (used only for PCLIII transactions) 
-900026 	INVALID_T_SHIPPING_COMPA NY 	Shipping company value is in an invalid format 
-900027 	INVALID_T_RECURRING 	Recurring value is in an invalid format (must be = 0 or 1) 
-900028 	INVALID_T_RECURRING_TYPE 	Recurring value is in an invalid format 
-900029 	INVALID_T_RECURRING_INTER VAL 	Recurring interval value is in an invalid format (must be numeric) 
-900030 	INVALID_T_RECURRING_INDEF
-INITE 	Recurring indefinite value is in an invalid format or was left blank 
-900031 	INVALID_T_RECURRING_TIMES _TO_PROCESS 	Recurring times to process value is in an invalid format (must be numeric) 
-900032 	INVALID_T_RECURRING_NON_ BUSINESS_DAY 	Recurring non business days value is in an invalid format 
-Code 	Message 	Description 
-900033 	INVALID_T_RECURRING_GROU
-P 	Recurring Group was left blank or group not found 
-900034 	INVALID_T_RECURRING_START _DATE 	Recurring start date value is in an invalid format or was left blank 
-900035 	INVALID_T_PIN 	Pin number entered is incorrect (required for Pin- debit transactions) 
-901000 	 	General data validation error, the message will contain additional information 
-910000 	SERVICE NOT ALLOWED 	The transaction you are trying to submit is not allowed. 
-910001 	VISA NOT ALLOWED 	Visa card type transactions are not allowed. 
-910002 	MASTERCARD NOT ALLOWED 	MasterCard card type transactions are not allowed. 
-910003 	AMEX NOT ALLOWED 	American Express card type transactions are not allowed. 
-910004 	DISCOVER NOT ALLOWED 	Discover card type transactions are not allowed. 
-910005 	CARD TYPE NOT ALLOWED 	Card type transactions are not allowed. 
-911911 	SECURITY VIOLATION 	M_id or M_key incorrect 
-920000 	ITEM NOT FOUND 	Item not found 
-920001 	CERDIT VOL EXCEEDED 	No corresponding sale found within last 6 months, credit couldn’t be issued. 
-920002 	AVS FAILURE 	Address Verification Service failure. 
-920050 	DEBIT VOID NOT ALLOWED 	A debit transaction cannot be voided. 
+| Code           | Message                                        | Description                                                                                                     |
+|----------------|------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+|     000000     |     INTERNAL SERVER ERROR                      |     Server Error                                                                                                |
+|     900000     |     INVALID T_ORDERNUM                         |     Order number value is in an invalid format                                                                  |
+|     900001     |     INVALID C_NAME                             |     Name value is in an invalid format or was left blank                                                        |
+|     900002     |     INVALID C_ADDRESS                          |     Address value is in an invalid format or was left blank                                                     |
+|     900003     |     INVALID C_CITY                             |     City value is in an invalid format or was left blank                                                        |
+|     900004     |     INVALID C_STATE                            |     State value is in an invalid format or was left blank                                                       |
+|     900005     |     INVALID C_ZIP                              |     Zip code value is in an invalid format or was left blank                                                    |
+|     900006     |     INVALID C_COUNTRY                          |     Country value is in an invalid format or was left blank                                                     |
+|     900007     |     INVALID C_TELEPHONE                        |     Telephone value is in an invalid format or was left blank                                                   |
+|     900008     |     INVALID C_FAX                              |     Fax value is in an invalid format or was left blank                                                         |
+|     900009     |     INVALID C_EMAIL                            |     Email value is in an invalid format or was left blank                                                       |
+|     900010     |     INVALID C_SHIP_NAME                        |     Shipping address name value is in an invalid format                                                         |
+|     900011     |     INVALID_C_SHIP_ADDRESS                     |     Shipping address value is in an invalid format                                                              |
+|     900012     |     INVALID_C_SHIP_CITY                        |     Shipping city value is in an invalid format                                                                 |
+|     900013     |     INVALID_C_SHIP_STATE                       |     Shipping state value is in an invalid format                                                                |
+|     900014     |     INVALID_C_SHIP_ZIP                         |     Shipping zip code value is in an invalid format                                                             |
+|     900015     |     INVALID_C_SHIP_COUNTRY                     |     Shipping country value is in an invalid format                                                              |
+|     900016     |     INVALID_C_CARDNUMBER                       |     Credit card number value is in an invalid format                                                            |
+|     900017     |     INVALID_C_EXP                              |     Expiration date value is in an invalid format                                                               |
+|     900018     |     INVALID_C_CVV                              |     CVV (card verification value) value is in an invalid format or was left blank (if set to required)          |
+|     900019     |     INVALID_T_AMT                              |     Grand Total must equal > $0.00. Please check subtotal, shipping and tax values.                             |
+|     900020     |     INVALID_T_CODE                             |     Transaction Code value is in an invalid format or was left blank                                            |
+|     900021     |     INVALID_T_AUTH                             |     Authorization code is in an invalid format or was left blank (required for Force transactions)              |
+|     900022     |     INVALID_T_REFERENCE                        |     Reference value is in an invalid format or was left blank (required for Force or Void by Reference)         |
+|     900023     |     INVALID_T_TRACKDATA                        |     Track Data value is in an invalid format or was left blank (required for debit and retail transactions)     |
+|     900024     |     INVALID_T_TRACKING_NUMBER                  |     Tracking number value is in an invalid format                                                               |
+|     900025     |     INVALID_T_CUSTOMER_NUMBER                  |     Customer number value is in an invalid format (used only for PCLIII transactions)                           |
+|     900026     |     INVALID_T_SHIPPING_COMPANY                 |     Shipping company value is in an invalid format                                                              |
+|     900027     |     INVALID_T_RECURRING                        |     Recurring value is in an invalid format (must be = 0 or 1)                                                  |
+|     900028     |     INVALID_T_RECURRING_TYPE                   |     Recurring value is in an invalid format                                                                     |
+|     900029     |     INVALID_T_RECURRING_INTERVAL               |     Recurring interval value is in an invalid format (must be numeric)                                          |
+|     900030     |     INVALID_T_RECURRING_INDEFINITE             |     Recurring indefinite value is in an invalid format or was left blank                                        |
+|     900031     |     INVALID_T_RECURRING_TIMES_TO_PROCESS       |     Recurring times to process value is in an invalid format (must be numeric)                                  |
+|     900032     |     INVALID_T_RECURRING_NON_BUSINESS_DAY       |     Recurring non business days value is in an invalid format                                                   |
+|     900033     |     INVALID_T_RECURRING_GROUP                  |     Recurring Group was left blank or group not found                                                           |
+|     900034     |     INVALID_T_RECURRING_START_DATE             |     Recurring start date value is in an invalid format or was left blank                                        |
+|     900035     |     INVALID_T_PIN                              |     Pin number entered is incorrect (required for Pin- debit transactions)                                      |
+|     901000     |                                                |     General data validation error, the message will contain additional information                              |
+|     910000     |     SERVICE NOT ALLOWED                        |     The transaction you are trying to submit is not allowed.                                                    |
+|     910001     |     VISA NOT ALLOWED                           |     Visa card type transactions are not allowed.                                                                |
+|     910002     |     MASTERCARD NOT ALLOWED                     |     MasterCard card type transactions are not allowed.                                                          |
+|     910003     |     AMEX NOT ALLOWED                           |     American Express card type transactions are not allowed.                                                    |
+|     910004     |     DISCOVER NOT ALLOWED                       |     Discover card type transactions are not allowed.                                                            |
+|     910005     |     CARD TYPE NOT ALLOWED                      |     Card type transactions are not allowed.                                                                     |
+|     911911     |     SECURITY VIOLATION                         |     M_id or M_key incorrect                                                                                     |
+|     920000     |     ITEM NOT FOUND                             |     Item not found                                                                                              |
+|     920001     |     CERDIT VOL EXCEEDED                        |     No corresponding sale found within last 6 months, credit couldn’t be issued.                                |
+|     920002     |     AVS FAILURE                                |     Address Verification Service failure.                                                                       |
+|     920050     |     DEBIT VOID NOT ALLOWED                     |     A debit transaction cannot be voided.                                                                       |
