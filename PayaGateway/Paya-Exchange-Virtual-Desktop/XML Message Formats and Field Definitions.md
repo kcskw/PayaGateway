@@ -2273,405 +2273,408 @@ The BatchType element refers to a single payment and must contain a Merchant and
 |     BatchPayment     |     BatchPaymentType     |          |     Yes          | The payment type of batch being settled.   <br>CREDITCARD = Standard  <br> <br>Credit Card transactions  <br>PURCHASECARD = Level III qualified transactions  |
  
  
-PostbackType Element 
-Optional 
+### PostbackType Element 
+*Optional*
  
+```XML
 <Postback> 
-<HttpsUrl></HttpsUrl> 
+    <HttpsUrl></HttpsUrl> 
 </Postback> 
- 
+```
+
 The PostbackType element refers to a URL in which transaction response data should be sent after processing and must contain a HttpsUrl element. 
  
-Element Name 	Data Type 	Length 	Required 	Comments 
-HttpsUrl 	string 	1024 	Yes 	The absolute URL to POST transaction response data back to. The communication requires SSL.  This is to be used in integrations in which response handling is disconnected or in which response data should be delivered to a remote server. 
-CompanyType Element 
-Optional 
- 
+|     Element Name     |     Data Type     |     Length     |     Required     |     Comments                                                                                                                                                                                                                                                 |
+|----------------------|-------------------|----------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     HttpsUrl         |     string        |     1024       |     Yes          |     The   absolute URL to POST transaction response data back to. The communication   requires SSL.  This is to be used in   integrations in which response handling is disconnected or in which response   data should be delivered to a remote server.     |
+
+### CompanyType Element 
+*Optional* 
+
+```XML
 <Company> 
-<Name></Name> 
-<Address></Address> 
+    <Name></Name> 
+    <Address></Address> 
 </Company> 
+```
  
 The CompanyType element refers to a Company and must contain a Name element and optional Address element. 
  
-Element Name 	Data Type 	Length 	Required 	Comments 
-Name 	string 	50 	Yes 	The company’s DBA. 
-Address 	AddressType 		No 	The company’s mailing address. 
+|     Element Name     |     Data Type       Length     |            |     Required     |     Comments                           |
+|----------------------|--------------------------------|------------|------------------|----------------------------------------|
+|     Name             |     string                     |     50     |     Yes          |     The company’s DBA.                 |
+|     Address          |     AddressType                |            |     No           |     The company’s mailing address.     |
  
  
-NameType Element 
+### NameType Element 
+```XML
 <Name> 
-<FirstName></FirstName> 
-<MI></MI> 
-<LastName></LastName> 
-</Name> 
+    <FirstName></FirstName> 
+    <MI></MI> 
+    <LastName></LastName> 
+</Name>
+```
  
 The NameType element refers to a person’s full name and must contain both a FirstName element and LastName element and a optional MI element. 
  
-Element Name 	Data Type 	Length 	Required 	Comments 
-FirstName 	string 	50 	Yes 	A person’s first name 
-MI 	string 	1 	No 	The first letter of a person’s middle 
-LastName 	string 	50 	Yes 	A person’s last name 
-AddressType Element 
+|     Element Name     |     Data Type     |     Length     |     Required     |     Comments                                    |
+|----------------------|-------------------|----------------|------------------|-------------------------------------------------|
+|     FirstName        |     string        |     50         |     Yes          |     A   person’s first name                     |
+|     MI               |     string        |     1          |     No           |     The   first letter of a person’s middle     |
+|     LastName         |     string        |     50         |     Yes          |     A   person’s last name                      |
+
+###AddressType Element 
+
+```XML
 <Address> 
-<AddressLine1></AddressLine1> 
-<AddressLine2></AddressLine2> 
-<City></City> 
-<State></State> 
-<ZipCode></ZipCode> 
-<Country></Country> 
-<EmailAddress></EmailAddress> 
-<Telephone></Telephone> 
-<Fax></Fax> 
-</Address> 
+    <AddressLine1></AddressLine1> 
+    <AddressLine2></AddressLine2> 
+    <City></City> 
+    <State></State> 
+    <ZipCode></ZipCode> 
+    <Country></Country> 
+    <EmailAddress></EmailAddress> 
+    <Telephone></Telephone> 
+    <Fax></Fax> 
+</Address>
+```
  
 The AddressType element refers to a person or a company address and must contain Address1, City, State, ZipCode, Country elements and the optional Address2, EmailAddress, Telephone, and Fax elements. This element is used during AVS verification when used in the Customer element. 
  
-Element Name 	Data Type 	Length 	Required 	Comments 
-AddressLine1 	string 	50 	Yes 	Street number 
-AddressLine2 	string 	50 	No 	Appartment or Suite Number 
-City 	string 	50 	Yes 	City 
-State 	string 	50 	Yes 	State 
-ZipCode 	string 	50 	Yes 	Postal Code 
-Country 	string 	50 	Yes 	Country 
-EmailAddress 	string 	256 	No 	Email Address 
-Telephone 	string 	50 	No 	Telepone number with area code 
-Fax 	string 	50 	No 	Fax number with area code 
+|     Element Name     |     Data Type     |     Length     |     Required     |     Comments                              |
+|----------------------|-------------------|----------------|------------------|-------------------------------------------|
+|     AddressLine1     |     string        |     50         |     Yes          |     Street   number                       |
+|     AddressLine2     |     string        |     50         |     No           |     Appartment   or Suite Number          |
+|     City             |     string        |     50         |     Yes          |     City                                  |
+|     State            |     string        |     50         |     Yes          |     State                                 |
+|     ZipCode          |     string        |     50         |     Yes          |     Postal   Code                         |
+|     Country          |     string        |     50         |     Yes          |     Country                               |
+|     EmailAddress     |     string        |     256        |     No           |     Email   Address                       |
+|     Telephone        |     string        |     50         |     No           |     Telephone   number with area code     |
+|     Fax              |     string        |     50         |     No           |     Fax   number with area code           | 
  
  
-TransactionStatusQueryType Element 
+### TransactionStatusQueryType Element 
+```XML
 <TransactionStatusQueryType> 
-<Merchant></Merchant> 
-<TransactionID></TransactionID> 
-</TransactionStatusQueryType> 
+    <Merchant></Merchant> 
+    <TransactionID></TransactionID> 
+</TransactionStatusQueryType>
+```
  
 The TransactionStatusQueryType element is used to query the status of a single transaction and must contain both Merchant and TransactionID elements. 
  
-Element Name 	Data Type 	Length 	Required 	Comments 
-Merchant 	MerchantTyp	 	Yes 	Merchant account elements 
-TransactionID 	est ring 	50 	Yes 	The unqiue user assigned transaction indentifier used during a payment 
+|     Element Name      |     Data Type             |  Length           |     Required     |     Comments                                                              |
+|-----------------------|----------------------------------|------------|------------------|---------------------------------------------------------------------------|
+|     Merchant          |     MerchantType                 |            |     Yes          |     Merchant account elements                                             |
+|     TransactionID     |     string                       |     50     |     Yes          |     The unique user assigned transaction identifier used during a payment |
  
-RecurringStatusQueryType Element 
+### RecurringStatusQueryType Element 
+
+```XML
 <RecurringStatusQueryType> 
-<Merchant></Merchant> 
-<RecurringID></RecurringID> 
-<StartDate></StartDate> 
-<EndDate></EndDate> 
+    <Merchant></Merchant> 
+    <RecurringID></RecurringID> 
+    <StartDate></StartDate> 
+    <EndDate></EndDate> 
 </RecurringStatusQueryType> 
+```
  
 The RecurringStatusQueryType element is used to query the status of a recurring transaction and must contain Merchant, RecurringID, StartDate, and EndDate elements. 
  
-Element Name 	Data Type 	Length 	Required 	Comments 
-Merchant 	MerchantTyp	 	Yes 	Merchant account elements 
-RecurringID 	est ring 	50 	Yes 	The unqiue system assigned recurring indentifier created during a recurring payment
-StartDate 	string 	9 	Yes 	The start date for the query search 
-EndDate 	string 	9 	Yes 	The end date for the query search 
+|     Element Name     |     Data Type       |  Length    |     Required     |     Comments                                                                             |
+|----------------------|---------------------|------------|------------------|------------------------------------------------------------------------------------------|
+|     Merchant         |     MerchantType    |            |     Yes          |     Merchant account elements                                                            |
+|     RecurringID      |     string          |     50     |     Yes          |     The unique system assigned recurring identifier created during a recurring payment   |
+|     StartDate        |     string          |     9      |     Yes          |     The start date for the query search                                                  |
+|     EndDate          |     string          |     9      |     Yes          |     The end date for the query search                                                    |
  
-VaultOperationType Element 
+### VaultOperationType Element 
+```XML
 <VaultOperationType> 
-<Merchant></Merchant> 
-<VaultStorage></VaultStorage> 
-<VaultID></VaultID> 
-</VaultOperationType> 
+    <Merchant></Merchant> 
+    <VaultStorage></VaultStorage> 
+    <VaultID></VaultID> 
+</VaultOperationType>
+```
  
 The VaultOperationType element is used to insert or update a Vault storage record and must contain the Merchant and VaultStorage elements. This type of request will only capture and store data and will not process a payment. 
  
-Element Name 	Data Type 	Length 	Required 	Comments 
-Merchant 	MerchantType 	 	Yes 	Merchant account elements 
-VaultStorage 	VaultStorageTy	 	Yes 	The Vault service type and GUID elements. 
-VaultID 	pestri ng 	50 	No 	A unique identifier that can be used to query the results of a Vault operation 
+|     Element Name     |     Data Type           |  Length    |     Required     |     Comments                                                                           |
+|----------------------|-------------------------|------------|------------------|----------------------------------------------------------------------------------------|
+|     Merchant         |     MerchantType        |            |     Yes          |     Merchant account elements                                                          |
+|     VaultStorage     |     VaultStorageType    |            |     Yes          |     The Vault service type and GUID elements.                                          |
+|     VaultID          |     string              |     50     |     No           |     A unique identifier that can be used to query the results of a Vault operation     | 
  
-VaultAccountType Element 
+### VaultAccountType Element 
+```XML
 <VaultAccountType> 
-<Company></Company> 
-<Contact></Contact> 
+    <Company></Company> 
+    <Contact></Contact> 
 </VaultAccountType> 
- 
+``` 
+
 The VaultAccountType element is used to create a Vault only Merchant Account and must contain the Company and Contact elements. 
+
+|     Element Name     |     Data Type          Length       |          |     Required     |     Comments                                                    |
+|----------------------|-------------------------------------|----------|------------------|-----------------------------------------------------------------|
+|     Company          |     CompanyType                     |          |     Yes          |     Company that will will be storing data in the Vault       |
+|     Contact          |     PersonType                      |          |     Yes          |     The contact for the Company storing data in the Vault     |
  
-Element Name 	Data Type 	Length 	Required 	Comments 
-Company 	CompanyType 	 	Yes 	Company that will will be storing data in the Vault 
-Contact 	PersonType 	 	Yes 	The contact for the Company storing data in the Vault 
  
  
- 
-AccountQueryType Element 
+### AccountQueryType Element 
+```XML
 <AccountQueryType> 
-<Merchant></Merchant> 
+    <Merchant></Merchant> 
 </AccountQueryType> 
+```
  
 The AccountQueryType element is used to check the status and services available for a merchant account. 
  
-Element Name 	Data Type 	Length 	Required 	Comments 
-Merchant 	MerchantType 	 	Yes 	Merchant account elements 
-Contact 	PersonType 	 	Yes 	The contact for the Company storing data in the Vault 
+|     Element Name     |     Data Type          Length       |          |     Required     |     Comments                                                    |
+|----------------------|-------------------------------------|----------|------------------|-----------------------------------------------------------------|
+|     Merchant         |     MerchantType                    |          |     Yes          |     Merchant   account elements                                 |
+|     Contact          |     PersonType                      |          |     Yes          |     The   contact for the Company storing data in the Vault     |
  
-UIType Element 
+### UIType Element 
+```XML
 <UIType> 
-<SinglePayment></SinglePayment> 
+    <SinglePayment></SinglePayment> 
 </UIType> 
+```
  
 The UIType element is used to control the user experience. 
  
-Element Name 	Data Type 	Length 	Required 	Comments 
-SinglePayment 	SinglePaymentUIT ype 	 	No 	Elements that provide additional control over the user expreience during a Single Payment. 
+|     Element Name      |     Data Type                Length     |          |     Required       |     Comments                                                                                         |
+|-----------------------|-----------------------------------------|----------|--------------------|------------------------------------------------------------------------------------------------------|
+|     SinglePayment     |     SinglePaymentUIT   ype              |          |     No             |     Elements that provide additional control over the user experience during a Single Payment.     | 
  
-Response Field Definitions 
-PaymentResponseType Element 
-Required 
+## Response Field Definitions 
+
+### PaymentResponseType Element 
+*Required*
  
+```XML
 <PaymentResponseType> 
-<Response></Respopnse> 
-<VaultResponse></VaultResponse> 
-<RecurringResponse></RecurringResponse> 
-<TransactionResponse></TransactionResponse> 
+    <Response></Respopnse> 
+    <VaultResponse></VaultResponse> 
+    <RecurringResponse></RecurringResponse> 
+    <TransactionResponse></TransactionResponse> 
 </PaymentResponseType> 
+```
+
+The PaymentResponseType element contains the response elements related to a payment. 
+
+|     Element Name              |     Data Type                       |  Length  |     Required     |     Comments                                                                                       |
+|-------------------------------|-------------------------------------|----------|------------------|----------------------------------------------------------------------------------------------------|
+|     Response                  |     ResponseType                    |          |     Yes          |     Contains the response elements related to the Gateway request                                  |
+|     VaultResponse             |     VaultResponseType               |          |     No           |     Contains the response elements related to the Vault operation                                  |
+|     RecurringResponse         |     RecurringResponseType           |          |     No           |     Contains the response elements related to the transaction enlistment into the recurring system |
+|     TransactionResponse       |     TransactionResponseType         |          |     Yes          |     Contains the response elements related to processing a transaction on the Gateway              |
+|     Customer                  |     PersonType                      |          |     Yes          |     Contains the billing/customer elements used for the payments                                   |
  
-The PaymentResponseType element contains the the response elements related to a payment. 
- 
-Element Name 	Data Type 	Length 	Required 	Comments 
-Response 	ResponseType 	 	Yes 	Contains the response elements related to the Gateway request 
-VaultResponse 	VaultResponseType 	 	No 	Contains the response elements related to the Vault operation 
-RecurringResponse 	RecurringResponseT ype 	 	No 	Contains the response elements related to the transaction enlistment into the recurring system 
-Element Name 	Data Type 	Length 	Required 	Comments 
-TransactionResponse 	TransactionResponse Type 	 	Yes 	Contains the response elements 
-realted to processing a transaction on the Gateway 
-Customer 	PersonType 	 	Yes 	Contains the billing/customer elements used for the payments 
- 
-ResponseType Element 
-Required 
- 
+### ResponseType Element 
+*Required*
+
+```XML
 <ResponseType> 
-<ResponseIndicator></RespopnseIndicator> 
-<ResponseCode></ResponseCode> 
-<ResponseMessage></ResponseMessage> 
+    <ResponseIndicator></RespopnseIndicator> 
+    <ResponseCode></ResponseCode> 
+    <ResponseMessage></ResponseMessage> 
 </ResponseType> 
+```
  
-The ResponseType element contains the the Gateway response elements related to a Gateway request. 
+The ResponseType element contains the Gateway response elements related to a Gateway request. 
  
-Element Name 	Data Type Length Required Comments 
-ResponseIndicator 	string 	1 	Yes 	The Gateway/Vault response indicator 
- 
-A=Approved E=Declined 
-X=Error 
-I = Batch Inquiry ( only returned on batch inquiry requests ) 
- 
-When returned during a Payment request this field is used to determine the status of a Payment ( 
-Approved/Declined/Error) 
-ResponseCode 	string 	6 	Yes 	The Gateway/Vault response code, when the indicator is a E or X this code and be used to determine the cause 
-ResponseMessage 	string 	32 	Yes 	The Gateway/Vault response text 
-VaultResponseType Element 
+|     Element Name            |  Data Type       |  Length    |  Required   |  Comments                                                                                                                                                                                                                                                                                            |
+|-----------------------------|------------------|------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     ResponseIndicator       |     string       |     1      |     Yes     | The Gateway/Vault response indicator <br>    <br>A = Approved  <br>E = Declined <br>X = Error <br>I = Batch Inquiry (only returned on batch inquiry requests)  <br> <br>**When returned during a Payment request this field is used to determine the status of a Payment (Approved/Declined/Error)** |
+|     ResponseCode            |     string       |     6      |     Yes     | The Gateway/Vault response code, when the indicator is a E or X this code and be used to determine the cause                                                                                                                                                                                         |
+|     ResponseMessage         |     string       |     32     |     Yes     | The Gateway/Vault response text                                                                                                                                                                                                                                                                      |
+
+### VaultResponseType Element 
+```XML
 <VaultResponseType> 
-<Response></Response> 
-<GUID></GUID> 
-<ExpirationDate></ExpirationDate> 
-<Last4></Last4> 
-<PaymentDescription></PaymentDescription> 
-<PaymentTypeID></PaymentTypeID> 
+    <Response></Response> 
+    <GUID></GUID> 
+    <ExpirationDate></ExpirationDate> 
+    <Last4></Last4> 
+    <PaymentDescription></PaymentDescription> 
+    <PaymentTypeID></PaymentTypeID> 
 </VaultResponseType> 
+```
  
-The VaultResponseType element contains the the response elements related to a Vault operation. 
+The VaultResponseType element contains the response elements related to a Vault operation. 
  
-Element Name 	Data Type 	Length Required Comments 
-Response 	ResponseType 	 	Yes 	Contains the response elements related to the Vault request 
-GUID 	string 	36 	Yes 	The Vault GUID used to reference the card data captured 
-Element Name 	Data Type 	Length Required Comments 
-ExpirationDate 	string 	4 	Yes 	The date the account data will expire, format 
-MMYY 
- 
-*This field is only applicable to responses with 
-PaymentTypeID ( 3,4,5,6,7,D,O ) 
-Last4 	string 	 	Yes 	A masked respresentation of the account data showing only the last four digits 
-PaymentDescription 	string 	 	Yes 	The description of the account data. 
- 
-Credit Card payments will be the First 6 digits + masked digits + Last 4 digits ACH payments will be the routinng number + space + masked account digsts + Last 4 account digits 
-PaymentTypeID 	string 	1 	Yes 	The payment type identifier 
- 
-3=American Express 
-4=Visa 
-5=MasterCard 
-6=Discover 
-7=JCB 
-D=Debit Card 
-O=Other C=ACH 
+|     Element Name             |     Data Type        |  Length    |  Required   |  Comments                                                                                                                                                                                                                             |
+|------------------------------|----------------------|------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     Response                 |     ResponseType     |            |     Yes     | Contains  the response elements related to the Vault request                                                                                                                                                                          |
+|     GUID                     |     string           |     36     |     Yes     | The Vault GUID used to reference the card data captured                                                                                                                                                                               |
+|     ExpirationDate           |     string           |     4      |     Yes     | The date the account data will expire, format MMYY <br> <br>** *This field is only applicable to responses with PaymentTypeID (3,4,5,6,7,D,O)**                                                                                       |
+|     Last4                    |     string           |            |     Yes     | A masked representation of the account data showing only the last four digits                                                                                                                                                         |
+|     PaymentDescription       |     string           |            |     Yes     | The description of the account data. <br> <br>**Credit Card payments will be the First 6 digits + masked digits + Last 4 digits ACH payments will be the routing number + space + masked account digits + Last 4 account digits**     |
+|     PaymentTypeID            |     string           |     1      |     Yes     | The payment type identifier  <br> <br>3 = American Express  <br>4 = Visa <br>5 = MasterCard <br>6 = Discover <br>7 = JCB <br>D = Debit Card <br>O = Other <br>C = ACH                                                                 | 
  
  
-RecurringResponseType Element 
+### RecurringResponseType Element 
+```XML
 <RecurringResponseType> 
-<RecurringID></RecurringID> 
+    <RecurringID></RecurringID> 
 </RecurringResponseType> 
- 
+```
+
 The RecurringResponseType element contains the the recurring indentifier element to reference the recurring transaction. 
  
-Element Name 	Data Type 	Length 	Required Comments 
-RecurringID 	string 	 	Yes 	The recurring record identifier for the recurring transaction enlised in the recurring system 
-TransactionResponseType Element 
+| Element Name    | Data Type    | Length | Required | Comments                                                                                          |
+|-----------------|--------------|--------|----------|---------------------------------------------------------------------------------------------------|
+| RecurringID     | string       |        | Yes      | The recurring record identifier for the recurring transaction enlised in the recurring system     | 
+
+### TransactionResponseType Element 
+
+```XML
 <TransactionResponseType> 
-<AuthCode></AuthCode> 
-<AVSResult></AVSResult> 
-<CVVResult></CVVResult> 
-<VANReferene></VANReference> 
-<TransactionID></TransactionID> 
-<Last4></Last4> 
-<PaymentDescription></PaymentDescription> 
-<Amount></Amount> 
-<PaymentTypeID></PaymentTypeID> 
-<EntryMode></EntryMode> 
-<NetworkID></NetworkID> 
-</TransactionResponseType> 
+    <AuthCode></AuthCode> 
+    <AVSResult></AVSResult> 
+    <CVVResult></CVVResult> 
+    <VANReferene></VANReference> 
+    <TransactionID></TransactionID> 
+    <Last4></Last4> 
+    <PaymentDescription></PaymentDescription> 
+    <Amount></Amount> 
+    <PaymentTypeID></PaymentTypeID> 
+    <EntryMode></EntryMode> 
+    <NetworkID></NetworkID> 
+</TransactionResponseType>
+```
  
 The TransactionResponseType element contains the the response elements related to processing a transaction. 
  
-Element Name 	Data Type 	Length Required 	Comments 
-AuthCode 	string 	6 	Yes 	The authorization code for the approved payment 
-AVSResult 	string 	1 	No 	The AVS result for manually keyed transactions. 
- 
-This field is for infromation purposes and is not to be used to determine the status of a Payment. 
- 
-*This field is only applicable to responses with 
-PaymentTypeID ( 3,4,5,6,7,D,O ) 
-CVVResult 	string 	1 	No 	The CVV result for matching the verfiication value. 
- 
-This field is for infromation purposes and is not to be used to determine the status of a Payment. 
- 
-*This field is only applicable to responses with 
-PaymentTypeID ( 3,4,5,6,7,D,O ) 
-VANReference 	string 	10 	Yes 	The Gateway transaction reference to be used later in captures, voids, and credits. 
-TransactionID 	string 	 	Yes 	The unique transaction indentifier assigned by the calling application in the transaction request 
-Last4 	string 	 	Yes 	A masked respresentation of the account data showing only the last four digits 
-PaymentDescript ion 	string 	 	Yes 	The description of the account data. 
- 
-Credit Card payments will be the First 6 digits + masked digits + Last 4 digits 
- 
-ACH payments will be the routning number + space 
-+ masked account digsts + Last 4 account digits 
-Amount 	decimal 	 	Yes 	Amount of the payment 
-PaymentTypeID 	string 	1 	Yes 	The payment type idnetifier 
- 
-3=American Express 
-4=Visa 
-5=MasterCard 
-6=Discover 
-7=JCB 
-D=Debit Card O=Other 
-C=ACH 
- 
-*Additional values could be added when future 
-EntryMode 	String 	1 	Yes 	payThem ment ethotydp oesf  ebnectryo:m e available to the system. 
- 
-K = Manually Keyed 
-H = Track 1 
-D = Track 2 
-M = MICR Read 
-Element Name 	Data Type 	Length Required 	Comments 
-NetworkID 	String 	1 	No 	P = Paymentech 
-T = TSYS 
-E	= Elavon 
-F	= First Data 
-S = SPS ACH 
- 
-*Additional values could be added when future networks become available to the system. 
+| Element Name       | Data Type | Length | Required | Comments                                                                                                                                                                                                                                                         |
+|--------------------|-----------|--------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| AuthCode           | string    | 6      | Yes      | The authorization code for the approved payment                                                                                                                                                                                                                  |
+| AVSResult          | string    | 1      | No       | The AVS result for manually keyed transactions. <br> <br>**This field is for information purposes and is not to be used to determine the status of a Payment.** <br> <br>** *This field is only applicable to responses with PaymentTypeID (3,4,5,6,7,D,O)**     |
+| CVVResult          | string    | 1      | No       | The CVV result for matching the verification value. <br> <br>**This field is for information purposes and is not to be used to determine the status of a Payment.** <br> <br>** *This field is only applicable to responses with PaymentTypeID (3,4,5,6,7,D,O)** |
+| VANReference       | string    | 10     | Yes      | The Gateway transaction reference to be used later in captures, voids, and credits.                                                                                                                                                                              |
+| TransactionID      | string    |        | Yes      | The unique transaction identifier assigned by the calling application in the transaction request                                                                                                                                                                 |
+| Last4              | string    |        | Yes      | A masked representation of the account data showing only the last four digits                                                                                                                                                                                    |
+| PaymentDescription | string    |        | Yes      | The description of the account data. <br> <br>**Credit Card payments will be the First 6 digits + masked digits + Last 4 digits** <br> <br>**ACH payments will be the routing number + space + masked digits + Last 4 account digits**                           |
+| Amount             | decimal   |        | Yes      | Amount of the payment                                                                                                                                                                                                                                            |
+| PaymentTypeID      | string    | 1      | Yes      | The payment type identifier <br> <br>3 = American Express <br>4 = Visa <br>5 = MasterCard <br>6 = Discover <br>7 = JCB <br>D = Debit Card <br>O = Other <br>C = ACH <br> <br>** *Additional values could be added when future                                    |
+| EntryMode          | string    | 1      | Yes      | The method of entry: <br> <br>K = Manual Keyed <br>H = Track 1 <br>D = Track 2 <br>M = MICR Read                                                                                                                                                                 |
+| NetworkID          | string    | 1      | No       | P = Paymentech <br>T = TSYS <br>E = Elavon <br>F = First Data <br>S = SPS ACH <br> <br>** *Additional values could be added when future networks become available to the system.**                                                                               |
   
-BatchResponseType Element 
+### BatchResponseType Element
+
+```XML
 <BatchResponseType> 
-<Response></Response> 
-<BatchNumber></BatchNumber> 
-<BatchReference></BatchReference> 
-<Net></Net> 
-<Count></Count> 
-<BatchPayment></BatchPayment> 
-</BatchResponseType> 
+    <Response></Response> 
+    <BatchNumber></BatchNumber> 
+    <BatchReference></BatchReference> 
+    <Net></Net> 
+    <Count></Count> 
+    <BatchPayment></BatchPayment> 
+</BatchResponseType>
+```
  
 The BatchResponseType element contains the the response elements related to processing a batch. 
  
-Element Name 	Data Type 	Length 	Required 	Comments 
-Response 	ResponseType 	 	Yes 	Contains the response elements related to the Gateway request 
-BatchNumber 	string 	6 	Yes 	The batch sequence number 
-BatchReference 	string 	10 	Yes 	The unique Gateway batch identifier 
-Net 	decimal 	 	Yes 	The net transaction amount of the batch, a negative amount is possible when processing credits/refunds 
-Count 	integer 	 	Yes 	The total transaction count of the batch 
-BatchPayment 	BatchPaymentType 	 	Yes 	CREDITCARD 
-PURCHASECARD 
+|     Element Name       |     Data Type              |  Length    |     Required     |     Comments                                                                                                 |
+|------------------------|----------------------------|------------|------------------|--------------------------------------------------------------------------------------------------------------|
+|     Response           |     ResponseType           |            | Yes              | Contains the response elements related to the Gateway request                                                |
+|     BatchNumber        |     string                 |     6      | Yes              | The batch sequence number                                                                                    |
+|     BatchReference     |     string                 |     10     | Yes              | The unique Gateway batch identifier                                                                          |
+|     Net                |     decimal                |            | Yes              | The net transaction amount of the batch, a negative amount is possible when   processing credits/refunds     |
+|     Count              |     integer                |            | Yes              | The total transaction count of the batch                                                                     |
+|     BatchPayment       |     BatchPaymentType       |            | Yes              | CREDITCARD <br>PURCHASECARD                                                                                  |
  
- 
-TransactionSettlementStatusType Element 
+### TransactionSettlementStatusType Element 
+```XML
 <TransactionSettlementStatusType> 
-<TransactionType></TransactionType> 
-<SettlementType></SettlementType> 
-<SettlementDate></SettlementDate> 
-<BatchReference></BatchReference> 
-</TransactionSettlementStatusType> 
+    <TransactionType></TransactionType> 
+    <SettlementType></SettlementType> 
+    <SettlementDate></SettlementDate> 
+    <BatchReference></BatchReference> 
+</TransactionSettlementStatusType>
+```
  
 The TransactionSettlementStatusType element contains the settlement status elements related to a transaction. 
  
-Element Name 	Data Type 	Length 	Required Comments 
-TransactionType 	integer 	 	Yes 	The transaction type of the transaction processed 
-SettlementType 	integer 	 	Yes 	The settlement type of the transacton processed 
- 
-0 = Error / Declined 
-1= Batch 
-2	= Settled 
-3	= Expired 
-SettlementDate 	string 	 	No 	The settlement date, if settled, for the transaction processed; MM/DD/YYYY 
-HH:MM:SS 
-BatchReference 	string 	10 	No 	The batch reference, if settled, for the transaction processed 
-TransactionStatusQueryResponseType Element 
+| Element Name    | Data Type | Length | Required | Comments                                                                                                                   |
+|-----------------|-----------|--------|----------|----------------------------------------------------------------------------------------------------------------------------|
+| TransactionType | integer   |        | Yes      | The transaction type of the transaction processed                                                                          |
+| SettlementType  | integer   |        | Yes      | The settlement type of the transaction processed <br> <br>0 = Error/Declined <br>1 = Batch <br>2 = Settled <br>3 = Expired |
+| SettlementDate  | string    |        | No       | The settlement date, if settled, for the transaction processed; MM/DD/YYYY HH:MM:SS                                        |
+| BatchReference  | string    | 10     | no       | The batch reference, if settled, for the transaction processed                                                             |
+
+### TransactionStatusQueryResponseType Element 
+```XML
 <TransactionStatusQueryResponseType> 
-<Response></Response> 
-<VaultResponse></VaultResponse> 
-<RecurringResponse></RecurringResponse> 
-<TransactionResponse></TransactionResponse> 
-<TransactionSettlementStatus></TransactionSettlementStatus> <Customer></Customer> 
+    <Response></Response> 
+    <VaultResponse></VaultResponse> 
+    <RecurringResponse></RecurringResponse> 
+    <TransactionResponse></TransactionResponse> 
+    <TransactionSettlementStatus></TransactionSettlementStatus> <Customer></Customer> 
 </TransactionStatusQueryResponseType> 
+```
  
 The TransactionStatusQueryResponseType element contains the response elements related to processing a transaction. 
  
-Element Name 	Data Type 	Length Required Comments 
-Response 	ResponseType 	 	Yes 	Contains the response elements related to the Gateway request 
-VaultResponse 	VaultResponseType 	 	No 	Contains the response elements related to the Vault operation 
-RecurringResponse 	RecurringResponseTy pe 	 	No 	Contains the response elements related to the transaction enlistment into the recurring system 
-TransactionResponse 	TransactionResponse Type 	 	Yes 	Contains the response elements realted to processing a transaction on the Gateway 
-TransactionSettlement Status 	TransactionSettlemen tType 	 	Yes 	Contains the transaction settlement status elements 
-Customer 	PersonType 	 	Yes 	Contains the billing/customer elements used for the payments 
+|     Element Name                     |  Data Type                        |  Length  |  Required   |  Comments                                                                                          |
+|--------------------------------------|-----------------------------------|----------|-------------|----------------------------------------------------------------------------------------------------|
+|     Response                         |     ResponseType                  |          |     Yes     |     Contains the response elements related to the Gateway request                                  |
+|     VaultResponse                    |     VaultResponseType             |          |     No      |     Contains the response elements related to the Vault operation                                  |
+|     RecurringResponse                |     RecurringResponseType         |          |     No      |     Contains the response elements related to the transaction enlistment into the recurring system |
+|     TransactionResponse              |     TransactionResponseType       |          |     Yes     |     Contains the response elements realted to processing a transaction on the Gateway              |
+|     TransactionSettlement Status     |     TransactionSettlementType     |          |     Yes     |     Contains the transaction settlement status elements                                            |
+|     Customer                         |     PersonType                    |          |     Yes     |     Contains the billing/customer elements used for the payments                                   |
  
  
-RecurringStatusQueryResponseType Element 
+### RecurringStatusQueryResponseType Element 
+```XML
 <RecurringStatusQueryResponseType> 
-<Responses></Responses> 
-<TransactionResponses></TransactionResponses> 
-<TransactionSettlementStatuses></TransactionSettlementStatuses> <Customers></Customers> 
-</RecurringStatusQueryResponseType> 
+    <Responses></Responses> 
+    <TransactionResponses></TransactionResponses> 
+    <TransactionSettlementStatuses></TransactionSettlementStatuses> <Customers></Customers> 
+</RecurringStatusQueryResponseType>
+```
  
 The RecurringStatusQueryResponseType element contains the response elements related to a recurring transaction processed by the Sage system. 
  
-Element Name 	Data Type 	Length 	Required Comments 
-Responses 	ResponseType 	Array 	Yes 	Contains the response elements related to the Gateway request 
-TransactonResponses 	TransactionResponseT ype 	Array 	Yes 	Contains the response elements related to the Vault operation 
-TransactionSettlementSt atuses 	TransactionSettlemen tType 	Array 	Yes 	Contains the response elements related to the transaction enlistment into the recurring system 
-Customers 	PersonType 	Array 	Yes 	Contains the response elements realted to processing a transaction on the Gateway 
-VaultAccountResponseType Element 
+|     Element Name                       |  Data Type                           |  Length       |     Required |  Comments                                                                                              |
+|----------------------------------------|--------------------------------------|---------------|--------------|--------------------------------------------------------------------------------------------------------|
+|     Responses                          |     ResponseType                     |     Array     |     Yes      |     Contains the response elements related to the Gateway request                                      |
+|     TransactonResponses                |     TransactionResponseT   ype       |     Array     |     Yes      |     Contains the response elements related to the Vault operation                                      |
+|     TransactionSettlementSt atuses     |     TransactionSettlemen   tType     |     Array     |     Yes      |     Contains the response elements related to the transaction enlistment into the recurring system     |
+|     Customers                          |     PersonType                       |     Array     |     Yes      |     Contains the response elements related to processing a transaction on the Gateway                  |
+
+### VaultAccountResponseType Element 
+```XML
 <VaultAccountResponseType> 
-<Response></Response> 
-<VaultAccount></VaultAccount> 
-<Merchant></Merchant> 
+    <Response></Response> 
+    <VaultAccount></VaultAccount> 
+    <Merchant></Merchant> 
 </VaultAccountResponseType> 
- 
+```
+
 The RecurringStatusQueryResponseType element contains the response elements related to a recurring transaction processed by the Sage system. 
  
-Element Name Data Type 	Length Required Comments 
-Response 	ResponseType 	 	Yes 	Contains the response elements related to the account creation request 
-VaultAccount 	VaultAccountType 	 	Yes 	Contains the account elements provided in the Request 
-Merchant 	TransactionSettlement Type 	Array 	Yes 	Contains the newly created MerchantID and MerchantKey elements 
+| Element Name | Data Type                 | Length | Required | Comments                                                               |
+|--------------|---------------------------|--------|----------|------------------------------------------------------------------------|
+| Response     | ResponseType              |        | Yes      | Contains the response elements related to the account creation request |
+| VaultAccount | VaultAccountType          |        | Yes      | Contains the account elements provided in the Request                  |
+| Merchant     | TransactionSettlementType | Array  | Yes      | Contains the newly created MerchantID and MerchantKey elements         |
  
- 
-AccountQeuryResponseType Element 
+### AccountQeuryResponseType Element 
+```XML
 <AccountQueryResponseType> 
-<Response></Response> 
-<Merchant></Merchant> 
-<Services></Services> 
-<Active></Active> 
+    <Response></Response> 
+    <Merchant></Merchant> 
+    <Services></Services> 
+    <Active></Active> 
 </AccountQueryResponseType> 
- 
+```
+
 The AccountQueryResponseType element contains the response elements related to a merchant account status and service list inquiry. 
  
 Element Name 	Data Type 	Length Required Comments 
