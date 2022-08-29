@@ -1429,21 +1429,21 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 ```XML
 <?xml version="1.0" encoding="utf-16"?> 
 <Request_v1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
-<Application> 
-<ApplicationID>DEMO</ApplicationID> 
-<LanguageID>EN</LanguageID> 
-</Application> 
-<VaultOperation> 
-<Merchant> 
-<MerchantID>999999999997</MerchantID> 
-<MerchantKey>K3QD6YWyhfD</MerchantKey> 
-</Merchant> 
-<VaultStorage> 
-<Service>DELETE</Service> 
-<GUID>sfdas-ee3u38d-dagdi3-efad83</GUID> 
-</VaultStorage> 
-<VaultID>2341234-12431243-2341235</VaultID> 
-</VaultOperation> 
+    <Application> 
+        <ApplicationID>DEMO</ApplicationID> 
+        <LanguageID>EN</LanguageID> 
+    </Application> 
+    <VaultOperation> 
+        <Merchant> 
+            <MerchantID>999999999997</MerchantID> 
+            <MerchantKey>K3QD6YWyhfD</MerchantKey> 
+        </Merchant> 
+        <VaultStorage> 
+            <Service>DELETE</Service> 
+            <GUID>sfdas-ee3u38d-dagdi3-efad83</GUID> 
+        </VaultStorage> 
+        <VaultID>2341234-12431243-2341235</VaultID> 
+    </VaultOperation> 
 </Request_v1>
 ```
 
@@ -1536,33 +1536,34 @@ Vault Account is used to create a Vault service only merchant account in which n
 ```XML
 <?xml version="1.0" encoding="utf-16"?> 
 <Request_v1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
-<Application> 
-<ApplicationID>DEMO</ApplicationID> 
-<LanguageID>EN</LanguageID> 
-</Application> 
-<VaultAccount> 
-<Company> 
-<Name>Test Account - Vault</Name> 
-<Address> 
-<AddressLine1>12345 Street</AddressLine1> 
-<City>Brownsville</City> <State>Texas</State> 
-<ZipCode>78520</ZipCode> 
-<EmailAddress>none@sagepayments.com</EmailAddress> 
-<Telephone>956-548-9400</Telephone> 
-<Fax>956-548-9416</Fax> 
-</Address> 
-</Company> 
-<Contact> 
-<Name> 
-<FirstName>John</FirstName> 
-<LastName>Doe</LastName> 
-</Name> 
-<Address /> 
-<Company> 
-<Address /> 
-</Company> 
-</Contact> 
-</VaultAccount> </Request_v1> 
+    <Application> 
+        <ApplicationID>DEMO</ApplicationID> 
+        <LanguageID>EN</LanguageID> 
+    </Application> 
+    <VaultAccount> 
+        <Company> 
+            <Name>Test Account - Vault</Name> 
+            <Address> 
+                <AddressLine1>12345 Street</AddressLine1> 
+                <City>Brownsville</City> <State>Texas</State> 
+                <ZipCode>78520</ZipCode> 
+                <EmailAddress>none@sagepayments.com</EmailAddress> 
+                <Telephone>956-548-9400</Telephone> 
+                <Fax>956-548-9416</Fax> 
+            </Address> 
+        </Company> 
+        <Contact> 
+            <Name> 
+                <FirstName>John</FirstName> 
+                <LastName>Doe</LastName> 
+            </Name> 
+            <Address /> 
+            <Company> 
+                <Address /> 
+            </Company> 
+        </Contact> 
+    </VaultAccount> 
+</Request_v1> 
 ```
 
 ### Account Query 
@@ -1572,16 +1573,16 @@ Account Query is used to get the status and services available for a particular 
 ```XML
 <?xml version="1.0" encoding="utf-16"?> 
 <Request_v1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
-<Application> 
-<ApplicationID>DEMO</ApplicationID> 
-<LanguageID>EN</LanguageID> 
-</Application> 
-<AccountQuery> 
-<Merchant> 
-<MerchantID>999999999997</MerchantID> 
-<MerchantKey>K3QD6YWyhfD</MerchantKey> 
-</Merchant> 
-</AccountQuery> 
+    <Application> 
+        <ApplicationID>DEMO</ApplicationID> 
+        <LanguageID>EN</LanguageID> 
+    </Application> 
+    <AccountQuery> 
+        <Merchant> 
+            <MerchantID>999999999997</MerchantID> 
+            <MerchantKey>K3QD6YWyhfD</MerchantKey> 
+        </Merchant> 
+    </AccountQuery> 
 </Request_v1> 
  ```
 ### Transaction Status Query 
@@ -2690,17 +2691,24 @@ XML reserved characters must be observed and encoded appropriately.
 ### Alpha Numeric Fields* 
 The following is a list of accepted characters for Alpha Numeric fields: 
  
-White Space 
+White Space
+
 a-z 
+
 A-Z 
+
 0-9 
+
 -.,#&()/!'éèêëòóôõöàáâãäåìíîïùúûüýÿ 
  
+
+
 
 ### Numeric Fields* 
 The following is a list of accepted characters for Numeric fields: 
  
 0-9 
+
 ,.- 
  
 *The use of two or more dashes -- back to back is not permitted in any of the fields. 
