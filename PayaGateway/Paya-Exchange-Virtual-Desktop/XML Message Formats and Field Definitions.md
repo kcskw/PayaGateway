@@ -2324,7 +2324,7 @@ The NameType element refers to a person’s full name and must contain both a Fi
 |     MI               |     string        |     1          |     No           |     The   first letter of a person’s middle     |
 |     LastName         |     string        |     50         |     Yes          |     A   person’s last name                      |
 
-###AddressType Element 
+### AddressType Element 
 
 ```XML
 <Address> 
