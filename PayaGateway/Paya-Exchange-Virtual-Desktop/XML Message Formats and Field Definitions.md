@@ -1378,7 +1378,7 @@ Batch Close is used to settle transactions in the current open batch awaiting se
 ```
 
 ### Vault Operation 
-Vault Operation is used to capture sensitive card holder data and insert or update the storage in the Sage Payment Solutions Vault. No payment is processed.  
+Vault Operation is used to capture sensitive card holder data and insert or update the storage in the Paya Payment Solutions Vault. No payment is processed.  
 
 #### XML Vault Operation Request for Creating a Storage Record 
 ```XML
@@ -1608,7 +1608,7 @@ Transaction Status Query is used to get the status of a transaction processed th
  
  	 
 ### Vault Status Query 
-Vault Status Query is used to get the status of a Vault operation processed through the Sage Exchange by using the user defined Vault ID provided during a previous Vault operation. In the event of a communication failure in which the response was not received this can be used to determine if the platform received and processed the operation or if the operation needs to be run again. 
+Vault Status Query is used to get the status of a Vault operation processed through the Paya Exchange by using the user defined Vault ID provided during a previous Vault operation. In the event of a communication failure in which the response was not received this can be used to determine if the platform received and processed the operation or if the operation needs to be run again. 
 
 #### XML Vault Status Query 
 ```XML
@@ -1629,7 +1629,7 @@ Vault Status Query is used to get the status of a Vault operation processed thro
 ```
 
 ### Multi-Payment Processing 
-The Sage Exchange application supports processing multiple payments in a single XML request. The request can combine both UI and Non-UI payments. If any payment contains a UI transaction type then the MultiPayment UI will be shown. 
+The Paya Exchange application supports processing multiple payments in a single XML request. The request can combine both UI and Non-UI payments. If any payment contains a UI transaction type then the MultiPayment UI will be shown. 
 
 #### XML Multi-Payment Request with User Interface 
 ```XML
@@ -1700,7 +1700,7 @@ The Sage Exchange application supports processing multiple payments in a single 
 ```
 
 ### Split Payment Processing 
-The Sage Exchange application supports splitting a single payment across multiple merchant accounts.  The total amount of the payment is the combine Amount of all the payments in the array.  The first account in the payments array is considered the primary merchant account.  The request can combine both UI and Non-UI payments. If any payment contains a UI transaction type then the Split Payment UI will be shown. 
+The Paya Exchange application supports splitting a single payment across multiple merchant accounts.  The total amount of the payment is the combine Amount of all the payments in the array.  The first account in the payments array is considered the primary merchant account.  The request can combine both UI and Non-UI payments. If any payment contains a UI transaction type then the Split Payment UI will be shown. 
 
 #### XML Split Payment Request with User Interface 
 ```XML
@@ -1963,7 +1963,7 @@ The Request_V1 element is the root.  It contains the Application, Payments, and 
 The Application element contains the ApplicationID and LanguageID elements. 
 |     Element Name      |     Data Type     |     Length     |     Required     |     Comments                                                                                                                                                                                                                                                                                                                 |
 |-----------------------|-------------------|----------------|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     ApplicationID     |     string        |     50         |     Yes          |     Identifies   the calling application, version, and its certification as a valid integrated   solution. The value is obtained from Sage Payment Solutions through a   registration/certification process.                                                                                                                 |
+|     ApplicationID     |     string        |     50         |     Yes          |     Identifies   the calling application, version, and its certification as a valid integrated   solution. The value is obtained from Paya Payment Solutions through a   registration/certification process.                                                                                                                 |
 |     LanguageID        |     string        |     10         |     No           |     Specifies the language to   be used when displaying the user interface, the default is “en-US” for   English United States. The values are derived from the lower case 2 letter   language code from ISO 699-1 and the two letter upper case from ISO   3166.             Example:       “fr-CA”   = French Canadian     |
  
 ### MerchantType Element 
@@ -2640,7 +2640,7 @@ The TransactionStatusQueryResponseType element contains the response elements re
 </RecurringStatusQueryResponseType>
 ```
  
-The RecurringStatusQueryResponseType element contains the response elements related to a recurring transaction processed by the Sage system. 
+The RecurringStatusQueryResponseType element contains the response elements related to a recurring transaction processed by the Paya system. 
  
 |     Element Name                       |  Data Type                           |  Length       |     Required |  Comments                                                                                              |
 |----------------------------------------|--------------------------------------|---------------|--------------|--------------------------------------------------------------------------------------------------------|
@@ -2658,7 +2658,7 @@ The RecurringStatusQueryResponseType element contains the response elements rela
 </VaultAccountResponseType> 
 ```
 
-The RecurringStatusQueryResponseType element contains the response elements related to a recurring transaction processed by the Sage system. 
+The RecurringStatusQueryResponseType element contains the response elements related to a recurring transaction processed by the Paya system. 
  
 | Element Name | Data Type                 | Length | Required | Comments                                                               |
 |--------------|---------------------------|--------|----------|------------------------------------------------------------------------|
