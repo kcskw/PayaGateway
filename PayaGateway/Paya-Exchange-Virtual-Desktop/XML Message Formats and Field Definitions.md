@@ -74,7 +74,7 @@
     - [PostbackType Element](XML%20Message%20Formats%20and%20Field%20Definitions.md#postbacktype-element)
     - [CompanyType Element](XML%20Message%20Formats%20and%20Field%20Definitions.md#companytype-element)
     - [NameType Element](XML%20Message%20Formats%20and%20Field%20Definitions.md#nametype-element)
-    - [AddressType Element]()
+    - [AddressType Element](XML%20Message%20Formats%20and%20Field%20Definitions.md#addresstype-element)
     - [TransactionStatusQueryType Element](XML%20Message%20Formats%20and%20Field%20Definitions.md#transactionstatusquerytype-element)
     - [RecurringStatusQueryType Element](XML%20Message%20Formats%20and%20Field%20Definitions.md#recurringstatusquerytype-element)
     - [VaultOperationType Element](XML%20Message%20Formats%20and%20Field%20Definitions.md#vaultoperationtype-element)
