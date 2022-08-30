@@ -588,7 +588,7 @@ Sale is a transaction type in which the transaction is authorized and captured i
           <State>Texas</State> 
           <ZipCode>78597</ZipCode> 
           <Country>USA</Country> 
-          <EmailAddress>jane.doe@sagepayments.com</EmailAddress> 
+          <EmailAddress>jane.doe@payapayments.com</EmailAddress> 
           <Telephone></Telephone> 
           <Fax></Fax> 
         </Address>       
@@ -662,7 +662,7 @@ Sale is a transaction type in which the transaction is authorized and captured i
           <State>Texas</State> 
           <ZipCode>78597</ZipCode> 
           <Country>USA</Country> 
-          <EmailAddress>john.doe@sagepayments.com</EmailAddress> 
+          <EmailAddress>john.doe@payapayments.com</EmailAddress> 
           <Telephone></Telephone> 
           <Fax></Fax> 
         </Address> 
@@ -710,7 +710,7 @@ Sale is a transaction type in which the transaction is authorized and captured i
           <State>Texas</State> 
           <ZipCode>78597</ZipCode> 
           <Country>USA</Country> 
-          <EmailAddress>john.doe@sagepayments.com</EmailAddress> 
+          <EmailAddress>john.doe@payapayments.com</EmailAddress> 
           <Telephone></Telephone> 
           <Fax></Fax> 
         </Address> 
@@ -792,7 +792,7 @@ Authorization is a transaction type in which an account is verified to be valid 
           <State>Texas</State> 
           <ZipCode>78597</ZipCode> 
           <Country>USA</Country> 
-          <EmailAddress>jane.doe@sagepayments.com</EmailAddress> 
+          <EmailAddress>jane.doe@payapayments.com</EmailAddress> 
           <Telephone></Telephone> 
           <Fax></Fax> 
         </Address>       </Customer> 
@@ -865,7 +865,7 @@ Authorization is a transaction type in which an account is verified to be valid 
           <State>Texas</State> 
           <ZipCode>78597</ZipCode> 
           <Country>USA</Country> 
-          <EmailAddress>john.doe@sagepayments.com</EmailAddress> 
+          <EmailAddress>john.doe@payapayments.com</EmailAddress> 
           <Telephone></Telephone> 
           <Fax></Fax> 
         </Address> 
@@ -1003,7 +1003,7 @@ Force is a transaction type used to force a transaction into settlement in cases
           <State>Texas</State> 
           <ZipCode>78597</ZipCode> 
           <Country>USA</Country> 
-          <EmailAddress>jane.doe@sagepayments.com</EmailAddress> 
+          <EmailAddress>jane.doe@payapayments.com</EmailAddress> 
           <Telephone></Telephone> 
           <Fax></Fax> 
         </Address>       </Customer> 
@@ -1076,7 +1076,7 @@ Force is a transaction type used to force a transaction into settlement in cases
           <State>Texas</State> 
           <ZipCode>78597</ZipCode> 
           <Country>USA</Country> 
-          <EmailAddress>john.doe@sagepayments.com</EmailAddress> 
+          <EmailAddress>john.doe@payapayments.com</EmailAddress> 
           <Telephone></Telephone> 
           <Fax></Fax> 
         </Address> 
@@ -1126,7 +1126,7 @@ Level2 data is additional transaction data required for Level II commercial card
           <State>Texas</State> 
           <ZipCode>78597</ZipCode> 
           <Country>USA</Country> 
-          <EmailAddress>jane.doe@sagepayments.com</EmailAddress> 
+          <EmailAddress>jane.doe@payapayments.com</EmailAddress> 
           <Telephone></Telephone> 
           <Fax></Fax> 
         </Address> 
@@ -1547,7 +1547,7 @@ Vault Account is used to create a Vault service only merchant account in which n
                 <AddressLine1>12345 Street</AddressLine1> 
                 <City>Brownsville</City> <State>Texas</State> 
                 <ZipCode>78520</ZipCode> 
-                <EmailAddress>none@sagepayments.com</EmailAddress> 
+                <EmailAddress>none@payapayments.com</EmailAddress> 
                 <Telephone>956-548-9400</Telephone> 
                 <Fax>956-548-9416</Fax> 
             </Address> 
@@ -1663,7 +1663,7 @@ The Paya Exchange application supports processing multiple payments in a single 
           <State>Texas</State> 
           <ZipCode>78597</ZipCode> 
           <Country>USA</Country> 
-          <EmailAddress>jane.doe@sagepayments.com</EmailAddress>           <Telephone></Telephone> 
+          <EmailAddress>jane.doe@payapayments.com</EmailAddress>           <Telephone></Telephone> 
           <Fax></Fax> 
         </Address>       </Customer> 
     </PaymentType> 
@@ -1690,7 +1690,7 @@ The Paya Exchange application supports processing multiple payments in a single 
           <State>Texas</State>  
           <ZipCode>78597</ZipCode> 
           <Country>USA</Country>  
-          <EmailAddress>john.doe@sagepayments.com</EmailAddress> 
+          <EmailAddress>john.doe@payapayments.com</EmailAddress> 
           <Telephone></Telephone> 
           <Fax></Fax> 
         </Address>       </Customer> 
@@ -1735,7 +1735,7 @@ The Paya Exchange application supports splitting a single payment across multipl
           <State>Texas</State> 
           <ZipCode>78597</ZipCode> 
           <Country>USA</Country> 
-          <EmailAddress>jane.doe@sagepayments.com</EmailAddress> 
+          <EmailAddress>jane.doe@payapayments.com</EmailAddress> 
           <Telephone></Telephone> 
           <Fax></Fax> 
         </Address>       </Customer> 
@@ -1762,7 +1762,7 @@ The Paya Exchange application supports splitting a single payment across multipl
           <State>Texas</State> 
           <ZipCode>78597</ZipCode> 
           <Country>USA</Country> 
-          <EmailAddress>jane.doe@sagepayments.com</EmailAddress> 
+          <EmailAddress>jane.doe@payapayments.com</EmailAddress> 
           <Telephone></Telephone> 
           <Fax></Fax> 
         </Address>       </Customer> 
@@ -1806,7 +1806,7 @@ The PEVD supports control over UI elements such as background colors and key fie
           <State>Texas</State> 
           <ZipCode>78597</ZipCode> 
           <Country>USA</Country> 
-          <EmailAddress>jane.doe@sagepayments.com</EmailAddress> 
+          <EmailAddress>jane.doe@payapayments.com</EmailAddress> 
           <Telephone></Telephone> 
           <Fax></Fax> 
         </Address>       </Customer> 
