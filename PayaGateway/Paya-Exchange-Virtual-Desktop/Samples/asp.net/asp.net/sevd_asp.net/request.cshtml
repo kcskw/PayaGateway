@@ -1,0 +1,160 @@
+﻿@using System.Collections.Specialized
+@using System.Text
+
+@{
+
+
+    /*
+
+        This is a confirmation page from the user's perspective, but it's doing some important work in the background.
+
+        A confirmation page isn't necessary, strictly speaking -- eg, you could tokenize on a single page with an AJAX call
+        and some JavaScript -- but this is certainly the most common type of implementation, and it's nice to give your users
+        a confirmation page to double-check what they entered.
+
+    */
+
+    /*
+
+        This is piecing together the XML request. Some things to note:
+            The ApplicationID here is 'DEMO'; when you're done with development we will certify your integration (it's quick & easy)
+                and provide a production value.
+            The MerchantID and MerchantKey here are a test account of mine. They will work, and you are welcome to use them. However,
+                I strongly suggest you replace it with your own test credentials so you have access to the Virtual Terminal.
+            I use a random number for the TransactionID. Don't do this in production; make sure your Transaction IDs are unique.
+                TransactionIDs are not exposed to the user, and can be used as a fallback mechanism to query transaction statuses.
+            For Reference1, I'm using a timestamp. This, however, is where you'd want to put whatever kind of Order Number you're
+                providing to the customer for their reference.
+            The <customer>
+    node is being populated with the form data we received from the previous page.
+    Refer to the 'XML Messaging' and 'User Guide' pdfs for more detail on the XML requests.
+
+    */
+    NameValueCollection PostData = Request.Form;
+
+    /*This URL will receive the data from the response. Please supply your own URL. Sites like Mockbin and Beeceptor can be helpful for testing*/
+    string strPostBackURL = "";
+    string strTransactionID = new Guid().ToString();
+    string strReference = (DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds.ToString();
+
+    string raw_xml = @"<?xml version='1.0' encoding='utf-16'?>
+                <Request_v1 xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+                    <Application>
+                        <ApplicationID>DEMO</ApplicationID>
+                        <LanguageID>EN</LanguageID>
+                    </Application>
+                    <Payments>
+                        <PaymentType>
+                            <Merchant>
+                                <MerchantID>173859436515</MerchantID>
+                                <MerchantKey>P1J2V8P2Q3D8</MerchantKey>
+                            </Merchant>
+                            <TransactionBase>
+                                <TransactionID>" + strTransactionID + @"</TransactionID>
+                                <TransactionType>11</TransactionType>
+                                <Reference1>" + strReference + @"</Reference1>
+                                <Amount>7.00</Amount>
+                            </TransactionBase>
+                            <Customer>
+                                <Name>
+                                    <FirstName>" + PostData["FirstName"] + @"</FirstName>
+                                    <LastName>" + PostData["LastName"] + @"</LastName>
+                                </Name>
+                                <Address>
+                                    <AddressLine1>" + PostData["AddressLine1"] + @"</AddressLine1>
+                                    <AddressLine2>" + PostData["AddressLine2"] + @"</AddressLine2>
+                                    <City>" + PostData["City"] + @"</City>
+                                    <State>" + PostData["State"] + @"</State>
+                                    <ZipCode>" + PostData["Zip"] + @"</ZipCode>
+                                    <Country>USA</Country>
+                                    <EmailAddress>" + PostData["Email"] + @"</EmailAddress>
+                                    <Telephone>" + PostData["Telephone"] + @"</Telephone>
+                                </Address>
+                                <Company>
+                                    <Name>" + PostData["CompanyName"] + @"</Name>
+                                </Company>
+                            </Customer>
+                        </PaymentType>
+                    </Payments>
+                    <Postback>
+                        <HttpsUrl>" + strPostBackURL + @"</HttpsUrl>
+                    </Postback>
+                    <UI>
+                        <SinglePayment> 
+                            <TransactionBase> 
+                                <Amount> 
+                                    <Enabled>false</Enabled> 
+                                    <Visible>true</Visible> 
+                                </Amount>
+                            </TransactionBase>
+                        </SinglePayment>
+                    </UI>
+                </Request_v1>";
+
+
+
+    // The XML needs to be tokenized before it's sent to the user. The reason for this becomes apparent
+    // in the HTML section of this file, below. 
+    string tokenization_url = "https://www.sageexchange.com/sevd/frmenvelope.aspx";
+
+
+    byte[] requestData = UTF8Encoding.UTF8.GetBytes("request=" + WebUtility.UrlEncode(raw_xml));
+
+    WebRequest requestClient = WebRequest.Create(tokenization_url);
+    requestClient.Method = "POST";
+    requestClient.ContentType = "application/x-www-form-urlencoded";
+
+    Stream requestStream = requestClient.GetRequestStream();
+    requestStream.Write(requestData, 0, requestData.Length);
+
+    WebResponse response = requestClient.GetResponse();
+    Stream responseStream = response.GetResponseStream();
+    StreamReader reader = new StreamReader(responseStream);
+
+    string tokenized_xml = reader.ReadToEnd();
+
+    requestStream.Close();
+    responseStream.Close();
+    reader.Close();
+
+    // Now let's look at the HTML side of things --
+    }
+
+    <!DOCTYPE HTML>
+    <html>
+    <head>
+        <title>pg 2 - PEVD Sample</title>
+    </head>
+
+    <body>
+        <h3>Please confirm your information:</h3>
+        
+            <!-- For the user to confirm what they entered. -->
+            @foreach (string x in PostData)
+            {
+                <pre>@x: @PostData[x]</pre>
+            }
+             
+        
+
+        <!-- This form is what actually calls the PEVD UI. -->
+        <form method="POST" action="https://www.sageexchange.com/sevd/frmpayment.aspx">
+                
+        <!--
+            This is why we had to tokenize the XML request; if we were to expose the XML "as is", then
+            anyone who knows how to view a page's source or use their browser's dev console would have
+            access to our Merchant ID and Merchant Key.
+        -->
+                <input type="hidden" name="request" value="@tokenized_xml" />
+                <input type="hidden" name="consumer_initiated" value="True">
+                <input type="hidden" name="redirect_url" value="http://localhost:57353/response.cshtml" />
+                <!-- This input enables CAPTCHA for PEVD -->
+                <input type="hidden" name="Enable_Captcha" value="true" />
+                <input type="submit" value="Submit" /><br />
+            </form>
+
+        <br />
+        <a href="index.html">Click Here to Go Back and Make Changes</a>
+
+    </body>
+</html>
