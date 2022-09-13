@@ -38,7 +38,7 @@ An account placed in test mode will respond to a specific group of MOD10- compli
 | MC Debit   | 5149612222222229 PIN 1234 |
 
 
-For developers who want to generate specific response codes, AVS responses, and CVV2 Responses for application specific testing, the transaction amount can be use to generate specific
+For developers who want to generate specific response codes, AVS responses, and CVV2 Responses for application specific testing, the transaction amount can be use to generate specific response messages as detailed in the table below:
 
 | Amount | Response      Indicator | Response Code | AVS Response      Code | CVV/CVV2      Response Code | Response      Message |
 |--------|-------------------------|---------------|------------------------|-----------------------------|-----------------------|
