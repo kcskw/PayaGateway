@@ -31,4 +31,4 @@ The following documentation is available on this site:
 
 
 
-*Window 8.1 will be supported by Microsoft until January 2023.  Customers using PCD 2X and Windows 8.1 need to maintain extended support with Microsoft after Jan. 2023 to remain compliant with the Software Security Framework PCI Council Guidelines.*
+*Windows 8.1 will be supported by Microsoft until January 2023.  Customers using PCD 2X and Windows 8.1 need to maintain extended support with Microsoft after Jan. 2023 to remain compliant with the Software Security Framework PCI Council Guidelines.*
