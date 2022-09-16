@@ -307,6 +307,8 @@ PCD 2.0 has the following dependencies:
 | MS .Net 4.6 Framework | Microsoft core .Net common application framework version 4.6. |
 | Windows OS            | Microsoft Windows 7 SP1 or higher                             |
 
+*Window 8.1 will be supported by Microsoft until January 2023. Customers using PCD 2X and Windows 8.1 need to maintain extended support with Microsoft after Jan. 2023 to remain compliant with the Software Security Framework PCI Council Guidelines.*
+
 If the dependencies are not already installed on your machine, the PCD Bootstrapper application will prompt you to install them.
 
 ### <a name="Distribution"></a> Distribution

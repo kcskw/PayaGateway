@@ -28,3 +28,7 @@ The following documentation is available on this site:
   * [XML Transaction Message Formats](/PayaGateway/Paya-Connect-Desktop/Docs/XML_Transaction_Message_Formats.md)
 * [PA-DSS Implementation Details (PDF)](/PayaGateway/Paya-Connect-Desktop/Docs/Sage_Exchange_Desktop_v2-PA-DSS_Implementation_Guide.pdf)
 * [EMV Receipt Definitions and Samples (PDF)](/PayaGateway/Paya-Connect-Desktop/Docs/Sage_Exchange_Desktop_v2-EMV_Receipts.pdf)
+
+
+
+*Window 8.1 will be supported by Microsoft until January 2023.  Customers using PCD 2X and Windows 8.1 need to maintain extended support with Microsoft after Jan. 2023 to remain compliant with the Software Security Framework PCI Council Guidelines.*
