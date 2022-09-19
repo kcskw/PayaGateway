@@ -1,6 +1,7 @@
-<p align="center"> 
-  <image src="https://user-images.githubusercontent.com/6975101/182176290-4e33e7de-c4f2-451c-9b31-9ad69bb9cc4a.png">
-</p>
+
+![Paya_Exchange_Virtual_Desktop_Logo](https://user-images.githubusercontent.com/6975101/191064534-ddc55561-7530-4b1c-9765-232a363b1e91.jpeg)
+
+
 
 ![Paya_Exchange_Virtual_Desktop](https://user-images.githubusercontent.com/6975101/182176143-eb9c4f97-bbc4-4c36-97ad-19fac890c19a.png)
 
