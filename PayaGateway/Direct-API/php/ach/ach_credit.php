@@ -31,7 +31,7 @@ Contact: sdksupport@paya.com
 			"total" => "10.01"
         ],
         "account" => [
-			"type" => "Checking", 
+			"type" => "DDA", // "DDA" for Checking and "SAV" for Savings
             "routingNumber" => "056008849",
 			"accountNumber" => "12345678901234"
         ],
