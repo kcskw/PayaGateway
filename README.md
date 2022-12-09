@@ -1,2 +1,2 @@
 # Paya Gateway
-Products from Paya and Sage Payment Solutions (SPS) for Existing Integrations. These products use the sageexchange.com and sagepayments.com domains.
+Products from Paya's Core platform (Sage Exchange/Sage Payment Solutions). These products utilize APIs for the sageexchange.com and sagepayments.com domains.
