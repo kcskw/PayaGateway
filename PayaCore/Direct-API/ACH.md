@@ -34,10 +34,10 @@ https://api-cert.sagepayments.com/ach/v1/ping
 
 Used to retrieve basic server/environment information about the front- and back-end APIs.
 
-### Resource URL
+#### Resource URL
 https://api-cert.sagepayments.com/ach/v1/status
 
-### Request Body
+#### Request Body
 
 ```JSON
 {
@@ -45,7 +45,7 @@ https://api-cert.sagepayments.com/ach/v1/status
 }
 ```
 
-### Response
+#### Response
 
 | Name           | Type   | Description                                                                                     |
 |----------------|--------|-------------------------------------------------------------------------------------------------|
@@ -61,14 +61,34 @@ https://api-cert.sagepayments.com/ach/v1/status
 | merchantId     | string | The Merchant Identifier provided in the request header                                          |
 
 
-## GET get_charges
+## Charges
 
-Used to retrieve basic server/environment information about the front-end API.
+### GET get_charges
 
-### Resource URL
+Used to query charges by various criteria including amount, date, order number, type, etc. Results include both summarized information and itemized detail.
+
+#### Resource URL
 https://api-cert.sagepayments.com/ach/v1/charges
 
-### Request Body
+#### Query Parameters
+
+| Name           | Values | Description                                                                                                                                                 |
+|----------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| startDate      |        | Returns records on or after this date                                                                                                                       |
+| endDate        |        | Returns records on or before this date                                                                                                                      |
+| pageSize       |        | The number of items to be included in each page of the result set                                                                                           |
+| pageNumber     |        | The page number of the result set to return                                                                                                                 |
+| sortDirection  |        | The direction in which results should be sorted                                                                                                             |
+| sortField      |        | The field on which results should be sorted. This can be any field in the response object.                                                                  |
+| name           |        | Used to query charges by various criteria including amount, date, order number, type, etc. Results include both summarized information and itemized detail. |
+| accountNumber  |        | The last 4 digits of the customer's credit card number                                                                                                      |
+| source         |        | The type of application from which the transaction originated                                                                                               |
+| orderNumber    |        | The transaction's order number                                                                                                                              |
+| reference      |        | The transaction's unique reference number                                                                                                                   |
+| batchReference |        | The batch's unique reference number                                                                                                                         |
+| totalAmount    |        | The total amount of the transaction                                                                                                                         |
+
+#### Request Body
 
 ```JSON
 {
@@ -76,7 +96,7 @@ https://api-cert.sagepayments.com/ach/v1/charges
 }
 ```
 
-### Response
+#### Response
 
 |                |         |                                                                                                                |
 |----------------|---------|----------------------------------------------------------------------------------------------------------------|
@@ -93,550 +113,152 @@ https://api-cert.sagepayments.com/ach/v1/charges
 | items          | array   |                                                                                                   |
 
 
-## POST post_charges
-
-
-
-### Resource URL
-https://api-cert.sagepayments.com/ach/v1/status
-
-### Request Body
-
-```JSON
-{
-    // Empty Payload - Nothing needed here
-}
-```
-
-### Response
-
-| Name           | Type   | Description                                                                                     |
-|----------------|--------|-------------------------------------------------------------------------------------------------|
-
-## GET get_charges_detail
-
-
-
-### Resource URL
-https://api-cert.sagepayments.com/ach/v1/status
-
-### Request Body
-
-```JSON
-{
-    // Empty Payload - Nothing needed here
-}
-```
-
-### Response
-
-| Name           | Type   | Description                                                                                     |
-|----------------|--------|-------------------------------------------------------------------------------------------------|
-| environment    | string |                                                                                                 |
-| apiproxy       | string | The name of the API Proxy                                                                       |
-| client         | string | The IP address of the client calling the API                                                    |
-| time           | string | The time when the request was processed                                                         |
-| proxyLatency   | string | The time in milli-seconds for the front end to process the API request                          |
-| targetLatency  | string | The time in milli-seconds for the back end to process the API request                           |
-| latency        | string | The total response time to process the API request                                              |
-| message        | string | Message from the endpoint, gaurenteed to be "STATUS"                                            |
-| backendMessage | string | Message recieved from the back end typically including an non-descript tag and date information |
-| merchantId     | string | The Merchant Identifier provided in the request header                                          |
-
-## DELETE delete_charges
-
-Used to retrieve basic server/environment information about the front-end API.
-
-#### Resource URL
-https://api-cert.sagepayments.com/ach/v1/status
-
-#### Request Body
-
-```JSON
-{
-    // Empty Payload - Nothing needed here
-}
-```
-
-#### Response
-
-| Name           | Type   | Description                                                                                     |
-|----------------|--------|-------------------------------------------------------------------------------------------------|
-| environment    | string |                                                                                                 |
-| apiproxy       | string | The name of the API Proxy                                                                       |
-| client         | string | The IP address of the client calling the API                                                    |
-| time           | string | The time when the request was processed                                                         |
-| proxyLatency   | string | The time in milli-seconds for the front end to process the API request                          |
-| targetLatency  | string | The time in milli-seconds for the back end to process the API request                           |
-| latency        | string | The total response time to process the API request                                              |
-| message        | string | Message from the endpoint, gaurenteed to be "STATUS"                                            |
-| backendMessage | string | Message recieved from the back end typically including an non-descript tag and date information |
-| merchantId     | string | The Merchant Identifier provided in the request header                                          |
-
-<<<<<<< HEAD
-## GET get_credits
-
-Used to retrieve basic server/environment information about the front-end API.
-
-### Resource URL
-https://api-cert.sagepayments.com/ach/v1/status
-
-### Request Body
-=======
-## Charges
-
-### GET get_charges
-Used to query charges by various criteria including amount, date, order number, type, etc. Results include both summarized information and itemized detail.
+### POST post_charges
 
 #### Resource URL
 https://api-cert.sagepayments.com/ach/v1/charges
 
-### Query Parameters
-
-| Name           | Values | Description                                                                                                                                                 |
-|----------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| startDate      |        | Returns records on or after this date                                                                                                                       |
-| endDate        |        | Returns records on or before this date                                                                                                                      |
-| pageSize       |        | The number of items to be included in each page of the result set                                                                                           |
-| pageNumber     |        | The page number of the result set to return                                                                                                                 |
-| sortDirection  |        | The direction in which results should be sorted                                                                                                             |
-| sortField      |        | The field on which results should be sorted. This can be any field in the response object.                                                                  |
-| name           |        | Used to query charges by various criteria including amount, date, order number, type, etc. Results include both summarized information and itemized detail. |
-| accountNumber  |        | The last 4 digits of the customer's credit card number                                                                                                      |
-| source         |        | The type of application from which the transaction originated                                                                                               |
-| orderNumber    |        | The transaction's order number                                                                                                                              |
-| reference      |        | The transaction's unique reference number                                                                                                                   |
-| batchReference |        | The batch's unique reference number                                                                                                                         |
-| totalAmount    |        | The total amount of the transaction                                                                                                                         |                                                                                                      |
-
 #### Request Body
->>>>>>> 5ca0abe964f3c434164c56d57b501d4889b0d6a3
 
 ```JSON
 {
-    // Empty Payload - Nothing needed here
-}
-```
-
-<<<<<<< HEAD
-### Response
-
-| Name           | Type   | Description                                                                                     |
-|----------------|--------|-------------------------------------------------------------------------------------------------|
-| environment    | string |                                                                                                 |
-| apiproxy       | string | The name of the API Proxy                                                                       |
-| client         | string | The IP address of the client calling the API                                                    |
-| time           | string | The time when the request was processed                                                         |
-| proxyLatency   | string | The time in milli-seconds for the front end to process the API request                          |
-| targetLatency  | string | The time in milli-seconds for the back end to process the API request                           |
-| latency        | string | The total response time to process the API request                                              |
-| message        | string | Message from the endpoint, gaurenteed to be "STATUS"                                            |
-| backendMessage | string | Message recieved from the back end typically including an non-descript tag and date information |
-| merchantId     | string | The Merchant Identifier provided in the request header                                          |
-
-## POST post_credits
-
-Used to retrieve basic server/environment information about the front-end API.
-
-### Resource URL
-https://api-cert.sagepayments.com/ach/v1/status
-
-### Request Body
-=======
-#### Response
-
-| Name           | Type    | Description                                                                                                    |
-|----------------|---------|----------------------------------------------------------------------------------------------------------------|
-| startDate      | string  |                                                                                                                |
-| endDate        | string  |                                                                                                                |
-| totalItemCount | integer | The total number of items in the result set                                                                    |
-| pageSize       | integer | The number of items on each page of results                                                                    |
-| pageNumber     | integer | The current page of results being returned                                                                     |
-| href           | string  | The URL used to get this page of data                                                                          |
-| next           | string  | The URL used to get the next page of data. If null, the current page is the last page in the result set.       |
-| previous       | string  | The URL used to get the previous page of data. If null, the currrent page is the first page in the result set. |
-| summary        | array   | A summary of sales, authorizations, and credits in the result set                                              |
-| items          | array   |                                                                                                                |
-
-
-
-### POST post_charges
-Used to process a charge. Charges are 'Sale', 'Auth', or 'Force' transactions. Sale transactions include the authorization and capture steps in a single request, while Auth transactions must be manually captured in a subsequent request. Force transactions are used in rare situations where the authorization code is being explicitly set.
-
-#### Resource URL
-https://api-cert.sagepayments.com/bankcard/v1/charges
-
-### Query Parameters
-
-| Name            | Values                   | Description                         |
-|-----------------|--------------------------|-------------------------------------|
-| type (required) | Sale/Authorization/Force | The type of transaction to be used. |
-
-#### Request Body
-
-
-```JSON
-{
-    "transactionId": "",
-    "retail": {
-        "amounts": {
-            "tip": 0,
-            "total": 0,
-            "tax": 0,
-            "shipping": 0
-        },
-        "authorizationCode": "",
-        "trackData": {
-            "value": "",
-            "format": "",
-            "isContactless": false
-        },
-        "deviceId": "",
-        "cardPresent": false,
-        "allowPartialAuthorization": false,
-        "debit": {
-            "cashback": 0,
-            "pin": ""
-        },
-        "orderNumber": "",
-        "cardData": {
-            "number": "",
-            "expiration": "",
-            "cvv": ""
-        },
-        "customer": {
-            "email": "",
-            "telephone": "",
-            "fax": ""
-        },
-        "billing": {
-            "name": "",
-            "address": "",
-            "city": "",
-            "state": "",
-            "postalCode": "",
-            "country": ""
-        },
-        "shipping": {
-            "name": "",
-            "address": "",
-            "city": "",
-            "state": "",
-            "postalCode": "",
-            "country": ""
-        },
-        "isRecurring": false,
-        "recurringSchedule": {
-            "amount": 0,
-            "frequency": "",
-            "interval": 0,
-            "nonBusinessDaysHandling": "",
-            "startDate": "",
-            "totalCount": 0,
-            "groupId": ""
-        }
+    "secCode": "",
+    "originatorId": "",
+    "amounts": {
+        "total": 0,
+        "tax": 0,
+        "shipping": 0
     },
-    "eCommerce": {
-        "authorizationCode": "",
-        "amounts": {
-            "total": 0,
-            "tax": 0,
-            "shipping": 0
-        },
-        "orderNumber": "",
-        "cardData": {
-            "number": "",
-            "expiration": "",
-            "cvv": ""
-        },
-        "customer": {
-            "email": "",
-            "telephone": "",
-            "fax": ""
-        },
-        "billing": {
-            "name": "",
-            "address": "",
-            "city": "",
-            "state": "",
-            "postalCode": "",
-            "country": ""
-        },
-        "shipping": {
-            "name": "",
-            "address": "",
-            "city": "",
-            "state": "",
-            "postalCode": "",
-            "country": ""
-        },
-        "level2": {
-            "customerNumber": ""
-        },
-        "level3": {
-            "destinationCountryCode": "",
-            "amounts": {
-                "discount": 0,
-                "duty": 0,
-                "nationalTax": 0
-            },
-            "vat": {
-                "idNumber": "",
-                "invoiceNumber": "",
-                "amount": 0,
-                "rate": 0
-            },
-            "customerNumber": ""
-        },
-        "isRecurring": false,
-        "recurringSchedule": {
-            "amount": 0,
-            "frequency": "",
-            "interval": 0,
-            "nonBusinessDaysHandling": "",
-            "startDate": "",
-            "totalCount": 0,
-            "groupId": ""
-        }
+    "account": {
+        "type": "",
+        "routingNumber": "",
+        "accountNumber": "",
+        "priorReference": ""
     },
-    "healthCare": {
-        "amounts": {
-            "healthCare": 0,
-            "prescription": 0,
-            "clinic": 0,
-            "dental": 0,
-            "vision": 0,
-            "total": 0,
-            "tax": 0,
-            "shipping": 0
-        },
-        "iiasVerification": "",
-        "debit": {
-            "cashback": 0,
-            "pin": ""
-        },
-        "authorizationCode": "",
-        "trackData": {
-            "value": "",
-            "format": "",
-            "isContactless": false
-        },
-        "deviceId": "",
-        "cardPresent": false,
-        "allowPartialAuthorization": false,
-        "orderNumber": "",
-        "cardData": {
+    "checkNumber": 0,
+    "customer": {
+        "dateOfBirth": "",
+        "ssn": "",
+        "license": {
             "number": "",
-            "expiration": "",
-            "cvv": ""
+            "stateCode": ""
         },
-        "customer": {
-            "email": "",
-            "telephone": "",
-            "fax": ""
+        "ein": "",
+        "email": "",
+        "telephone": "",
+        "fax": ""
+    },
+    "billing": {
+        "name": {
+            "first": "",
+            "middle": "",
+            "last": "",
+            "suffix": ""
         },
-        "billing": {
-            "name": "",
-            "address": "",
-            "city": "",
-            "state": "",
-            "postalCode": "",
-            "country": ""
-        },
-        "shipping": {
-            "name": "",
-            "address": "",
-            "city": "",
-            "state": "",
-            "postalCode": "",
-            "country": ""
-        },
-        "isRecurring": false,
-        "recurringSchedule": {
-            "amount": 0,
-            "frequency": "",
-            "interval": 0,
-            "nonBusinessDaysHandling": "",
-            "startDate": "",
-            "totalCount": 0,
-            "groupId": ""
-        }
+        "address": "",
+        "city": "",
+        "state": "",
+        "postalCode": "",
+        "country": ""
+    },
+    "shipping": {
+        "name": "",
+        "address": "",
+        "city": "",
+        "state": "",
+        "postalCode": "",
+        "country": ""
+    },
+    "orderNumber": "",
+    "addenda": "",
+    "isRecurring": false,
+    "recurringSchedule": {
+        "amount": 0,
+        "frequency": "",
+        "interval": 0,
+        "nonBusinessDaysHandling": "",
+        "startDate": "",
+        "totalCount": 0,
+        "groupId": ""
     },
     "vault": {
         "token": "",
         "operation": ""
     },
-    "terminalNumber": ""
+    "memo": ""
 }
 ```
-
 #### Request
 
-| Name                                                   | Type    | Description                                                                                                                                                                                                      |
-|--------------------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| transactionId                                          | string  | A unique transaction identifier, this field is used for communication protocol purposes. The value provided is echoed in the response. Pattern: ^[\w'\-\s\.,#\/]{0,}$                                            |
-| retail .amounts .tip                                   | number  | The amount specified for the tip                                                                                                                                                                                 |
-| retail .amounts .total                                 | number  | The total amount of the transaction                                                                                                                                                                              |
-| retail .amounts .tax                                   | number  | The amount coming from tax                                                                                                                                                                                       |
-| retail .amounts .shipping                              | number  | The amount coming from shipping charges                                                                                                                                                                          |
-| retail .authorizationCode                              | string  | The 6 character authorization code for use with Force transaction code.                                                                                                                                          |
-| retail .trackData .value                               | string  | The value obtained from the swipe                                                                                                                                                                                |
-| retail .trackData .format                              | string  | The data format                                                                                                                                                                                                  |
-| retail .trackData .isContactless                       | boolean |                                                                                                                                                                                                                  |
-| retail .deviceId                                       | string  | A unique ID defined by the client to identify a particular device, terminal, or user of the client software. Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                      |
-| retail .cardPresent                                    | boolean | Used with manually keyed transactions to indicate whether the card was present but not swiped                                                                                                                    |
-| retail .allowPartialAuthorization                      | boolean | Used to indicate whether the POS supports Partial Authorization                                                                                                                                                  |
-| retail .debit .cashback                                | number  |                                                                                                                                                                                                                  |
-| retail .debit .pin                                     | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .orderNumber                                    | string  | The merchant-defined order number. Pattern: ^([\.\,\:\;\|\=\+\^\-\'\$\w\s\#\!\$\?\%\&\/\\]){0,}$                                                                                                                 |
-| retail .cardData .number                               | string  | The bankcard account number Pattern: ^[\w\-\s\/\+\=]{1,}$                                                                                                                                                        |
-| retail .cardData .expiration                           | string  | The card's expiration date                                                                                                                                                                                       |
-| retail .cardData .cvv                                  | string  | The card's CVV code                                                                                                                                                                                              |
-| retail .customer .email                                | string  | The customer's email address                                                                                                                                                                                     |
-| retail .customer .telephone                            | string  | The customer's telephone number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                   |
-| retail .customer .fax                                  | string  | The customer's fax number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                         |
-| retail .billing .name                                  | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .billing .address                               | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .billing .city                                  | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .billing .state                                 | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .billing .postalCode                            | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .billing .country                               | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .shipping .name                                 | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .shipping .address                              | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .shipping .city                                 | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .shipping .state                                | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .shipping .postalCode                           | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .shipping .country                              | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .isRecurring                                    | boolean | Indicates this transaction is part of a recurring series. NOTE: This does not create nor update a recurring billing entry                                                                                        |
-| retail .recurringSchedule .amount                      | number  | Recurring amount                                                                                                                                                                                                 |
-| retail .recurringSchedule .frequency                   | string  | The frequency at which the transaction should be processed                                                                                                                                                       |
-| retail .recurringSchedule .interval                    | integer | Recurring interval                                                                                                                                                                                               |
-| retail .recurringSchedule .nonBusinessDaysHandling     | string  | Specifies how the transaction should be processed if the processing date occurrs on a weekend or holiday                                                                                                         |
-| retail .recurringSchedule .startDate                   | string  | The date the recurring transactions should start                                                                                                                                                                 |
-| retail .recurringSchedule .totalCount                  | integer | The total number of times the transaction should take place. If null, it will occur indefinitely                                                                                                                 |
-| retail .recurringSchedule .groupId                     | string  | Recurring Group ID under which the recurring transaction will be added Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                            |
-| eCommerce .authorizationCode                           | string  | The 6 character authorization code for use with Force transaction code. Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                           |
-| eCommerce .amounts .total                              | number  | The total amount of the transaction                                                                                                                                                                              |
-| eCommerce .amounts .tax                                | number  | The amount coming from tax                                                                                                                                                                                       |
-| eCommerce .amounts .shipping                           | number  | The amount coming from shipping charges                                                                                                                                                                          |
-| eCommerce .orderNumber                                 | string  | The merchant-defined order number. Pattern: ^([\.\,\:\;\|\=\+\^\-\'\$\w\s\#\!\$\?\%\&\/\\]){0,}$                                                                                                                 |
-| eCommerce .cardData .number                            | string  | The bankcard account number Pattern: ^[\w\-\s\/\+\=]{1,}$                                                                                                                                                        |
-| eCommerce .cardData .expiration                        | string  | The card's expiration date                                                                                                                                                                                       |
-| eCommerce .cardData .cvv                               | string  | The card's CVV code                                                                                                                                                                                              |
-| eCommerce .customer .email                             | string  | The customer's email address                                                                                                                                                                                     |
-| eCommerce .customer .telephone                         | string  | The customer's telephone number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                   |
-| eCommerce .customer .fax                               | string  | The customer's fax number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                         |
-| eCommerce .billing .name                               | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .billing .address                            | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .billing .city                               | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .billing .state                              | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .billing .postalCode                         | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .billing .country                            | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .shipping .name                              | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .shipping .address                           | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .shipping .city                              | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .shipping .state                             | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .shipping .postalCode                        | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .shipping .country                           | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .level2 .customerNumber                      | string  | Customer Number for Purchase Card Level II Transactions Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                           |
-| eCommerce .level3 .destinationCountryCode              | string  | Abbreviation or Numeric code (840 or USA) Country code of the country to where the goods are shipped Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                              |
-| eCommerce .level3 .amounts .discount                   | number  | Total amount of discount applied to the line item. The value can also be zero.                                                                                                                                   |
-| eCommerce .level3 .amounts .duty                       | number  | Total charges for any import and/or export duties for the order. The value can also be zero                                                                                                                      |
-| eCommerce .level3 .amounts .nationalTax                | number  | National tax for the order. The value can also be zero.                                                                                                                                                          |
-| eCommerce .level3 .vat .idNumber                       | string  | Customer’s government-assigned VAT identification number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                          |
-| eCommerce .level3 .vat .invoiceNumber                  | string  | nvoice number associated with the VAT invoice. Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                    |
-| eCommerce .level3 .vat .amount                         | number  | Total amount of tax for the item. Note that this is not the per-item tax amount. For example, if the quantity is 4, and the amount of tax per item is $0.25, then set this field to 1.00. The value can be zero. |
-| eCommerce .level3 .vat .rate                           | number  | Tax rate applied to the item. Acceptable range is 0.0000 to 0.9999 (0.00% to 99.99%).                                                                                                                            |
-| eCommerce .level3 .customerNumber                      | string  | Customer Number for Purchase Card Level II Transactions Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                           |
-| eCommerce .isRecurring                                 | boolean | Indicates this transaction is part of a recurring series. NOTE: This does not create nor update a recurring billing entry                                                                                        |
-| eCommerce .recurringSchedule .amount                   | number  | Recurring amount                                                                                                                                                                                                 |
-| eCommerce .recurringSchedule .frequency                | string  | The frequency at which the transaction should be processed                                                                                                                                                       |
-| eCommerce .recurringSchedule .interval                 | integer | Recurring interval                                                                                                                                                                                               |
-| eCommerce .recurringSchedule .nonBusinessDaysHandling  | string  | Specifies how the transaction should be processed if the processing date occurrs on a weekend or holiday                                                                                                         |
-| eCommerce .recurringSchedule .startDate                | string  | The date the recurring transactions should start                                                                                                                                                                 |
-| eCommerce .recurringSchedule .totalCount               | integer | The total number of times the transaction should take place. If null, it will occur indefinitely                                                                                                                 |
-| eCommerce .recurringSchedule .groupId                  | string  | Recurring Group ID under which the recurring transaction will be added Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                            |
-| healthCare .amounts .healthCare                        | number  |                                                                                                                                                                                                                  |
-| healthCare .amounts .prescription                      | number  |                                                                                                                                                                                                                  |
-| healthCare .amounts .clinic                            | number  |                                                                                                                                                                                                                  |
-| healthCare .amounts .dental                            | number  |                                                                                                                                                                                                                  |
-| healthCare .amounts .vision                            | number  |                                                                                                                                                                                                                  |
-| healthCare .amounts .total                             | number  | The total amount of the transaction                                                                                                                                                                              |
-| healthCare .amounts .tax                               | number  | The amount coming from tax                                                                                                                                                                                       |
-| healthCare .amounts .shipping                          | number  | The amount coming from shipping charges                                                                                                                                                                          |
-| healthCare .iiasVerification                           | string  | Identifies if the purchase items were verified against an Inventory Information Approval System (IIAS). Values can be 'NotVerified', 'Verified' or 'Exempt'                                                      |
-| healthCare .debit .cashback                            | number  |                                                                                                                                                                                                                  |
-| healthCare .debit .pin                                 | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .authorizationCode                          | string  | The 6 character authorization code for use with Force transaction code.                                                                                                                                          |
-| healthCare .trackData .value                           | string  | The value obtained from the swipe                                                                                                                                                                                |
-| healthCare .trackData .format                          | string  | The data format                                                                                                                                                                                                  |
-| healthCare .trackData .isContactless                   | boolean |                                                                                                                                                                                                                  |
-| healthCare .deviceId                                   | string  | A unique ID defined by the client to identify a particular device, terminal, or user of the client software. Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                      |
-| healthCare .cardPresent                                | boolean | Used with manually keyed transactions to indicate whether the card was present but not swiped                                                                                                                    |
-| healthCare .allowPartialAuthorization                  | boolean | Used to indicate whether the POS supports Partial Authorization                                                                                                                                                  |
-| healthCare .orderNumber                                | string  | The merchant-defined order number. Pattern: ^([\.\,\:\;\|\=\+\^\-\'\$\w\s\#\!\$\?\%\&\/\\]){0,}$                                                                                                                 |
-| healthCare .cardData .number                           | string  | The bankcard account number Pattern: ^[\w\-\s\/\+\=]{1,}$                                                                                                                                                        |
-| healthCare .cardData .expiration                       | string  | The card's expiration date                                                                                                                                                                                       |
-| healthCare .cardData .cvv                              | string  | The card's CVV code                                                                                                                                                                                              |
-| healthCare .customer .email                            | string  | The customer's email address                                                                                                                                                                                     |
-| healthCare .customer .telephone                        | string  | The customer's telephone number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                   |
-| healthCare .customer .fax                              | string  | The customer's fax number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                         |
-| healthCare .billing .name                              | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .billing .address                           | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .billing .city                              | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .billing .state                             | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .billing .postalCode                        | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .billing .country                           | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .shipping .name                             | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .shipping .address                          | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .shipping .city                             | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .shipping .state                            | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .shipping .postalCode                       | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .shipping .country                          | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .isRecurring                                | boolean | Indicates this transaction is part of a recurring series. NOTE: This does not create nor update a recurring billing entry                                                                                        |
-| healthCare .recurringSchedule .amount                  | number  | Recurring amount                                                                                                                                                                                                 |
-| healthCare .recurringSchedule .frequency               | string  | The frequency at which the transaction should be processed                                                                                                                                                       |
-| healthCare .recurringSchedule .interval                | integer | Recurring interval                                                                                                                                                                                               |
-| healthCare .recurringSchedule .nonBusinessDaysHandling | string  | Specifies how the transaction should be processed if the processing date occurrs on a weekend or holiday                                                                                                         |
-| healthCare .recurringSchedule .startDate               | string  | The date the recurring transactions should start                                                                                                                                                                 |
-| healthCare .recurringSchedule .totalCount              | integer | The total number of times the transaction should take place. If null, it will occur indefinitely                                                                                                                 |
-| healthCare .recurringSchedule .groupId                 | string  | Recurring Group ID under which the recurring transaction will be added Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                            |
-| vault .token                                           | string  | The Vault record token to use during a Read or Update operation Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                   |
-| vault .operation                                       | string  | The type of operation being requested. Values can be 'Read', 'Update' or 'Create'                                                                                                                                |
-| terminalNumber                                         | string  | The Gateway terminal configuration number. If it is not present, the default Gateway terminal configuration will be used.                                                                                        |
+| Name                                       | Type    | Description                                                                                                                                                                                                       |
+|--------------------------------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| secCode                                    | string  | Identifies the way in which the payment has been authorized. Allowed Values are 'PPD','CCD', 'ARC','WEB','TEL','RCK'                                                                                              |
+| originatorId                               | string  | 10 Digit Originator ID assigned by Sage for each transaction class or business purpose Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                             |
+| amounts .total                             | number  | The total amount of the transaction                                                                                                                                                                               |
+| amounts .tax                               | number  | The amount coming from tax                                                                                                                                                                                        |
+| amounts .shipping                          | number  | The amount coming from shipping charges                                                                                                                                                                           |
+| account .type                              | string  | The type of bank account from which the funds are being withdrawn                                                                                                                                                 |
+| account .routingNumber                     | string  | The customer's account routing number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                              |
+| account .accountNumber                     | string  | The customer's account number Pattern: ^[\w\-\s\/\+\=]{1,}$                                                                                                                                                       |
+| account .priorReference                    | string  | The presence of this value indicates that Number is an encrypted number belonging to the transaction with this reference. The web service will decrypt this number and pass the decrypted number to the processor |
+| checkNumber                                | integer | The check number on the check used to process the ACH transaction                                                                                                                                                 |
+| customer .dateOfBirth                      | string  | The customer's date of birth                                                                                                                                                                                      |
+| customer .ssn                              | string  | The customer's social security number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                              |
+| customer .license .number                  | string  | The driver's license number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                        |
+| customer .license .stateCode               | string  | The two-letter abbreviation of the state that issued the driver's license Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                          |
+| customer .ein                              | string  | The customer's federal tax ID Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                      |
+| customer .email                            | string  | The customer's email address                                                                                                                                                                                      |
+| customer .telephone                        | string  | The customer's telephone number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                    |
+| customer .fax                              | string  | The customer's fax number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                          |
+| billing .name .first                       | string  | The customer's first name Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                          |
+| billing .name .middle                      | string  | The customer's middle name or initial Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                              |
+| billing .name .last                        | string  | The customer's last name Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                           |
+| billing .name .suffix                      | string  | The suffix appended to the customer's name Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                         |
+| billing .address                           | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| billing .city                              | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| billing .state                             | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| billing .postalCode                        | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| billing .country                           | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| shipping .name                             | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| shipping .address                          | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| shipping .city                             | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| shipping .state                            | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| shipping .postalCode                       | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| shipping .country                          | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| orderNumber                                | string  | A client-supplied order number to identify the transaction Pattern: ^([\.\,\:\;\|\=\+\^\-\'\$\w\s\#\!\$\?\%\&\/\\]){0,}$                                                                                          |
+| addenda                                    | string  | Additional information about the transaction to be passed to the customer's bank Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                   |
+| isRecurring                                | boolean | Indicates whether this transaction is part of a recurring series                                                                                                                                                  |
+| recurringSchedule .amount                  | number  | Recurring amount                                                                                                                                                                                                  |
+| recurringSchedule .frequency               | string  | The frequency at which the transaction should be processed                                                                                                                                                        |
+| recurringSchedule .interval                | integer | Recurring interval                                                                                                                                                                                                |
+| recurringSchedule .nonBusinessDaysHandling | string  | Specifies how the transaction should be processed if the processing date occurrs on a weekend or holiday                                                                                                          |
+| recurringSchedule .startDate               | string  | The date the recurring transactions should start                                                                                                                                                                  |
+| recurringSchedule .totalCount              | integer | The total number of times the transaction should take place. If null, it will occur indefinitely                                                                                                                  |
+| recurringSchedule .groupId                 | string  | Recurring Group ID under which the recurring transaction will be added Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                             |
+| vault .token                               | string  | The Vault record token to use during a Read or Update operation Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                    |
+| vault .operation                           | string  | The type of operation being requested. Values can be 'Read', 'Update' or 'Create'.                                                                                                                                |
+| memo                                       | string  | Memo or special instructions Pattern: ^([\.\,\:\;\|\=\+\^\-\'\$\w\s\#\!\$\?\%\&\/\\]){0,}$                                                                                                                        |
 
 #### Response
 
-| Name                  | Type    | Description                                                                                                                  |
-|-----------------------|---------|------------------------------------------------------------------------------------------------------------------------------|
-| status                | string  | The status of the transaction                                                                                                |
-| reference             | string  | A unique transaction identifier generated by the Gateway                                                                     |
-| message               | string  | A textual message that can be displayed on a terminal.                                                                       |
-| code                  | string  | The Approval, Error, or Decline code.                                                                                        |
-| cvvResult             | string  | A message indicating the status of CVV verification                                                                          |
-| avsResult             | string  | A message indicating the status of CVV verification                                                                          |
-| riskCode              | string  | A code representing the SPS risk threshold that was triggered                                                                |
-| networkId             | string  | The authorization network                                                                                                    |
-| isPurchaseCard        | boolean |                                                                                                                              |
-| isfsa                 | boolean | Indicates the card was verified to be a FSA card; assumed to be false if not present                                         |
-| balance               | number  | The remaining balance on prepaid cards; to be displayed to customer on receipt, web page, POS terminal, etc                  |
-| approvedAmount        | number  | The amount partially approved when a cardholder does not have enough balance on the debit, prepaid, or gift card             |
-| vaultResponse .status | string  | Indicates whether the requested Vault operation succeeded                                                                    |
-| vaultResponse .data   | string  | The data returned from the Vault                                                                                             |
-| orderNumber           | string  | The user defined order number provided in the request. If one was not provided, the auto generated order number is returned. |
-| transactionId         | string  | The unique transaction identifier supplied by the client in the request                                                      |
-| timestamp             | string  |                                                                                                                              |
+| Name                   | Type   | Description                                                                                                                  |
+|------------------------|--------|------------------------------------------------------------------------------------------------------------------------------|
+| status                 | string | The status of the transaction                                                                                                |
+| reference              | string | A unique transaction identifier generated by the Gateway                                                                     |
+| message                | string | A textual message that can be displayed on a terminal.                                                                       |
+| orderNumber            | string | The user defined order number provided in the request. If one was not provided, the auto generated order number is returned. |
+| vaultResponse .status  | string | Indicates whether the requested Vault operation succeeded                                                                    |
+| vaultResponse .message | string |                                                                                                                              |
+| vaultResponse .data    |        |                                                                                                                              |
 
+## GET get_charges_detail
 
-
-### GET get_charges_details
 Used to retrieve detailed information about a specific charge.
 
 #### Resource URL
-https://api-cert.sagepayments.com/bankcard/v1/charges/{reference}
+https://api-cert.sagepayments.com/ach/v1/charges/{reference}
 
 #### Request Body
->>>>>>> 5ca0abe964f3c434164c56d57b501d4889b0d6a3
 
 ```JSON
 {
@@ -644,31 +266,6 @@ https://api-cert.sagepayments.com/bankcard/v1/charges/{reference}
 }
 ```
 
-<<<<<<< HEAD
-### Response
-
-| Name           | Type   | Description                                                                                     |
-|----------------|--------|-------------------------------------------------------------------------------------------------|
-| environment    | string |                                                                                                 |
-| apiproxy       | string | The name of the API Proxy                                                                       |
-| client         | string | The IP address of the client calling the API                                                    |
-| time           | string | The time when the request was processed                                                         |
-| proxyLatency   | string | The time in milli-seconds for the front end to process the API request                          |
-| targetLatency  | string | The time in milli-seconds for the back end to process the API request                           |
-| latency        | string | The total response time to process the API request                                              |
-| message        | string | Message from the endpoint, gaurenteed to be "STATUS"                                            |
-| backendMessage | string | Message recieved from the back end typically including an non-descript tag and date information |
-| merchantId     | string | The Merchant Identifier provided in the request header                                          |
-
-## GET get_credits_detail
-
-Used to retrieve basic server/environment information about the front-end API.
-
-### Resource URL
-https://api-cert.sagepayments.com/ach/v1/status
-
-### Request Body
-=======
 #### Response
 
 | Name                                     | Type    | Description                                                                                                                                                                                                      |
@@ -740,44 +337,14 @@ https://api-cert.sagepayments.com/ach/v1/status
 | ipAddress                                | string  | The IP Address from which the transaction originated                                                                                                                                                             |
 | href                                     | string  | The URL to the resource containing details for this item                                                                                                                                                         |
 
-
-### PUT put_charges
-Used to "capture" an Auth transaction. This is an opportunity to finalize the payment amount.
-
-#### Resource URL
-https://api-cert.sagepayments.com/bankcard/v1/charges/{reference}
-
-#### Request Body
-
-```JSON
-{
-    "amounts": {
-        "tip": 0,
-        "total": 0,
-        "tax": 0,
-        "shipping": 0
-    }
-}
-```
-
-#### Request
-
-| Name              | Type   | Description                             |
-|-------------------|--------|-----------------------------------------|
-| amounts .tip      | number | The amount specified for the tip        |
-| amounts .total    | number | The total amount of the transaction     |
-| amounts .tax      | number | The amount coming from tax              |
-| amounts .shipping | number | The amount coming from shipping charges |
-
-
 ### DELETE delete_charges
+
 Used to "void", or cancel, a charge. Only unsettled transactions can be voided; settled transactions should be credited instead.
 
 #### Resource URL
-https://api-cert.sagepayments.com/bankcard/v1/charges/{reference}
+https://api-cert.sagepayments.com/ach/v1/charges/{reference}
 
 #### Request Body
->>>>>>> 5ca0abe964f3c434164c56d57b501d4889b0d6a3
 
 ```JSON
 {
@@ -785,199 +352,16 @@ https://api-cert.sagepayments.com/bankcard/v1/charges/{reference}
 }
 ```
 
-<<<<<<< HEAD
-### Response
-
-| Name           | Type   | Description                                                                                     |
-|----------------|--------|-------------------------------------------------------------------------------------------------|
-| environment    | string |                                                                                                 |
-| apiproxy       | string | The name of the API Proxy                                                                       |
-| client         | string | The IP address of the client calling the API                                                    |
-| time           | string | The time when the request was processed                                                         |
-| proxyLatency   | string | The time in milli-seconds for the front end to process the API request                          |
-| targetLatency  | string | The time in milli-seconds for the back end to process the API request                           |
-| latency        | string | The total response time to process the API request                                              |
-| message        | string | Message from the endpoint, gaurenteed to be "STATUS"                                            |
-| backendMessage | string | Message recieved from the back end typically including an non-descript tag and date information |
-| merchantId     | string | The Merchant Identifier provided in the request header                                          |
-
-## POST post_credits_reference
-
-Used to retrieve basic server/environment information about the front-end API.
-
-### Resource URL
-https://api-cert.sagepayments.com/ach/v1/status
-
-### Request Body
-=======
-
-### GET get_charges_lineitems_detail
-Used to retrieve any line item detail associated with a transaction.
-
-#### Resource URL
-https://api-cert.sagepayments.com/bankcard/v1/charges/{reference}/lineitems
-
-#### Request Body
->>>>>>> 5ca0abe964f3c434164c56d57b501d4889b0d6a3
-
-```JSON
-{
-    // Empty Payload - Nothing needed here
-}
-```
-
-<<<<<<< HEAD
-### Response
-
-| Name           | Type   | Description                                                                                     |
-|----------------|--------|-------------------------------------------------------------------------------------------------|
-| environment    | string |                                                                                                 |
-| apiproxy       | string | The name of the API Proxy                                                                       |
-| client         | string | The IP address of the client calling the API                                                    |
-| time           | string | The time when the request was processed                                                         |
-| proxyLatency   | string | The time in milli-seconds for the front end to process the API request                          |
-| targetLatency  | string | The time in milli-seconds for the back end to process the API request                           |
-| latency        | string | The total response time to process the API request                                              |
-| message        | string | Message from the endpoint, gaurenteed to be "STATUS"                                            |
-| backendMessage | string | Message recieved from the back end typically including an non-descript tag and date information |
-| merchantId     | string | The Merchant Identifier provided in the request header                                          |
-
-## DELETE delete_credits
-
-Used to retrieve basic server/environment information about the front-end API.
-
-### Resource URL
-https://api-cert.sagepayments.com/ach/v1/status
-
-### Request Body
-=======
-#### Response
-
-| Name                   | Type    | Description |
-|------------------------|---------|-------------|
-| commodityCode          | string  |             |
-| itemDescription        | string  |             |
-| productCode            | string  |             |
-| quantity               | integer |             |
-| unitOfMeasure          | string  |             |
-| unitCost               | number  |             |
-| taxAmount              | number  |             |
-| taxRate                | number  |             |
-| discountAmount         | number  |             |
-| lineItemTotal          | number  |             |
-| alternateTaxIdentifier | string  |             |
-| taxTypeApplied         | string  |             |
-| discountIndicator      | string  |             |
-| netGrossIndicator      | string  |             |
-| extendedItemAmount     | number  |             |
-| debitCreditIndicator   | string  |             |
-
-
-### POST post_charge_lineitems
-Used to add line item details, such as the specific items that are being purchased, to a transaction. This is rarely used outside of Level III processing.
-
-#### Resource URL
-https://api-cert.sagepayments.com/bankcard/v1/charges/{reference}/lineitems
-
-#### Request Body
-
-```JSON
-{
-    "masterCard": [
-        {
-            "itemDescription": "",
-            "productCode": "",
-            "quantity": 0,
-            "unitOfMeasure": "",
-            "unitCost": 0,
-            "taxAmount": 0,
-            "taxRate": 0,
-            "discountAmount": 0,
-            "alternateTaxIdentifier": "",
-            "taxTypeApplied": "",
-            "discountIndicator": "",
-            "netGrossIndicator": "",
-            "extendedItemAmount": 0,
-            "debitCreditIndicator": ""
-        }
-    ],
-    "visa": [
-        {
-            "commodityCode": "",
-            "itemDescription": "",
-            "productCode": "",
-            "quantity": 0,
-            "unitOfMeasure": "",
-            "unitCost": 0,
-            "vatTaxAmount": 0,
-            "vatTaxRate": 0,
-            "discountAmount": 0,
-            "lineItemTotal": 0
-        }
-    ]
-}
-```
-
-#### Request
-
-| Name       | Type  | Description |
-|------------|-------|-------------|
-| masterCard | array |             |
-| visa       | array |             |
-
-
-### DELETE delete_charge_lineitems
-Used to remove any line item details that have been associated with a transaction.
-
-#### Resource URL
-https://api-cert.sagepayments.com/bankcard/v1/charges/{reference}/lineitems
-
-#### Request Body
->>>>>>> 5ca0abe964f3c434164c56d57b501d4889b0d6a3
-
-```JSON
-{
-    // Empty Payload - Nothing needed here
-}
-```
-
-<<<<<<< HEAD
-### Response
-
-| Name           | Type   | Description                                                                                     |
-|----------------|--------|-------------------------------------------------------------------------------------------------|
-| environment    | string |                                                                                                 |
-| apiproxy       | string | The name of the API Proxy                                                                       |
-| client         | string | The IP address of the client calling the API                                                    |
-| time           | string | The time when the request was processed                                                         |
-| proxyLatency   | string | The time in milli-seconds for the front end to process the API request                          |
-| targetLatency  | string | The time in milli-seconds for the back end to process the API request                           |
-| latency        | string | The total response time to process the API request                                              |
-| message        | string | Message from the endpoint, gaurenteed to be "STATUS"                                            |
-| backendMessage | string | Message recieved from the back end typically including an non-descript tag and date information |
-| merchantId     | string | The Merchant Identifier provided in the request header                                          |
-
-## GET get_transactions
-
-Used to retrieve basic server/environment information about the front-end API.
-
-### Resource URL
-https://api-cert.sagepayments.com/ach/v1/status
-
-### Request Body
-=======
 ## Credits
-
 
 ### GET get_credits
 
 Used to query credits by various criteria including amount, date, order number, type, etc. Results include both summarized information and itemized detail.
 
 #### Resource URL
-https://api-cert.sagepayments.com/bankcard/v1/credits
+https://api-cert.sagepayments.com/ach/v1/credits
 
 #### Request Body
->>>>>>> 5ca0abe964f3c434164c56d57b501d4889b0d6a3
 
 ```JSON
 {
@@ -985,435 +369,174 @@ https://api-cert.sagepayments.com/bankcard/v1/credits
 }
 ```
 
-<<<<<<< HEAD
-### Response
-
-| Name           | Type   | Description                                                                                     |
-|----------------|--------|-------------------------------------------------------------------------------------------------|
-| environment    | string |                                                                                                 |
-| apiproxy       | string | The name of the API Proxy                                                                       |
-| client         | string | The IP address of the client calling the API                                                    |
-| time           | string | The time when the request was processed                                                         |
-| proxyLatency   | string | The time in milli-seconds for the front end to process the API request                          |
-| targetLatency  | string | The time in milli-seconds for the back end to process the API request                           |
-| latency        | string | The total response time to process the API request                                              |
-| message        | string | Message from the endpoint, gaurenteed to be "STATUS"                                            |
-| backendMessage | string | Message recieved from the back end typically including an non-descript tag and date information |
-| merchantId     | string | The Merchant Identifier provided in the request header                                          |
-
-## GET get_transactions_detail
-
-Used to retrieve basic server/environment information about the front-end API.
-
-### Resource URL
-https://api-cert.sagepayments.com/ach/v1/status
-
-### Request Body
-=======
-#### Query Parameters
-
-| Name           | Values                                                         | Description                                                                                                                                                 |
-|----------------|----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| type           | Sale/Authorization/Force/Void/Credit/CreditByReference/Capture | The type of transaction, valid values are "Sale", "Authorization", "Force", "Void", "Credit", "CreditByReference", "Capture"                                |
-| startDate      |                                                                | Returns records on or after this date                                                                                                                       |
-| endDate        |                                                                | Returns records on or before this date                                                                                                                      |
-| pageSize       |                                                                | The number of items to be included in each page of the result set                                                                                           |
-| pageNumber     |                                                                | The page number of the result set to return                                                                                                                 |
-| sortDirection  | Ascending/Descending                                           | The direction in which results should be sorted                                                                                                             |
-| sortField      |                                                                | The field on which results should be sorted. This can be any field in the response object.                                                                  |
-| isPurchaseCard |                                                                | Whether the bankcard transaction was a purchase card                                                                                                        |
-| name           |                                                                | Used to query credits by various criteria including amount, date, order number, type, etc. Results include both summarized information and itemized detail. |
-| accountNumber  |                                                                | The last 4 digits of the customer's credit card number                                                                                                      |
-| source         | Mobile/Recurring                                               | The type of application from which the transaction originated                                                                                               |
-| orderNumber    |                                                                | The transaction's order number                                                                                                                              |
-| reference      |                                                                | The transaction's unique reference number                                                                                                                   |
-| batchReference |                                                                | The batch's unique reference number                                                                                                                         |
-| totalAmount    |                                                                | The total amount of the transaction                                                                                                                         |
-| approvalCode   |                                                                | The six-digit approval code returned by the host                                                                                                            |
-
 #### Response
 
-| Name           | Type    | Description                                                                                                    |
-|----------------|---------|----------------------------------------------------------------------------------------------------------------|
-| startDate      | string  |                                                                                                                |
-| endDate        | string  |                                                                                                                |
-| totalItemCount | integer | The total number of items in the result set                                                                    |
-| pageSize       | integer | The number of items on each page of results                                                                    |
-| pageNumber     | integer | The current page of results being returned                                                                     |
-| href           | string  | The URL used to get this page of data                                                                          |
-| next           | string  | The URL used to get the next page of data. If null, the current page is the last page in the result set.       |
-| previous       | string  | The URL used to get the previous page of data. If null, the currrent page is the first page in the result set. |
-| summary        | array   | A summary of sales, authorizations, and credits in the result set                                              |
-| items          | array   |                                                                                                                |
+| Name           | Values | Description                                                                                                                                                 |
+|----------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| startDate      |        | Returns records on or after this date                                                                                                                       |
+| endDate        |        | Returns records on or before this date                                                                                                                      |
+| pageSize       |        | The number of items to be included in each page of the result set                                                                                           |
+| pageNumber     |        | The page number of the result set to return                                                                                                                 |
+| sortDirection  |        | The direction in which results should be sorted                                                                                                             |
+| sortField      |        | The field on which results should be sorted. This can be any field in the response object.                                                                  |
+| name           |        | Used to query credits by various criteria including amount, date, order number, type, etc. Results include both summarized information and itemized detail. |
+| accountNumber  |        | The last 4 digits of the customer's credit card number                                                                                                      |
+| source         |        | The type of application from which the transaction originated. ['Mobile', 'Recurring']                                                                      |
+| orderNumber    |        | The transaction's order number                                                                                                                              |
+| reference      |        | The transaction's unique reference number                                                                                                                   |
+| batchReference |        | The batch's unique reference number                                                                                                                         |
+| totalAmount    |        | The total amount of the transaction                                                                                                                         |
 
 ### POST post_credits
+
 Used to process a credit. Credit transactions refund an amount to a card.
 
 #### Resource URL
-https://api-cert.sagepayments.com/bankcard/v1/credits
+https://api-cert.sagepayments.com/ach/v1/credits
 
 #### Request Body
 
 ```JSON
 {
-    "transactionId": "",
-    "retail": {
-        "amounts": {
-            "tip": 0,
-            "total": 0,
-            "tax": 0,
-            "shipping": 0
-        },
-        "authorizationCode": "",
-        "trackData": {
-            "value": "",
-            "format": "",
-            "isContactless": false
-        },
-        "deviceId": "",
-        "cardPresent": false,
-        "allowPartialAuthorization": false,
-        "debit": {
-            "cashback": 0,
-            "pin": ""
-        },
-        "orderNumber": "",
-        "cardData": {
-            "number": "",
-            "expiration": "",
-            "cvv": ""
-        },
-        "customer": {
-            "email": "",
-            "telephone": "",
-            "fax": ""
-        },
-        "billing": {
-            "name": "",
-            "address": "",
-            "city": "",
-            "state": "",
-            "postalCode": "",
-            "country": ""
-        },
-        "shipping": {
-            "name": "",
-            "address": "",
-            "city": "",
-            "state": "",
-            "postalCode": "",
-            "country": ""
-        },
-        "isRecurring": false,
-        "recurringSchedule": {
-            "amount": 0,
-            "frequency": "",
-            "interval": 0,
-            "nonBusinessDaysHandling": "",
-            "startDate": "",
-            "totalCount": 0,
-            "groupId": ""
-        }
+    "secCode": "",
+    "originatorId": "",
+    "amounts": {
+        "total": 0,
+        "tax": 0,
+        "shipping": 0
     },
-    "eCommerce": {
-        "authorizationCode": "",
-        "amounts": {
-            "total": 0,
-            "tax": 0,
-            "shipping": 0
-        },
-        "orderNumber": "",
-        "cardData": {
-            "number": "",
-            "expiration": "",
-            "cvv": ""
-        },
-        "customer": {
-            "email": "",
-            "telephone": "",
-            "fax": ""
-        },
-        "billing": {
-            "name": "",
-            "address": "",
-            "city": "",
-            "state": "",
-            "postalCode": "",
-            "country": ""
-        },
-        "shipping": {
-            "name": "",
-            "address": "",
-            "city": "",
-            "state": "",
-            "postalCode": "",
-            "country": ""
-        },
-        "level2": {
-            "customerNumber": ""
-        },
-        "level3": {
-            "destinationCountryCode": "",
-            "amounts": {
-                "discount": 0,
-                "duty": 0,
-                "nationalTax": 0
-            },
-            "vat": {
-                "idNumber": "",
-                "invoiceNumber": "",
-                "amount": 0,
-                "rate": 0
-            },
-            "customerNumber": ""
-        },
-        "isRecurring": false,
-        "recurringSchedule": {
-            "amount": 0,
-            "frequency": "",
-            "interval": 0,
-            "nonBusinessDaysHandling": "",
-            "startDate": "",
-            "totalCount": 0,
-            "groupId": ""
-        }
+    "account": {
+        "type": "",
+        "routingNumber": "",
+        "accountNumber": "",
+        "priorReference": ""
     },
-    "healthCare": {
-        "amounts": {
-            "healthCare": 0,
-            "prescription": 0,
-            "clinic": 0,
-            "dental": 0,
-            "vision": 0,
-            "total": 0,
-            "tax": 0,
-            "shipping": 0
-        },
-        "iiasVerification": "",
-        "debit": {
-            "cashback": 0,
-            "pin": ""
-        },
-        "authorizationCode": "",
-        "trackData": {
-            "value": "",
-            "format": "",
-            "isContactless": false
-        },
-        "deviceId": "",
-        "cardPresent": false,
-        "allowPartialAuthorization": false,
-        "orderNumber": "",
-        "cardData": {
+    "checkNumber": 0,
+    "customer": {
+        "dateOfBirth": "",
+        "ssn": "",
+        "license": {
             "number": "",
-            "expiration": "",
-            "cvv": ""
+            "stateCode": ""
         },
-        "customer": {
-            "email": "",
-            "telephone": "",
-            "fax": ""
+        "ein": "",
+        "email": "",
+        "telephone": "",
+        "fax": ""
+    },
+    "billing": {
+        "name": {
+            "first": "",
+            "middle": "",
+            "last": "",
+            "suffix": ""
         },
-        "billing": {
-            "name": "",
-            "address": "",
-            "city": "",
-            "state": "",
-            "postalCode": "",
-            "country": ""
-        },
-        "shipping": {
-            "name": "",
-            "address": "",
-            "city": "",
-            "state": "",
-            "postalCode": "",
-            "country": ""
-        },
-        "isRecurring": false,
-        "recurringSchedule": {
-            "amount": 0,
-            "frequency": "",
-            "interval": 0,
-            "nonBusinessDaysHandling": "",
-            "startDate": "",
-            "totalCount": 0,
-            "groupId": ""
-        }
+        "address": "",
+        "city": "",
+        "state": "",
+        "postalCode": "",
+        "country": ""
+    },
+    "shipping": {
+        "name": "",
+        "address": "",
+        "city": "",
+        "state": "",
+        "postalCode": "",
+        "country": ""
+    },
+    "orderNumber": "",
+    "addenda": "",
+    "isRecurring": false,
+    "recurringSchedule": {
+        "amount": 0,
+        "frequency": "",
+        "interval": 0,
+        "nonBusinessDaysHandling": "",
+        "startDate": "",
+        "totalCount": 0,
+        "groupId": ""
     },
     "vault": {
         "token": "",
         "operation": ""
     },
-    "terminalNumber": ""
+    "memo": ""
 }
 ```
 
 #### Request
 
-| Name                                                   | Type    | Description                                                                                                                                                                                                      |
-|--------------------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| transactionId                                          | string  | A unique transaction identifier, this field is used for communication protocol purposes. The value provided is echoed in the response. Pattern: ^[\w'\-\s\.,#\/]{0,}$                                            |
-| retail .amounts .tip                                   | number  | The amount specified for the tip                                                                                                                                                                                 |
-| retail .amounts .total                                 | number  | The total amount of the transaction                                                                                                                                                                              |
-| retail .amounts .tax                                   | number  | The amount coming from tax                                                                                                                                                                                       |
-| retail .amounts .shipping                              | number  | The amount coming from shipping charges                                                                                                                                                                          |
-| retail .authorizationCode                              | string  | The 6 character authorization code for use with Force transaction code.                                                                                                                                          |
-| retail .trackData .value                               | string  | The value obtained from the swipe                                                                                                                                                                                |
-| retail .trackData .format                              | string  | The data format                                                                                                                                                                                                  |
-| retail .trackData .isContactless                       | boolean |                                                                                                                                                                                                                  |
-| retail .deviceId                                       | string  | A unique ID defined by the client to identify a particular device, terminal, or user of the client software. Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                      |
-| retail .cardPresent                                    | boolean | Used with manually keyed transactions to indicate whether the card was present but not swiped                                                                                                                    |
-| retail .allowPartialAuthorization                      | boolean | Used to indicate whether the POS supports Partial Authorization                                                                                                                                                  |
-| retail .debit .cashback                                | number  |                                                                                                                                                                                                                  |
-| retail .debit .pin                                     | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .orderNumber                                    | string  | The merchant-defined order number. Pattern: ^([\.\,\:\;\|\=\+\^\-\'\$\w\s\#\!\$\?\%\&\/\\]){0,}$                                                                                                                 |
-| retail .cardData .number                               | string  | The bankcard account number Pattern: ^[\w\-\s\/\+\=]{1,}$                                                                                                                                                        |
-| retail .cardData .expiration                           | string  | The card's expiration date                                                                                                                                                                                       |
-| retail .cardData .cvv                                  | string  | The card's CVV code                                                                                                                                                                                              |
-| retail .customer .email                                | string  | The customer's email address                                                                                                                                                                                     |
-| retail .customer .telephone                            | string  | The customer's telephone number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                   |
-| retail .customer .fax                                  | string  | The customer's fax number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                         |
-| retail .billing .name                                  | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .billing .address                               | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .billing .city                                  | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .billing .state                                 | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .billing .postalCode                            | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .billing .country                               | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .shipping .name                                 | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .shipping .address                              | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .shipping .city                                 | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .shipping .state                                | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .shipping .postalCode                           | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .shipping .country                              | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| retail .isRecurring                                    | boolean | Indicates this transaction is part of a recurring series. NOTE: This does not create nor update a recurring billing entry                                                                                        |
-| retail .recurringSchedule .amount                      | number  | Recurring amount                                                                                                                                                                                                 |
-| retail .recurringSchedule .frequency                   | string  | The frequency at which the transaction should be processed                                                                                                                                                       |
-| retail .recurringSchedule .interval                    | integer | Recurring interval                                                                                                                                                                                               |
-| retail .recurringSchedule .nonBusinessDaysHandling     | string  | Specifies how the transaction should be processed if the processing date occurrs on a weekend or holiday                                                                                                         |
-| retail .recurringSchedule .startDate                   | string  | The date the recurring transactions should start                                                                                                                                                                 |
-| retail .recurringSchedule .totalCount                  | integer | The total number of times the transaction should take place. If null, it will occur indefinitely                                                                                                                 |
-| retail .recurringSchedule .groupId                     | string  | Recurring Group ID under which the recurring transaction will be added Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                            |
-| eCommerce .authorizationCode                           | string  | The 6 character authorization code for use with Force transaction code. Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                           |
-| eCommerce .amounts .total                              | number  | The total amount of the transaction                                                                                                                                                                              |
-| eCommerce .amounts .tax                                | number  | The amount coming from tax                                                                                                                                                                                       |
-| eCommerce .amounts .shipping                           | number  | The amount coming from shipping charges                                                                                                                                                                          |
-| eCommerce .orderNumber                                 | string  | The merchant-defined order number. Pattern: ^([\.\,\:\;\|\=\+\^\-\'\$\w\s\#\!\$\?\%\&\/\\]){0,}$                                                                                                                 |
-| eCommerce .cardData .number                            | string  | The bankcard account number Pattern: ^[\w\-\s\/\+\=]{1,}$                                                                                                                                                        |
-| eCommerce .cardData .expiration                        | string  | The card's expiration date                                                                                                                                                                                       |
-| eCommerce .cardData .cvv                               | string  | The card's CVV code                                                                                                                                                                                              |
-| eCommerce .customer .email                             | string  | The customer's email address                                                                                                                                                                                     |
-| eCommerce .customer .telephone                         | string  | The customer's telephone number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                   |
-| eCommerce .customer .fax                               | string  | The customer's fax number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                         |
-| eCommerce .billing .name                               | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .billing .address                            | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .billing .city                               | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .billing .state                              | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .billing .postalCode                         | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .billing .country                            | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .shipping .name                              | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .shipping .address                           | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .shipping .city                              | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .shipping .state                             | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .shipping .postalCode                        | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .shipping .country                           | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| eCommerce .level2 .customerNumber                      | string  | Customer Number for Purchase Card Level II Transactions Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                           |
-| eCommerce .level3 .destinationCountryCode              | string  | Abbreviation or Numeric code (840 or USA) Country code of the country to where the goods are shipped Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                              |
-| eCommerce .level3 .amounts .discount                   | number  | Total amount of discount applied to the line item. The value can also be zero.                                                                                                                                   |
-| eCommerce .level3 .amounts .duty                       | number  | Total charges for any import and/or export duties for the order. The value can also be zero                                                                                                                      |
-| eCommerce .level3 .amounts .nationalTax                | number  | National tax for the order. The value can also be zero.                                                                                                                                                          |
-| eCommerce .level3 .vat .idNumber                       | string  | Customer’s government-assigned VAT identification number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                          |
-| eCommerce .level3 .vat .invoiceNumber                  | string  | nvoice number associated with the VAT invoice. Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                    |
-| eCommerce .level3 .vat .amount                         | number  | Total amount of tax for the item. Note that this is not the per-item tax amount. For example, if the quantity is 4, and the amount of tax per item is $0.25, then set this field to 1.00. The value can be zero. |
-| eCommerce .level3 .vat .rate                           | number  | Tax rate applied to the item. Acceptable range is 0.0000 to 0.9999 (0.00% to 99.99%).                                                                                                                            |
-| eCommerce .level3 .customerNumber                      | string  | Customer Number for Purchase Card Level II Transactions Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                           |
-| eCommerce .isRecurring                                 | boolean | Indicates this transaction is part of a recurring series. NOTE: This does not create nor update a recurring billing entry                                                                                        |
-| eCommerce .recurringSchedule .amount                   | number  | Recurring amount                                                                                                                                                                                                 |
-| eCommerce .recurringSchedule .frequency                | string  | The frequency at which the transaction should be processed                                                                                                                                                       |
-| eCommerce .recurringSchedule .interval                 | integer | Recurring interval                                                                                                                                                                                               |
-| eCommerce .recurringSchedule .nonBusinessDaysHandling  | string  | Specifies how the transaction should be processed if the processing date occurrs on a weekend or holiday                                                                                                         |
-| eCommerce .recurringSchedule .startDate                | string  | The date the recurring transactions should start                                                                                                                                                                 |
-| eCommerce .recurringSchedule .totalCount               | integer | The total number of times the transaction should take place. If null, it will occur indefinitely                                                                                                                 |
-| eCommerce .recurringSchedule .groupId                  | string  | Recurring Group ID under which the recurring transaction will be added Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                            |
-| healthCare .amounts .healthCare                        | number  |                                                                                                                                                                                                                  |
-| healthCare .amounts .prescription                      | number  |                                                                                                                                                                                                                  |
-| healthCare .amounts .clinic                            | number  |                                                                                                                                                                                                                  |
-| healthCare .amounts .dental                            | number  |                                                                                                                                                                                                                  |
-| healthCare .amounts .vision                            | number  |                                                                                                                                                                                                                  |
-| healthCare .amounts .total                             | number  | The total amount of the transaction                                                                                                                                                                              |
-| healthCare .amounts .tax                               | number  | The amount coming from tax                                                                                                                                                                                       |
-| healthCare .amounts .shipping                          | number  | The amount coming from shipping charges                                                                                                                                                                          |
-| healthCare .iiasVerification                           | string  | Identifies if the purchase items were verified against an Inventory Information Approval System (IIAS). Values can be 'NotVerified', 'Verified' or 'Exempt'                                                      |
-| healthCare .debit .cashback                            | number  |                                                                                                                                                                                                                  |
-| healthCare .debit .pin                                 | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .authorizationCode                          | string  | The 6 character authorization code for use with Force transaction code.                                                                                                                                          |
-| healthCare .trackData .value                           | string  | The value obtained from the swipe                                                                                                                                                                                |
-| healthCare .trackData .format                          | string  | The data format                                                                                                                                                                                                  |
-| healthCare .trackData .isContactless                   | boolean |                                                                                                                                                                                                                  |
-| healthCare .deviceId                                   | string  | A unique ID defined by the client to identify a particular device, terminal, or user of the client software. Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                      |
-| healthCare .cardPresent                                | boolean | Used with manually keyed transactions to indicate whether the card was present but not swiped                                                                                                                    |
-| healthCare .allowPartialAuthorization                  | boolean | Used to indicate whether the POS supports Partial Authorization                                                                                                                                                  |
-| healthCare .orderNumber                                | string  | The merchant-defined order number. Pattern: ^([\.\,\:\;\|\=\+\^\-\'\$\w\s\#\!\$\?\%\&\/\\]){0,}$                                                                                                                 |
-| healthCare .cardData .number                           | string  | The bankcard account number Pattern: ^[\w\-\s\/\+\=]{1,}$                                                                                                                                                        |
-| healthCare .cardData .expiration                       | string  | The card's expiration date                                                                                                                                                                                       |
-| healthCare .cardData .cvv                              | string  | The card's CVV code                                                                                                                                                                                              |
-| healthCare .customer .email                            | string  | The customer's email address                                                                                                                                                                                     |
-| healthCare .customer .telephone                        | string  | The customer's telephone number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                   |
-| healthCare .customer .fax                              | string  | The customer's fax number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                         |
-| healthCare .billing .name                              | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .billing .address                           | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .billing .city                              | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .billing .state                             | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .billing .postalCode                        | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .billing .country                           | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .shipping .name                             | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .shipping .address                          | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .shipping .city                             | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .shipping .state                            | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .shipping .postalCode                       | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .shipping .country                          | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                   |
-| healthCare .isRecurring                                | boolean | Indicates this transaction is part of a recurring series. NOTE: This does not create nor update a recurring billing entry                                                                                        |
-| healthCare .recurringSchedule .amount                  | number  | Recurring amount                                                                                                                                                                                                 |
-| healthCare .recurringSchedule .frequency               | string  | The frequency at which the transaction should be processed                                                                                                                                                       |
-| healthCare .recurringSchedule .interval                | integer | Recurring interval                                                                                                                                                                                               |
-| healthCare .recurringSchedule .nonBusinessDaysHandling | string  | Specifies how the transaction should be processed if the processing date occurrs on a weekend or holiday                                                                                                         |
-| healthCare .recurringSchedule .startDate               | string  | The date the recurring transactions should start                                                                                                                                                                 |
-| healthCare .recurringSchedule .totalCount              | integer | The total number of times the transaction should take place. If null, it will occur indefinitely                                                                                                                 |
-| healthCare .recurringSchedule .groupId                 | string  | Recurring Group ID under which the recurring transaction will be added Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                            |
-| vault .token                                           | string  | The Vault record token to use during a Read or Update operation Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                   |
-| vault .operation                                       | string  | The type of operation being requested. Values can be 'Read', 'Update' or 'Create'                                                                                                                                |
-| terminalNumber                                         | string  | The Gateway terminal configuration number. If it is not present, the default Gateway terminal configuration will be used.                                                                                        |
+| Name                                       | Type    | Description                                                                                                                                                                                                       |
+|--------------------------------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| secCode                                    | string  | Identifies the way in which the payment has been authorized. Allowed Values are 'PPD','CCD', 'ARC','WEB','TEL','RCK'                                                                                              |
+| originatorId                               | string  | 10 Digit Originator ID assigned by Sage for each transaction class or business purpose Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                             |
+| amounts .total                             | number  | The total amount of the transaction                                                                                                                                                                               |
+| amounts .tax                               | number  | The amount coming from tax                                                                                                                                                                                        |
+| amounts .shipping                          | number  | The amount coming from shipping charges                                                                                                                                                                           |
+| account .type                              | string  | The type of bank account from which the funds are being withdrawn                                                                                                                                                 |
+| account .routingNumber                     | string  | The customer's account routing number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                              |
+| account .accountNumber                     | string  | The customer's account number Pattern: ^[\w\-\s\/\+\=]{1,}$                                                                                                                                                       |
+| account .priorReference                    | string  | The presence of this value indicates that Number is an encrypted number belonging to the transaction with this reference. The web service will decrypt this number and pass the decrypted number to the processor |
+| checkNumber                                | integer | The check number on the check used to process the ACH transaction                                                                                                                                                 |
+| customer .dateOfBirth                      | string  | The customer's date of birth                                                                                                                                                                                      |
+| customer .ssn                              | string  | The customer's social security number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                              |
+| customer .license .number                  | string  | The driver's license number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                        |
+| customer .license .stateCode               | string  | The two-letter abbreviation of the state that issued the driver's license Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                          |
+| customer .ein                              | string  | The customer's federal tax ID Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                      |
+| customer .email                            | string  | The customer's email address                                                                                                                                                                                      |
+| customer .telephone                        | string  | The customer's telephone number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                    |
+| customer .fax                              | string  | The customer's fax number Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                          |
+| billing .name .first                       | string  | The customer's first name Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                          |
+| billing .name .middle                      | string  | The customer's middle name or initial Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                              |
+| billing .name .last                        | string  | The customer's last name Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                           |
+| billing .name .suffix                      | string  | The suffix appended to the customer's name Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                         |
+| billing .address                           | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| billing .city                              | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| billing .state                             | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| billing .postalCode                        | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| billing .country                           | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| shipping .name                             | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| shipping .address                          | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| shipping .city                             | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| shipping .state                            | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| shipping .postalCode                       | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| shipping .country                          | string  | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                                                                    |
+| orderNumber                                | string  | A client-supplied order number to identify the transaction Pattern: ^([\.\,\:\;\|\=\+\^\-\'\$\w\s\#\!\$\?\%\&\/\\]){0,}$                                                                                          |
+| addenda                                    | string  | Additional information about the transaction to be passed to the customer's bank Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                   |
+| isRecurring                                | boolean | Indicates whether this transaction is part of a recurring series                                                                                                                                                  |
+| recurringSchedule .amount                  | number  | Recurring amount                                                                                                                                                                                                  |
+| recurringSchedule .frequency               | string  | The frequency at which the transaction should be processed                                                                                                                                                        |
+| recurringSchedule .interval                | integer | Recurring interval                                                                                                                                                                                                |
+| recurringSchedule .nonBusinessDaysHandling | string  | Specifies how the transaction should be processed if the processing date occurrs on a weekend or holiday                                                                                                          |
+| recurringSchedule .startDate               | string  | The date the recurring transactions should start                                                                                                                                                                  |
+| recurringSchedule .totalCount              | integer | The total number of times the transaction should take place. If null, it will occur indefinitely                                                                                                                  |
+| recurringSchedule .groupId                 | string  | Recurring Group ID under which the recurring transaction will be added Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                             |
+| vault .token                               | string  | The Vault record token to use during a Read or Update operation Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                    |
+| vault .operation                           | string  | The type of operation being requested. Values can be 'Read', 'Update' or 'Create'.                                                                                                                                |
+| memo                                       | string  | Memo or special instructions Pattern: ^([\.\,\:\;\|\=\+\^\-\'\$\w\s\#\!\$\?\%\&\/\\]){0,}$                                                                                                                        |
+
 
 #### Response
 
-| Name                  | Type    | Description                                                                                                                  |
-|-----------------------|---------|------------------------------------------------------------------------------------------------------------------------------|
-| status                | string  | The status of the transaction                                                                                                |
-| reference             | string  | A unique transaction identifier generated by the Gateway                                                                     |
-| message               | string  | A textual message that can be displayed on a terminal.                                                                       |
-| code                  | string  | The Approval, Error, or Decline code.                                                                                        |
-| cvvResult             | string  | A message indicating the status of CVV verification                                                                          |
-| avsResult             | string  | A message indicating the status of CVV verification                                                                          |
-| riskCode              | string  | A code representing the SPS risk threshold that was triggered                                                                |
-| networkId             | string  | The authorization network                                                                                                    |
-| isPurchaseCard        | boolean |                                                                                                                              |
-| isfsa                 | boolean | Indicates the card was verified to be a FSA card; assumed to be false if not present                                         |
-| balance               | number  | The remaining balance on prepaid cards; to be displayed to customer on receipt, web page, POS terminal, etc                  |
-| approvedAmount        | number  | The amount partially approved when a cardholder does not have enough balance on the debit, prepaid, or gift card             |
-| vaultResponse .status | string  | Indicates whether the requested Vault operation succeeded                                                                    |
-| vaultResponse .data   | string  | The data returned from the Vault                                                                                             |
-| orderNumber           | string  | The user defined order number provided in the request. If one was not provided, the auto generated order number is returned. |
-| transactionId         | string  | The unique transaction identifier supplied by the client in the request                                                      |
-| timestamp             | string  |                                                                                                                              |
+| Name                   | Type   | Description                                                                                                                  |
+|------------------------|--------|------------------------------------------------------------------------------------------------------------------------------|
+| status                 | string | The status of the transaction                                                                                                |
+| reference              | string | A unique transaction identifier generated by the Gateway                                                                     |
+| message                | string | A textual message that can be displayed on a terminal.                                                                       |
+| orderNumber            | string | The user defined order number provided in the request. If one was not provided, the auto generated order number is returned. |
+| vaultResponse .status  | string | Indicates whether the requested Vault operation succeeded                                                                    |
+| vaultResponse .message | string |                                                                                                                              |
+| vaultResponse .data    | string | The data returned from the Vault                                                                                             |
 
 ### GET get_credits_detail
+
 Used to retrieve detailed information about a specific credit.
 
 #### Resource URL
-https://api-cert.sagepayments.com/bankcard/v1/credits/{reference}
+https://api-cert.sagepayments.com/ach/v1/charges/{reference}
 
 #### Request Body
->>>>>>> 5ca0abe964f3c434164c56d57b501d4889b0d6a3
 
 ```JSON
 {
@@ -1421,32 +544,6 @@ https://api-cert.sagepayments.com/bankcard/v1/credits/{reference}
 }
 ```
 
-<<<<<<< HEAD
-### Response
-
-| Name           | Type   | Description                                                                                     |
-|----------------|--------|-------------------------------------------------------------------------------------------------|
-| environment    | string |                                                                                                 |
-| apiproxy       | string | The name of the API Proxy                                                                       |
-| client         | string | The IP address of the client calling the API                                                    |
-| time           | string | The time when the request was processed                                                         |
-| proxyLatency   | string | The time in milli-seconds for the front end to process the API request                          |
-| targetLatency  | string | The time in milli-seconds for the back end to process the API request                           |
-| latency        | string | The total response time to process the API request                                              |
-| message        | string | Message from the endpoint, gaurenteed to be "STATUS"                                            |
-| backendMessage | string | Message recieved from the back end typically including an non-descript tag and date information |
-| merchantId     | string | The Merchant Identifier provided in the request header                                          |
-
-
-## GET get_batches
-
-Used to retrieve basic server/environment information about the front-end API.
-
-### Resource URL
-https://api-cert.sagepayments.com/ach/v1/status
-
-### Request Body
-=======
 #### Response
 
 | Name                                     | Type    | Description                                                                                                                                                                                                      |
@@ -1519,61 +616,49 @@ https://api-cert.sagepayments.com/ach/v1/status
 | href                                     | string  | The URL to the resource containing details for this item                                                                                                                                                         |
 
 ### POST post_credits_reference
+
 Used to process a credit. Referencing a previous transaction allows you to issue a refund without knowing the card number and expiration date.
 
 #### Resource URL
-https://api-cert.sagepayments.com/bankcard/v1/credits/{reference}
+https://api-cert.sagepayments.com/ach/v1/credits/{reference}
 
 #### Request Body
 
 ```JSON
 {
-    "transactionId": "",
-    "deviceId": "",
     "amount": 0,
-    "terminalNumber": ""
+    "deviceId": ""
 }
 ```
 
 #### Request
-| Name           | Type   | Description                                                                                                                                                           |
-|----------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| transactionId  | string | A unique transaction identifier, this field is used for communication protocol purposes. The value provided is echoed in the response. Pattern: ^[\w'\-\s\.,#\/]{0,}$ |
-| deviceId       | string | Pattern: ^[\w'\-\s\.,#\/]{0,}$                                                                                                                                        |
-| amount         | number |                                                                                                                                                                       |
-| terminalNumber | string | The Gateway terminal configuration number. If it is not present, the default Gateway terminal configuration will be used.                                             |
+
+| Name     | Type   | Description                    |
+|----------|--------|--------------------------------|
+| amount   | number |                                |
+| deviceId | string | Pattern: ^[\w'\-\s\.,#\/]{0,}$ |
 
 
 #### Response
 
-| Name                  | Type    | Description                                                                                                                  |
-|-----------------------|---------|------------------------------------------------------------------------------------------------------------------------------|
-| status                | string  | The status of the transaction                                                                                                |
-| reference             | string  | A unique transaction identifier generated by the Gateway                                                                     |
-| message               | string  | A textual message that can be displayed on a terminal.                                                                       |
-| code                  | string  | The Approval, Error, or Decline code.                                                                                        |
-| cvvResult             | string  | A message indicating the status of CVV verification                                                                          |
-| avsResult             | string  | A message indicating the status of CVV verification                                                                          |
-| riskCode              | string  | A code representing the SPS risk threshold that was triggered                                                                |
-| networkId             | string  | The authorization network                                                                                                    |
-| isPurchaseCard        | boolean |                                                                                                                              |
-| isfsa                 | boolean | Indicates the card was verified to be a FSA card; assumed to be false if not present                                         |
-| balance               | number  | The remaining balance on prepaid cards; to be displayed to customer on receipt, web page, POS terminal, etc                  |
-| approvedAmount        | number  | The amount partially approved when a cardholder does not have enough balance on the debit, prepaid, or gift card             |
-| vaultResponse .status | string  | Indicates whether the requested Vault operation succeeded                                                                    |
-| vaultResponse .data   | string  | The data returned from the Vault                                                                                             |
-| orderNumber           | string  | The user defined order number provided in the request. If one was not provided, the auto generated order number is returned. |
-| transactionId         | string  | The unique transaction identifier supplied by the client in the request                                                      |
-| timestamp             | string  |                                                                                                                              |
+| Name                   | Type   | Description                                                                                                                  |
+|------------------------|--------|------------------------------------------------------------------------------------------------------------------------------|
+| status                 | string | The status of the transaction                                                                                                |
+| reference              | string | A unique transaction identifier generated by the Gateway                                                                     |
+| message                | string | A textual message that can be displayed on a terminal.                                                                       |
+| orderNumber            | string | The user defined order number provided in the request. If one was not provided, the auto generated order number is returned. |
+| vaultResponse .status  | string | Indicates whether the requested Vault operation succeeded                                                                    |
+| vaultResponse .message | string |                                                                                                                              |
+| vaultResponse .data    | string | The data returned from the Vault                                                                                             |
 
 ### DELETE delete_credits
+
 Used to "void", or cancel, a credit. Only unsettled transactions can be voided.
 
 #### Resource URL
-https://api-cert.sagepayments.com/bankcard/v1/credits/{reference}
+https://api-cert.sagepayments.com/ach/v1/credits/{reference}
 
 #### Request Body
->>>>>>> 5ca0abe964f3c434164c56d57b501d4889b0d6a3
 
 ```JSON
 {
@@ -1581,92 +666,43 @@ https://api-cert.sagepayments.com/bankcard/v1/credits/{reference}
 }
 ```
 
-<<<<<<< HEAD
-### Response
 
-| Name           | Type   | Description                                                                                     |
-|----------------|--------|-------------------------------------------------------------------------------------------------|
-| environment    | string |                                                                                                 |
-| apiproxy       | string | The name of the API Proxy                                                                       |
-| client         | string | The IP address of the client calling the API                                                    |
-| time           | string | The time when the request was processed                                                         |
-| proxyLatency   | string | The time in milli-seconds for the front end to process the API request                          |
-| targetLatency  | string | The time in milli-seconds for the back end to process the API request                           |
-| latency        | string | The total response time to process the API request                                              |
-| message        | string | Message from the endpoint, gaurenteed to be "STATUS"                                            |
-| backendMessage | string | Message recieved from the back end typically including an non-descript tag and date information |
-| merchantId     | string | The Merchant Identifier provided in the request header                                          |
-
-## GET get_batches_current
-
-Used to retrieve basic server/environment information about the front-end API.
-
-### Resource URL
-https://api-cert.sagepayments.com/ach/v1/status
-
-### Request Body
-=======
 ## Reporting on Transactions
 
+
 ### GET get_transactions
+
 Used to query transactions by various criteria including amount, date, order number, type, etc. Results include both summarized information and itemized detail.
 
 #### Resource URL
-https://api-cert.sagepayments.com/bankcard/v1/transactions
+https://api-cert.sagepayments.com/ach/v1/transactions
+
+### Query Parameters
+
+| Name           | Values | Description                                                                                                                                                      |
+|----------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| startDate      |        | Returns records on or after this date                                                                                                                            |
+| endDate        |        | Returns records on or before this date                                                                                                                           |
+| pageSize       |        | The number of items to be included in each page of the result set                                                                                                |
+| pageNumber     |        | The page number of the result set to return                                                                                                                      |
+| sortDirection  |        | The direction in which results should be sorted                                                                                                                  |
+| sortField      |        | The field on which results should be sorted. This can be any field in the response object.                                                                       |
+| isPurchaseCard |        | Whether the bankcard transaction was a purchase card                                                                                                             |
+| name           |        | Used to query transactions by various criteria including amount, date, order number, type, etc. Results include both summarized information and itemized detail. |
+| accountNumber  |        | The last 4 digits of the customer's credit card number                                                                                                           |
+| source         |        | The type of application from which the transaction originated                                                                                                    |
+| orderNumber    |        | The transaction's order number                                                                                                                                   |
+| reference      |        | The transaction's unique reference number                                                                                                                        |
+| batchReference |        | The batch's unique reference number                                                                                                                              |
+| totalAmount    |        | The total amount of the transactio                                                                                                                               |
 
 #### Request Body
->>>>>>> 5ca0abe964f3c434164c56d57b501d4889b0d6a3
 
 ```JSON
 {
     // Empty Payload - Nothing needed here
 }
 ```
-
-<<<<<<< HEAD
-### Response
-
-| Name           | Type   | Description                                                                                     |
-|----------------|--------|-------------------------------------------------------------------------------------------------|
-| environment    | string |                                                                                                 |
-| apiproxy       | string | The name of the API Proxy                                                                       |
-| client         | string | The IP address of the client calling the API                                                    |
-| time           | string | The time when the request was processed                                                         |
-| proxyLatency   | string | The time in milli-seconds for the front end to process the API request                          |
-| targetLatency  | string | The time in milli-seconds for the back end to process the API request                           |
-| latency        | string | The total response time to process the API request                                              |
-| message        | string | Message from the endpoint, gaurenteed to be "STATUS"                                            |
-| backendMessage | string | Message recieved from the back end typically including an non-descript tag and date information |
-| merchantId     | string | The Merchant Identifier provided in the request header                                          |
-
-## GET get_batches_current_summary
-
-Used to retrieve basic server/environment information about the front-end API.
-
-### Resource URL
-https://api-cert.sagepayments.com/ach/v1/status
-
-### Request Body
-=======
-#### Query Parameters
-
-| type           | Sale/Authorization/Force/Void/Credit/CreditByReference/Capture | The type of transaction, valid values are "Sale", "Authorization", "Force", "Void", "Credit", "CreditByReference", "Capture"                                     |
-|----------------|----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| startDate      |                                                                | Returns records on or after this date                                                                                                                            |
-| endDate        |                                                                | Returns records on or before this date                                                                                                                           |
-| pageSize       |                                                                | The number of items to be included in each page of the result set                                                                                                |
-| pageNumber     |                                                                | The page number of the result set to return                                                                                                                      |
-| sortDirection  | Ascending/Descending                                           | The direction in which results should be sorted                                                                                                                  |
-| sortField      |                                                                | The field on which results should be sorted. This can be any field in the response object.                                                                       |
-| isPurchaseCard |                                                                | Whether the bankcard transaction was a purchase card                                                                                                             |
-| name           |                                                                | Used to query transactions by various criteria including amount, date, order number, type, etc. Results include both summarized information and itemized detail. |
-| accountNumber  |                                                                | The last 4 digits of the customer's credit card number                                                                                                           |
-| source         | Mobile/Recurring                                               | The type of application from which the transaction originated                                                                                                    |
-| orderNumber    |                                                                | The transaction's order number                                                                                                                                   |
-| reference      |                                                                | The transaction's unique reference number                                                                                                                        |
-| batchReference |                                                                | The batch's unique reference number                                                                                                                              |
-| totalAmount    |                                                                | The total amount of the transaction                                                                                                                              |
-| approvalCode   |                                                                | The six-digit approval code returned by the host                                                                                                                 |
 
 #### Response
 
@@ -1683,15 +719,14 @@ https://api-cert.sagepayments.com/ach/v1/status
 | summary        | array   | A summary of sales, authorizations, and credits in the result set                                              |
 | items          | array   |                                                                                                                |
 
+### GET get_transactions_detail
 
-### GET get_transactions_details
 Used to retrieve detailed information about a specific transaction.
 
 #### Resource URL
-https://api-cert.sagepayments.com/bankcard/v1/transactions/{reference}
+https://api-cert.sagepayments.com/ach/v1/transactions/{reference}
 
 #### Request Body
->>>>>>> 5ca0abe964f3c434164c56d57b501d4889b0d6a3
 
 ```JSON
 {
@@ -1699,31 +734,6 @@ https://api-cert.sagepayments.com/bankcard/v1/transactions/{reference}
 }
 ```
 
-<<<<<<< HEAD
-### Response
-
-| Name           | Type   | Description                                                                                     |
-|----------------|--------|-------------------------------------------------------------------------------------------------|
-| environment    | string |                                                                                                 |
-| apiproxy       | string | The name of the API Proxy                                                                       |
-| client         | string | The IP address of the client calling the API                                                    |
-| time           | string | The time when the request was processed                                                         |
-| proxyLatency   | string | The time in milli-seconds for the front end to process the API request                          |
-| targetLatency  | string | The time in milli-seconds for the back end to process the API request                           |
-| latency        | string | The total response time to process the API request                                              |
-| message        | string | Message from the endpoint, gaurenteed to be "STATUS"                                            |
-| backendMessage | string | Message recieved from the back end typically including an non-descript tag and date information |
-| merchantId     | string | The Merchant Identifier provided in the request header                                          |
-
-## GET get_batches_totals
-
-Used to retrieve basic server/environment information about the front-end API.
-
-### Resource URL
-https://api-cert.sagepayments.com/ach/v1/status
-
-### Request Body
-=======
 #### Response
 
 | Name                                     | Type    | Description                                                                                                                                                                                                      |
@@ -1797,55 +807,32 @@ https://api-cert.sagepayments.com/ach/v1/status
 
 ## Settlements and Batches
 
+
 ### GET get_batches
+
 Used to query settled batches by date. Results include itemized details, such as settlement date and reference number.
 
 #### Resource URL
-https://api-cert.sagepayments.com/bankcard/v1/batches
+https://api-cert.sagepayments.com/ach/v1/batches
+
+### Query Parameters
+
+| Name          | Values | Description                                                                                |
+|---------------|--------|--------------------------------------------------------------------------------------------|
+| startDate     |        | Returns records on or after this date                                                      |
+| endDate       |        | Returns records on or before this date                                                     |
+| pageSize      |        | The number of items to be included in each page of the result set                          |
+| pageNumber    |        | The page number of the result set to return                                                |
+| sortDirection |        | The direction in which results should be sorted                                            |
+| sortField     |        | The field on which results should be sorted. This can be any field in the response object. |
 
 #### Request Body
->>>>>>> 5ca0abe964f3c434164c56d57b501d4889b0d6a3
 
 ```JSON
 {
     // Empty Payload - Nothing needed here
 }
 ```
-
-<<<<<<< HEAD
-### Response
-
-| Name           | Type   | Description                                                                                     |
-|----------------|--------|-------------------------------------------------------------------------------------------------|
-| environment    | string |                                                                                                 |
-| apiproxy       | string | The name of the API Proxy                                                                       |
-| client         | string | The IP address of the client calling the API                                                    |
-| time           | string | The time when the request was processed                                                         |
-| proxyLatency   | string | The time in milli-seconds for the front end to process the API request                          |
-| targetLatency  | string | The time in milli-seconds for the back end to process the API request                           |
-| latency        | string | The total response time to process the API request                                              |
-| message        | string | Message from the endpoint, gaurenteed to be "STATUS"                                            |
-| backendMessage | string | Message recieved from the back end typically including an non-descript tag and date information |
-| merchantId     | string | The Merchant Identifier provided in the request header                                          |
-
-## GET get_batches_reference
-
-Used to retrieve basic server/environment information about the front-end API.
-
-### Resource URL
-https://api-cert.sagepayments.com/ach/v1/status
-
-### Request Body
-=======
-#### Query Parameters
-
-| startDate     |                                                                                                                    | Returns records on or after this date                                                      |
-|---------------|--------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
-| endDate       |                                                                                                                    | Returns records on or before this date                                                     |
-| pageSize      |                                                                                                                    | The number of items to be included in each page of the result set                          |
-| pageNumber    |                                                                                                                    | The page number of the result set to return                                                |
-| sortDirection | Ascending/Descending                                                                                               | The direction in which results should be sorted                                            |
-| sortField     |                                                                                                                    | The field on which results should be sorted. This can be any field in the response object. |
 
 #### Response
 
@@ -1861,12 +848,21 @@ https://api-cert.sagepayments.com/ach/v1/status
 | previous       | string  | The URL used to get the previous page of data. If null, the currrent page is the first page in the result set. |
 | items          | array   | The current page of items                                                                                      |
 
-
 ### GET get_batches_current
+
 Used to retrieve itemized detail about the transactions in the current batch.
 
 #### Resource URL
-https://api-cert.sagepayments.com/bankcard/v1/batches/current
+https://api-cert.sagepayments.com/ach/v1/batches/current
+
+#### Request Paramenters
+
+| Name          | Values | Description                                                                                |
+|---------------|--------|--------------------------------------------------------------------------------------------|
+| pageSize      |        | The number of items to be included in each page of the result set                          |
+| pageNumber    |        | The page number of the result set to return                                                |
+| sortDirection |        | The direction in which results should be sorted                                            |
+| sortField     |        | The field on which results should be sorted. This can be any field in the response object. |
 
 #### Request Body
 
@@ -1875,14 +871,6 @@ https://api-cert.sagepayments.com/bankcard/v1/batches/current
     // Empty Payload - Nothing needed here
 }
 ```
-#### Query Parameters
-
-| Name          | Values               | Description                                                                                |
-|---------------|----------------------|--------------------------------------------------------------------------------------------|
-| pageSize      |                      | The number of items to be included in each page of the result set                          |
-| pageNumber    |                      | The page number of the result set to return                                                |
-| sortDirection | Ascending/Descending | The direction in which results should be sorted                                            |
-| sortField     |                      | The field on which results should be sorted. This can be any field in the response object. |
 
 #### Response
 
@@ -1896,54 +884,14 @@ https://api-cert.sagepayments.com/bankcard/v1/batches/current
 | previous       | string  | The URL used to get the previous page of data. If null, the currrent page is the first page in the result set. |
 | items          | array   | The current page of items                                                                                      |
 
-
-### POST post_batches_current 
-Used to settle the open transactions in the current batch. Settlement initiates the merchant funding process.
-
-#### Resource URL
-https://api-cert.sagepayments.com/bankcard/v1/batches/current
-
-#### Request Body
-
-```JSON
-{
-    "settlementType": "",
-    "count": 0,
-    "net": 0,
-    "terminalNumber": ""
-}
-```
-#### Request
-
-| Name           | Type    | Description                                                                                                                                                                                                                                             |
-|----------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| settlementType | string  |                                                                                                                                                                                                                                                         |
-| count          | integer | The number of transactions in the open batch (excluding Authorizations). This is used to reconcile/verify the number of transactions being settled. If the number does not match what is on file the batch will not close.                              |
-| net            | number  | The net (debit – credit) of the transactions in the open batch to be settled (excluding Authorizations). This is used to reconcile/verify the net of transactions being settled. If the amount does not match what is on file the batch will not close. |
-| terminalNumber | string  | The Gateway terminal configuration number. This is optional. If it is not present the default Gateway terminal configuration will be used.                                                                                                              |
-
-#### Response
-
-| Name        | Type    | Description                                              |
-|-------------|---------|----------------------------------------------------------|
-| batchNumber | string  | The starting batch number                                |
-| count       | integer | The number of transaction in the batch                   |
-| volume      | number  | The net of the batch (debit – credit).                   |
-| timestamp   | string  |                                                          |
-| status      | string  | The status of the transaction                            |
-| reference   | string  | A unique transaction identifier generated by the Gateway |
-| message     | string  | A textual message that can be displayed on a terminal.   |
-| code        | string  | The Approval, Error, or Decline code.                    |
-
-
 ### GET get_batches_current_summary
+
 Used to retrieve summarized information, such as count and volume, about the transactions in the current batch.
 
 #### Resource URL
-https://api-cert.sagepayments.com/bankcard/v1/batches/current/summary
+https://api-cert.sagepayments.com/ach/v1/batches/current/summary
 
 #### Request Body
->>>>>>> 5ca0abe964f3c434164c56d57b501d4889b0d6a3
 
 ```JSON
 {
@@ -1951,31 +899,6 @@ https://api-cert.sagepayments.com/bankcard/v1/batches/current/summary
 }
 ```
 
-<<<<<<< HEAD
-### Response
-
-| Name           | Type   | Description                                                                                     |
-|----------------|--------|-------------------------------------------------------------------------------------------------|
-| environment    | string |                                                                                                 |
-| apiproxy       | string | The name of the API Proxy                                                                       |
-| client         | string | The IP address of the client calling the API                                                    |
-| time           | string | The time when the request was processed                                                         |
-| proxyLatency   | string | The time in milli-seconds for the front end to process the API request                          |
-| targetLatency  | string | The time in milli-seconds for the back end to process the API request                           |
-| latency        | string | The total response time to process the API request                                              |
-| message        | string | Message from the endpoint, gaurenteed to be "STATUS"                                            |
-| backendMessage | string | Message recieved from the back end typically including an non-descript tag and date information |
-| merchantId     | string | The Merchant Identifier provided in the request header                                          |
-
-## GET get_batches_reference_summary
-
-Used to retrieve basic server/environment information about the front-end API.
-
-### Resource URL
-https://api-cert.sagepayments.com/ach/v1/status
-
-### Request Body
-=======
 #### Response
 
 | Name        | Type    | Description                                                     |
@@ -1990,53 +913,27 @@ https://api-cert.sagepayments.com/ach/v1/status
 | totalCount  | integer | The total number of all transactions for this type              |
 | totalVolume | number  | The net volume (debits - credits) for this type                 |
 
-
 ### GET get_batches_totals
+
 Used to retrieve the total count and amount of all batches settled within a given timeframe.
 
 #### Resource URL
-https://api-cert.sagepayments.com/bankcard/v1/batches/totals
+https://api-cert.sagepayments.com/ach/v1/batches/totals
+
+### Query Parameters
+
+| Name      | Values | Description                            |
+|-----------|--------|----------------------------------------|
+| startDate |        | Returns records on or after this date  |
+| endDate   |        | Returns records on or before this date |
 
 #### Request Body
->>>>>>> 5ca0abe964f3c434164c56d57b501d4889b0d6a3
 
 ```JSON
 {
     // Empty Payload - Nothing needed here
 }
 ```
-
-<<<<<<< HEAD
-### Response
-
-| Name           | Type   | Description                                                                                     |
-|----------------|--------|-------------------------------------------------------------------------------------------------|
-| environment    | string |                                                                                                 |
-| apiproxy       | string | The name of the API Proxy                                                                       |
-| client         | string | The IP address of the client calling the API                                                    |
-| time           | string | The time when the request was processed                                                         |
-| proxyLatency   | string | The time in milli-seconds for the front end to process the API request                          |
-| targetLatency  | string | The time in milli-seconds for the back end to process the API request                           |
-| latency        | string | The total response time to process the API request                                              |
-| message        | string | Message from the endpoint, gaurenteed to be "STATUS"                                            |
-| backendMessage | string | Message recieved from the back end typically including an non-descript tag and date information |
-| merchantId     | string | The Merchant Identifier provided in the request header                                          |
-
-## POST post-tokens
-
-Used to retrieve basic server/environment information about the front-end API.
-
-### Resource URL
-https://api-cert.sagepayments.com/ach/v1/status
-
-### Request Body
-=======
-#### Query Parameters
-
-| Name      | Values | Description                            |
-|-----------|--------|----------------------------------------|
-| startDate |        | Returns records on or after this date  |
-| endDate   |        | Returns records on or before this date |
 
 #### Response
 
@@ -2045,108 +942,29 @@ https://api-cert.sagepayments.com/ach/v1/status
 | count  | integer |             |
 | volume | number  |             |
 
-
 ### GET get_batches_reference
+
 Used to retrieve itemized detail about the transactions in a specific batch.
 
 #### Resource URL
-https://api-cert.sagepayments.com/bankcard/v1/batches/{reference}
-
-#### Request Body
->>>>>>> 5ca0abe964f3c434164c56d57b501d4889b0d6a3
-
-```JSON
-{
-    // Empty Payload - Nothing needed here
-}
-```
-
-<<<<<<< HEAD
-### Response
-
-| Name           | Type   | Description                                                                                     |
-|----------------|--------|-------------------------------------------------------------------------------------------------|
-| environment    | string |                                                                                                 |
-| apiproxy       | string | The name of the API Proxy                                                                       |
-| client         | string | The IP address of the client calling the API                                                    |
-| time           | string | The time when the request was processed                                                         |
-| proxyLatency   | string | The time in milli-seconds for the front end to process the API request                          |
-| targetLatency  | string | The time in milli-seconds for the back end to process the API request                           |
-| latency        | string | The total response time to process the API request                                              |
-| message        | string | Message from the endpoint, gaurenteed to be "STATUS"                                            |
-| backendMessage | string | Message recieved from the back end typically including an non-descript tag and date information |
-| merchantId     | string | The Merchant Identifier provided in the request header                                          |
-
-## PUT put-token
-
-Used to retrieve basic server/environment information about the front-end API.
-
-### Resource URL
-https://api-cert.sagepayments.com/ach/v1/status
-
-### Request Body
-
-```JSON
-{
-    // Empty Payload - Nothing needed here
-}
-```
-
-### Response
-
-| Name           | Type   | Description                                                                                     |
-|----------------|--------|-------------------------------------------------------------------------------------------------|
-| environment    | string |                                                                                                 |
-| apiproxy       | string | The name of the API Proxy                                                                       |
-| client         | string | The IP address of the client calling the API                                                    |
-| time           | string | The time when the request was processed                                                         |
-| proxyLatency   | string | The time in milli-seconds for the front end to process the API request                          |
-| targetLatency  | string | The time in milli-seconds for the back end to process the API request                           |
-| latency        | string | The total response time to process the API request                                              |
-| message        | string | Message from the endpoint, gaurenteed to be "STATUS"                                            |
-| backendMessage | string | Message recieved from the back end typically including an non-descript tag and date information |
-| merchantId     | string | The Merchant Identifier provided in the request header                                          |
-
-## DELETE delete-token
-
-Used to retrieve basic server/environment information about the front-end API.
-
-### Resource URL
-https://api-cert.sagepayments.com/ach/v1/status
-
-### Request Body
-
-```JSON
-{
-    // Empty Payload - Nothing needed here
-}
-```
-
-### Response
-
-| Name           | Type   | Description                                                                                     |
-|----------------|--------|-------------------------------------------------------------------------------------------------|
-| environment    | string |                                                                                                 |
-| apiproxy       | string | The name of the API Proxy                                                                       |
-| client         | string | The IP address of the client calling the API                                                    |
-| time           | string | The time when the request was processed                                                         |
-| proxyLatency   | string | The time in milli-seconds for the front end to process the API request                          |
-| targetLatency  | string | The time in milli-seconds for the back end to process the API request                           |
-| latency        | string | The total response time to process the API request                                              |
-| message        | string | Message from the endpoint, gaurenteed to be "STATUS"                                            |
-| backendMessage | string | Message recieved from the back end typically including an non-descript tag and date information |
-| merchantId     | string | The Merchant Identifier provided in the request header                                          |
-
-=======
+https://api-cert.sagepayments.com/ach/v1/batches/{reference}
 
 #### Query Parameters
 
-| Name          | Values               | Description                                                                                |
-|---------------|----------------------|--------------------------------------------------------------------------------------------|
-| pageSize      |                      | The number of items to be included in each page of the result set                          |
-| pageNumber    |                      | The page number of the result set to return                                                |
-| sortDirection | Ascending/Descending | The direction in which results should be sorted                                            |
-| sortField     |                      | The field on which results should be sorted. This can be any field in the response object. |
+| Name          | Values | Description                                                                                |
+|---------------|--------|--------------------------------------------------------------------------------------------|
+| pageSize      |        | The number of items to be included in each page of the result set                          |
+| pageNumber    |        | The page number of the result set to return                                                |
+| sortDirection |        | The direction in which results should be sorted                                            |
+| sortField     |        | The field on which results should be sorted. This can be any field in the response object. |
+
+#### Request Body
+
+```JSON
+{
+    // Empty Payload - Nothing needed here
+}
+```
 
 #### Response
 
@@ -2167,3 +985,108 @@ https://api-cert.sagepayments.com/ach/v1/status
 | items          | array   | The current page of items                                                                                      |
 
 
+## Settlements, Summary and Batches
+
+### GET get_batches_reference_summary
+
+Used to retrieve summarized information, such as count and volume, about the transactions in the current batch.
+
+#### Resource URL
+https://api-cert.sagepayments.com/ach/v1/batches/{reference}/summary
+
+#### Request Body
+
+```JSON
+{
+    // Empty Payload - Nothing needed here
+}
+```
+
+#### Response
+
+| Name        | Type    | Description                                                     |
+|-------------|---------|-----------------------------------------------------------------|
+| items       | array   | A breakdown of totals by transaction type                       |
+| authCount   | integer | The total number of Auth transactions for this type             |
+| authTotal   | number  | The sum of all Auth transactions for this type                  |
+| saleCount   | integer | The total number of Sale transactions for this type             |
+| saleTotal   | number  | The sum of all Sale transactions for this type                  |
+| creditCount | integer | The total number of Credit transactions (refunds) for this type |
+| creditTotal | number  | The sum of all Credit transactions (refunds) for this type      |
+| totalCount  | integer | The total number of all transactions for this type              |
+| totalVolume | number  | The net volume (debits - credits) for this type                 |
+
+## Tokens
+
+### POST post-tokens
+
+Used to store a card and retrieve a vault token. A vault token allows you to process a charge or credit without knowing the Routing number and Account number.
+
+#### Resource URL
+https://api-cert.sagepayments.com/ach/v1/tokens
+
+#### Request Body
+
+```JSON
+{
+    "account": {
+        "type": "",
+        "routingNumber": "",
+        "accountNumber": ""
+    }
+}
+```
+
+#### Request
+
+| Name                   | Type   | Description                                                          |
+|------------------------|--------|----------------------------------------------------------------------|
+| account .type          | string | The type of bank account from which the funds are being withdrawn    |
+| account .routingNumber | string | The customer's account routing number Pattern: ^[\w'\-\s\.,#\/]{0,}$ |
+| account .accountNumber | string | The customer's account number Pattern: ^[\w\-\s\/\+\=]{1,}$          |
+
+
+
+### PUT put-token
+
+Used to update the card data associated with a vault token.
+
+#### Resource URL
+https://api-cert.sagepayments.com/ach/v1/tokens/{reference}
+
+#### Request Body
+
+```JSON
+{
+    "account": {
+        "type": "",
+        "routingNumber": "",
+        "accountNumber": ""
+    }
+}
+```
+
+#### Request
+
+| Name                   | Type   | Description                                                          |
+|------------------------|--------|----------------------------------------------------------------------|
+| account .type          | string | The type of bank account from which the funds are being withdrawn    |
+| account .routingNumber | string | The customer's account routing number Pattern: ^[\w'\-\s\.,#\/]{0,}$ |
+| account .accountNumber | string | The customer's account number Pattern: ^[\w\-\s\/\+\=]{1,}$          |
+
+
+
+### DELETE delete-token
+
+Used to delete a vault token.
+
+#### Resource URL
+https://api-cert.sagepayments.com/ach/v1/tokens/{reference}
+
+#### Request Body
+
+```JSON
+{
+    // Empty Payload - Nothing needed here
+}
+```
