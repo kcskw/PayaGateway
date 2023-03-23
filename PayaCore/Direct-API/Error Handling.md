@@ -1,5 +1,8 @@
 ## Error Handling
 
+When submitting requests to the API, there will be cases when the data submitted is not valid. In these cases, an error code will be returned instead of the object normally associated with the endpoint.
+
+In order to determine if an error code will be returned, you will need to evaluate the HTTP response code. If the response code is a 422 instead of a 200 or 201, you will be receiving an error object. Here is an example of an error response payload:
 
 ```
 {
@@ -10,8 +13,10 @@
 }
 ```
 
+The response payload will contain an “errors” code, followed by a error description message. Each field that is invalid will have a human readable text message in the detail section of what is invalid for each field. 
 
 
+# Error Codes
 
 | Error code | Error Description                                                                                                    |
 |------------|----------------------------------------------------------------------------------------------------------------------|
