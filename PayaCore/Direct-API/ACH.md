@@ -1,5 +1,7 @@
 # ACH
 
+The ACH API is used to process credit and debit from Bank Accounts. This sandbox provides interactive samples for all available ACH processing methods.
+
 ## API Health
 
 ### GET get_ping

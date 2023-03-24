@@ -1,5 +1,7 @@
 # Application OAuth
 
+The OAuth API is used to authenticate requests to the Application API. It is not needed for the Bankcard or Token APIs.
+
 ## POST post_tokens
 
 Create Access Token
