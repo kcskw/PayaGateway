@@ -1,5 +1,7 @@
 # Application
 
+The Application API can be used by ISOs and Partners to submit merchant applications directly to Sage Payment Solutions.
+
 ## POST Applications_Post
 
 Submit an Application
