@@ -7,6 +7,6 @@ In order to authenticate an API request, there needs to be authentication data s
 + **merchantKey** - Merchant Site ID provided by Paya to the Merchant.
 + **nounce** - Secure random number used only once.
 + **timestamp** - Epoch time stamp.
-+ 
+
 + **Authorization** - Authorization token, HMAC value of:  verb + url + body +merchantId + nonce + timestamp
 + **Content-Type** - Valid values are "application/json"
