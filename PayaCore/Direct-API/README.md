@@ -4,7 +4,7 @@ The Paya Core Direct API provides a full suite of products and services. Develop
 
 **This integration method requires PCI validation, which you can read more about HERE.**
 
-Please register with our developer portal, https://developer.sagepayments.com/, to obtain your credentials and API Documentation.
+Please register with our developer portal, https://developer.sagepayments.com/, to obtain your credentials and the API Documentation.
 If you have any questions please feel free to reach out to our team at sdksupport@paya.com.
 
 
@@ -26,7 +26,6 @@ In order to authenticate an API request, there needs to be authentication data s
 The following documentation is available:
 
 + [Account Updater](https://github.com/TKESuperDave/PayaGateway/blob/master/PayaCore/Direct-API/Account%20Updater.md)
-  + GET get-account-updater
 + [ACH](https://github.com/TKESuperDave/PayaGateway/blob/master/PayaCore/Direct-API/ACH.md)
   + API Health
   + Charges
@@ -46,4 +45,3 @@ The following documentation is available:
   + Bankcard Retail
   + Bankcard Level III
 + [Token](https://github.com/TKESuperDave/PayaGateway/blob/master/PayaCore/Direct-API/Token.md)
-  +  Tokens
