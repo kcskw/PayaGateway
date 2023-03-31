@@ -40,8 +40,11 @@ The following documentation is available:
 + [Application OAuth](https://github.com/TKESuperDave/PayaGateway/blob/master/PayaCore/Direct-API/Application%20OAuth.md)
   + Tokens
 + [Bankcard](https://github.com/TKESuperDave/PayaGateway/blob/master/PayaCore/Direct-API/BankCard.md)
-  + Bankcard Ecommerce/MOTO
-  + Bankcard Healthcare
-  + Bankcard Retail
-  + Bankcard Level III
+   + API Health
+  + Charges
+  + Credits
+  + Reporting on Transactions
+  + Settlements and Batches
+  + Settlements, Summary, and Batches
+  + Tokens
 + [Token](https://github.com/TKESuperDave/PayaGateway/blob/master/PayaCore/Direct-API/Token.md)
