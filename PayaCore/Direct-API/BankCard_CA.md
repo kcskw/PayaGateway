@@ -133,8 +133,93 @@ https://api-cert.sagepayments.com/bankcard/v1/charges
 
 ```JSON
 {
-    "transactionId": "",
-    "retail": {
+    "customerProfileRequest": {
+ 	    "address": "",
+ 	 	"address2": "",
+ 	 	"city": "",
+ 	 	"companyName": "",
+ 	 	"country": "",
+ 	 	"customerID": 0,
+ 	 	"email": "",
+ 	 	"firstName": "",
+ 	 	"lastName": "",
+ 	 	"middleName": "",
+ 	 	"postalCode": "",
+ 	 	"state": "",
+ 	 	"telephone": ""
+ 	},
+    
+    "eCommerce": {
+        
+        "allowPartialAuthorization": true,
+        "amounts": {
+            "total": 0,
+            "tax": 0,
+            "shipping": 0
+        },
+        "authorizationCode": "",
+"billing": {
+            "name": "",
+            "address": "",
+            "city": "",
+            "state": "",
+            "postalCode": "",
+            "country": ""
+        },
+        "orderNumber": "",
+        "cardData": {
+            "number": "",
+            "expiration": "",
+            "cvv": ""
+        },
+        "customer": {
+            "email": "",
+            "telephone": "",
+            "fax": ""
+        },
+        
+        "shipping": {
+            "name": "",
+            "address": "",
+            "city": "",
+            "state": "",
+            "postalCode": "",
+            "country": ""
+        },
+        "level2": {
+            "customerNumber": ""
+        },
+        "level3": {
+            "destinationCountryCode": "",
+            "amounts": {
+                "discount": 0,
+                "duty": 0,
+                "nationalTax": 0
+            },
+            "vat": {
+                "idNumber": "",
+                "invoiceNumber": "",
+                "amount": 0,
+                "rate": 0
+            },
+            "customerNumber": ""
+        },
+        "isRecurring": false,
+        "recurringSchedule": {
+            "amount": 0,
+            "frequency": "",
+            "interval": 0,
+            "nonBusinessDaysHandling": "",
+            "startDate": "",
+            "totalCount": 0,
+            "groupId": ""
+        }
+    },
+
+
+
+
+"retail": {
         "amounts": {
             "tip": 0,
             "total": 0,
@@ -180,69 +265,6 @@ https://api-cert.sagepayments.com/bankcard/v1/charges
             "state": "",
             "postalCode": "",
             "country": ""
-        },
-        "isRecurring": false,
-        "recurringSchedule": {
-            "amount": 0,
-            "frequency": "",
-            "interval": 0,
-            "nonBusinessDaysHandling": "",
-            "startDate": "",
-            "totalCount": 0,
-            "groupId": ""
-        }
-    },
-    "eCommerce": {
-        "authorizationCode": "",
-        "amounts": {
-            "total": 0,
-            "tax": 0,
-            "shipping": 0
-        },
-        "orderNumber": "",
-        "cardData": {
-            "number": "",
-            "expiration": "",
-            "cvv": ""
-        },
-        "customer": {
-            "email": "",
-            "telephone": "",
-            "fax": ""
-        },
-        "billing": {
-            "name": "",
-            "address": "",
-            "city": "",
-            "state": "",
-            "postalCode": "",
-            "country": ""
-        },
-        "shipping": {
-            "name": "",
-            "address": "",
-            "city": "",
-            "state": "",
-            "postalCode": "",
-            "country": ""
-        },
-        "level2": {
-            "customerNumber": ""
-        },
-        "level3": {
-            "destinationCountryCode": "",
-            "amounts": {
-                "discount": 0,
-                "duty": 0,
-                "nationalTax": 0
-            },
-            "vat": {
-                "idNumber": "",
-                "invoiceNumber": "",
-                "amount": 0,
-                "rate": 0
-            },
-            "customerNumber": ""
         },
         "isRecurring": false,
         "recurringSchedule": {
@@ -318,7 +340,11 @@ https://api-cert.sagepayments.com/bankcard/v1/charges
             "groupId": ""
         }
     },
+    "terminalNumber":"",
+    "transactionCode":"Sale",
+    "transactionId": "",
     "vault": {
+        "cvv": "",
         "token": "",
         "operation": ""
     },
