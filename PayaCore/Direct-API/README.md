@@ -2,7 +2,7 @@
 
 The Paya Core Direct API provides a full suite of products and services. Developers looking to own their own UI/UX and PCI requirements would want to leverage this robust feature set. Complete with Healthcare, Level III, Retail, and Ecommerce processing, this API provides it all!
 
-**This integration method requires PCI validation, which you can read more about HERE.**
+**NOTE: This integration method requires PCI validation through an [Approved Scanning Vendor (ASV)](https://listings.pcisecuritystandards.org/assessors_and_solutions/approved_scanning_vendors) to obtain your PCI compliance certificate. You'll need to provide an [SAQ D](https://www.pcisecuritystandards.org/documents/SAQ_D_v3_Merchant.pdf) at minimum in order to support a RESTful implementation with a custom form to obtain and submit PCI-sensitive data.**
 
 Please register with our developer portal, https://developer.sagepayments.com/, to obtain your credentials and the API Documentation.
 If you have any questions please feel free to reach out to our team at sdksupport@paya.com.
