@@ -3,7 +3,7 @@
 # Company: Paya, Inc.
 # Sample for educational use only - not intended for production.
 # If you have any questions regarding the sample or the Direct API please contact
-# us at sdksupport@paya.com
+# us at sdksupport@nuvei.com
 import uuid
 import hmac
 import hashlib
