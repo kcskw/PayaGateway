@@ -12,7 +12,7 @@ Contact: sdksupport@nuvei.com
     // You (or your client's) merchant credentials.
     // grab a test account from us for development!
 	// If you would like a merchant test account, please
-	// email us at sdksupport@paya.com, otherwise
+	// email us at sdksupport@nuvei.com, otherwise
 	// you are welcome to test with the credentials below.
     $merchantCredentials = [
        "ID" => "173859436515",
