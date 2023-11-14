@@ -34,7 +34,7 @@ requests_log.propagate = True
 # These are the Merchant Credentials, please feel free to use the prodvided
 # Merchant ID and Merchant Key for testing. If you would like your own test 
 # Merchant account with access to the Virtual Terminal, please request an account
-# from sdksupport@paya.com
+# from sdksupport@nuvei.com
 PAYA_MERCHANT_ID = '173859436515'
 PAYA_MERCHANT_KEY = 'P1J2V8P2Q3D8'
 # These are the Developer/API Credentials, please feel free to use the prodvided
