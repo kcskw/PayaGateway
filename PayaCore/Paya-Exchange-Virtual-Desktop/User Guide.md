@@ -22,8 +22,6 @@ When a user initiates a credit card transaction in the web application, it makes
 
 This Guide describes how to customize the Paya Exchange Virtual Desktop user interface; which integrators can do by modifying transactional XML code. This document contains excerpts from the code samples provided in the Paya Exchange Virtual Desktop v2.x XML Messaging document. Refer to this document and the Paya Exchange Virtual Desktop Integration Guide for more information about coding your integration. 
 
-*Note: You can download integration documents from the [Paya Payments Developer Portal](https://developer.sagepayments.com/).*
-
 ### Understanding Paya Exchange Virtual Desktop v2.x 
 Paya Exchange Virtual Desktop v2.x displays all payment fields on single web page. Data is posted to: https://www.sageexchange.com/sevd/frmpayment.aspx. 
 
