@@ -27,7 +27,7 @@ Contact: sdksupport@nuvei.com
     $payload = json_encode($requestData);
     
     $verb = "POST";
-    $url = "https://api-cert.sagepayments.com/bankcard/v1/tokens";
+    $url = "https://api-cert.sagepayments.com/token/v1/tokens";
 
     $toBeHashed = $verb . $url . $payload . $merchantCredentials["ID"] . $nonce . $timestamp;
     $hmac = getHmac($toBeHashed, $developerCredentials["KEY"]);
