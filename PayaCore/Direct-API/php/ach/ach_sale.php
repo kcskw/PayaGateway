@@ -31,7 +31,7 @@ Contact: sdksupport@nuvei.com
 			"total" => "10.01"
         ],
         "account" => [
-			"type" => "DDA", // "DDA" for Checking and "SAV" for Savings
+			"type" => "checking", // checking or savings
             "routingNumber" => "056008849",
 			"accountNumber" => "12345678901234"
         ],
