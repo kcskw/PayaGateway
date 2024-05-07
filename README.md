@@ -4,6 +4,7 @@ Products from Paya's Core platform (Sage Exchange/Sage Payment Solutions). These
 If you have any questions, please email us at sdksupport@nuvei.com.
 
 ## Getting Started
+The rest of this page takes you from registration to certification. If you'd like to know more about our API and hosted solutions, please check out [Integration Methods and Features](https://github.com/PayaDev/PayaGateway/blob/master/Integration%20Methods%20and%20Features.md).
 
 ### Create an account
 1. Register with the [Paya Core Developer Portal](https://developer.sagepayments.com)
