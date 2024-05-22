@@ -1,6 +1,6 @@
 # ACH
 
-The ACH API is used to process credit and debit from Bank Accounts. This sandbox provides interactive samples for all available ACH processing methods.
+The ACH API is used to process credit and debit from Bank Accounts. Our Paya Developer sandbox provides interactive samples for all available ACH processing methods. You will need to include ACH Authorization verbiage prior to submitting payment details, the required method can vary depending on how the ACH trasnaction is initiated. Authorization Examples: [Paya ACH Authorization Requirements](https://github.com/PayaDev/PayaGateway/blob/master/PayaCore/Direct-API/ACH_Authorization%20_Requirements.md#paya-ach-authorization-requirements)
 
 ## API Health
 
