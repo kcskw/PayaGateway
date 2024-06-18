@@ -391,7 +391,7 @@ https://api-cert.sagepayments.com/ach/v1/credits
 
 ### POST post_credits
 
-Used to process a credit. Credit transactions refund an amount to a card.
+Used to process a credit. Credit transactions refund an amount to the specified account.
 
 #### Resource URL
 https://api-cert.sagepayments.com/ach/v1/credits
